@@ -1,36 +1,26 @@
 {
   "project_info": {
-    "project_number": "184297761311",
-    "project_id": "fir-gamesplus",
-    "storage_bucket": "fir-gamesplus.appspot.com"
+    "project_number": "483709272723",
+    "project_id": "fir-gamesplus-cd21c",
+    "storage_bucket": "fir-gamesplus-cd21c.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:184297761311:android:1939c97c7babd64bd3832a",
+        "mobilesdk_app_id": "1:483709272723:android:faef6b77e0bb0f1c04c366",
         "android_client_info": {
           "package_name": "com.example.games_plus"
         }
       },
-      "oauth_client": [
-        {
-          "client_id": "184297761311-nvvbt58bem1jsn96sbchjpf7675b08ti.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
+      "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyA_b-I0UWgCdi0cU0_yqui_a62xHHFpbeQ"
+          "current_key": "AIzaSyA1aeq36CLx7KpS5be1Xu191e0hbZTfgAY"
         }
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "184297761311-nvvbt58bem1jsn96sbchjpf7675b08ti.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
+          "other_platform_oauth_client": []
         }
       }
     }

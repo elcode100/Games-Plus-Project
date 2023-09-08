@@ -10,19 +10,25 @@ import androidx.navigation.fragment.findNavController
 import com.example.games_plus.R
 import com.example.games_plus.databinding.FragmentRegisterBinding
 import com.example.games_plus.ui.viewmodels.AuthViewModel
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 
-class  RegisterFragment : Fragment() {
+class RegisterFragment : Fragment() {
 
     private lateinit var binding: FragmentRegisterBinding
     private val authViewModel: AuthViewModel by activityViewModels()
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        arguments?.let {
+
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-
         binding = FragmentRegisterBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -31,32 +37,26 @@ class  RegisterFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.btnBack.setOnClickListener {
-
-            findNavController().navigate(R.id.loginFragment)
-
+            findNavController().navigate(R.id.loginFragment) //im LoginFragment die Alternative
         }
 
-        binding.btnRegister.setOnClickListener {
 
+        binding.btnRegister.setOnClickListener {
             val email: String = binding.tietEmail.text.toString()
             val password: String = binding.tietPass.text.toString()
 
-            if (email != "" && password != "") {
-
+            if(email != "" && password != "") {
                 authViewModel.signUp(email, password)
-
             }
-
         }
 
         authViewModel.currentUser.observe(viewLifecycleOwner) {
-
-            if (it != null) {
-
+            if(it != null){
                 findNavController().navigate(R.id.navigation_home)
             }
         }
 
     }
+
 
 }

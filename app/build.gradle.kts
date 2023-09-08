@@ -30,12 +30,17 @@ android {
         }
     }
 
-    buildFeatures {
-
+    buildFeatures{
         viewBinding = true
-
     }
 
+    /*compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }*/
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
@@ -48,21 +53,15 @@ android {
 
 dependencies {
 
-    val roomVersion = "2.5.2"
-
     implementation("com.google.firebase:firebase-auth-ktx:22.1.1")
+    val room_version = "2.5.2"
 
+    implementation("androidx.room:room-runtime:$room_version")
+    implementation("androidx.room:room-ktx:$room_version")
+    annotationProcessor("androidx.room:room-compiler:$room_version")
 
-    implementation("androidx.room:room-runtime:$roomVersion")
-    implementation("androidx.room:room-ktx:$roomVersion")
-    annotationProcessor("androidx.room:room-compiler:$roomVersion")
-
-
-    kapt("androidx.room:room-compiler:$roomVersion")
-
-
-
-
+// To use Kotlin annotation processing tool (kapt)
+    kapt("androidx.room:room-compiler:$room_version")
 
     implementation("androidx.core:core-ktx:1.9.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
