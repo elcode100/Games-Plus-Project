@@ -8,15 +8,15 @@
         android:title="Home"/>
 
 
-    <item
+    <!--<item
         android:id="@+id/navigation_search"
         android:icon="@drawable/baseline_search_24_black"
         android:title="Search" />
-
+-->
 
     <item
         android:id="@+id/navigation_library"
-        android:icon="@drawable/baseline_library_music_24_black"
+        android:icon="@drawable/baseline_bookmarks_24_black"
         android:title="Library" />
 
 

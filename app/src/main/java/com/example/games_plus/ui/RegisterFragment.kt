@@ -5,25 +5,32 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import com.example.games_plus.R
-import com.example.games_plus.databinding.FragmentBookmarkBinding
-import com.example.games_plus.databinding.FragmentSignUpBinding
+import com.example.games_plus.databinding.FragmentRegisterBinding
 
 
-class SignUpFragment : Fragment() {
+class  RegisterFragment : Fragment() {
 
-    private lateinit var binding: FragmentSignUpBinding
+    private lateinit var binding: FragmentRegisterBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
 
-        binding = FragmentSignUpBinding.inflate(inflater, container, false)
+        binding = FragmentRegisterBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        binding.btnBack.setOnClickListener {
+
+            findNavController().navigate(R.id.loginFragment)
+
+        }
+
     }
 
 }

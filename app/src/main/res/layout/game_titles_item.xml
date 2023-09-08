@@ -45,7 +45,7 @@
                     android:layout_height="140dp"
                     android:scaleType="centerCrop"
 
-                    app:srcCompat="@drawable/placeholder_music_title" />
+                    app:srcCompat="@drawable/atomic_heart_cover_placeholder" />
 
             </com.google.android.material.card.MaterialCardView>
 

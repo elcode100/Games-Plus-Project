@@ -3,53 +3,45 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/navigation_home">
+    app:startDestination="@id/loginFragment">
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.example.syntify.ui.HomeFragment"
+        android:name="com.example.games_plus.ui.HomeFragment"
         android:label="Home"
         tools:layout="@layout/fragment_home" >
         <action
             android:id="@+id/action_navigation_home_to_detailFragment"
             app:destination="@id/detailFragment" />
     </fragment>
-    <fragment
-        android:id="@+id/navigation_search"
-        android:name="com.example.syntify.ui.SearchFragment"
-        android:label="Search"
-        tools:layout="@layout/fragment_search" >
-        <action
-            android:id="@+id/action_navigation_search_to_detailFragment"
-            app:destination="@id/detailFragment" />
-    </fragment>
+
     <fragment
         android:id="@+id/navigation_library"
-        android:name="com.example.syntify.ui.LibraryFragment"
+        android:name="com.example.games_plus.ui.LibraryFragment"
         android:label="Library"
-        tools:layout="@layout/fragment_library" >
-        <action
-            android:id="@+id/action_navigation_library_to_detailFragment"
-            app:destination="@id/detailFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_library" />
     <fragment
         android:id="@+id/detailFragment"
-        android:name="com.example.syntify.ui.DetailFragment"
+        android:name="com.example.games_plus.ui.DetailFragment"
         android:label=""
         tools:layout="@layout/fragment_detail" >
         <action
             android:id="@+id/action_detailFragment_to_navigation_home"
             app:destination="@id/navigation_home" />
-        <action
-            android:id="@+id/action_detailFragment_to_navigation_search"
-            app:destination="@id/navigation_search" />
-        <action
-            android:id="@+id/action_detailFragment_to_navigation_library"
-            app:destination="@id/navigation_library" />
     </fragment>
     <fragment
-        android:id="@+id/bottomPlayerFragment"
-        android:name="com.example.syntify.ui.BottomPlayerFragment"
-        android:label="fragment_bottom_player"
-        tools:layout="@layout/fragment_bottom_player" />
+        android:id="@+id/loginFragment"
+        android:name="com.example.games_plus.ui.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" />
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.example.games_plus.ui.RegisterFragment"
+        android:label="fragment_register"
+        tools:layout="@layout/fragment_register" />
+    <fragment
+        android:id="@+id/forgotPasswordFragment"
+        android:name="com.example.games_plus.ui.ForgotPasswordFragment"
+        android:label="fragment_forgot_password"
+        tools:layout="@layout/fragment_forgot_password" />
 </navigation>

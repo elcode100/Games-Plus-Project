@@ -5,10 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.games_plus.R
-import com.example.games_plus.databinding.FragmentBookmarkBinding
 import com.example.games_plus.databinding.FragmentHomeBinding
-import com.example.games_plus.databinding.FragmentSignUpBinding
 
 class HomeFragment : Fragment() {
 
