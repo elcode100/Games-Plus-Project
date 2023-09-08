@@ -1,4 +1,4 @@
-package com.example.eduardapp
+package com.example.games_plus
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

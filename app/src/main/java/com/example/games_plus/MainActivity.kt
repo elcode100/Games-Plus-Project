@@ -1,4 +1,4 @@
-package com.example.eduardapp
+package com.example.games_plus
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

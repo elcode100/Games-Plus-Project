@@ -1,5 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="green">#24ce63</color>
+    <color name="light_grey">#F5F5F5</color>
+    <color name="dark_grey">#313131</color>
+
+
+    <color name="orange">#FEB692</color>
+    <color name="red">#EF0000</color>
+
+    <color name="orange_dark">#fc8c03</color>
+
+    <color name="dark_chats_color">#222222</color>
+
+
+    <color name="light_nav_bar">#f9f9f9</color>
+    <color name="dark_nav_bar">#2d2d2d</color>
+
+
+    <color name="blue">#0073CF</color>
+    <color name="middle_grey">#828282</color>
+
+    <color name="grey_bg_dark_mode">#494949</color>
+    <color name="grey_bg_light_mode">#c6c6c6</color>
+    <color name="button_grey">#d4d4d4</color>
+
+
 </resources>
