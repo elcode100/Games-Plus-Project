@@ -38,7 +38,11 @@ class MainActivity : AppCompatActivity() {
 
         navController.addOnDestinationChangedListener { _, destination, _ ->
 
-            if (destination.id == R.id.fragment_detail || destination.id == R.id.loginFragment) {
+            if (destination.id == R.id.fragment_detail
+                || destination.id == R.id.loginFragment
+                || destination.id == R.id.registerFragment
+                || destination.id == R.id.forgotPasswordFragment)
+            {
                 binding.bottomNavBar.visibility = View.GONE
 
             } else {

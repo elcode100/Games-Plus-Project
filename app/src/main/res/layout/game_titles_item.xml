@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/card_title"
+    android:id="@+id/card_game_title"
     android:layout_width="168dp"
     android:layout_height="185dp"
     app:cardElevation="2dp"
@@ -40,7 +40,7 @@
 
 
                 <ImageView
-                    android:id="@+id/iv_title_image"
+                    android:id="@+id/iv_game_title_image"
                     android:layout_width="160dp"
                     android:layout_height="140dp"
                     android:scaleType="centerCrop"
@@ -53,7 +53,7 @@
 
 
         <TextView
-            android:id="@+id/tv_title"
+            android:id="@+id/tv_game_title"
             android:layout_width="match_parent"
             android:layout_height="20dp"
             android:ellipsize="end"
