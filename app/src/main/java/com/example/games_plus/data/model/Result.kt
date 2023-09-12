@@ -6,3 +6,6 @@ data class Result(
     val description: String = "",
     val backgroundImage: String = ""
 )
+
+
+
