@@ -53,13 +53,6 @@ interface GamesApiService {
 
 
 
-    @GET("games")
-    suspend fun getGameVideoResults(
-        @Query("api_key") apiKey: String = "c65414d8f9676a0036eb9587584863587cc8b250",
-        @Query("format") format: String = "json",
-        @Query("field_list") fields: String = "id,name,description,videos"
-    ): GameResponse
-
 }
 
 object GamesApi {

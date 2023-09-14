@@ -48,18 +48,18 @@ class MainViewModel: ViewModel() {
 
 
 
-
-
-
-    fun loadGameVideos() {
-        viewModelScope.launch {
-            try {
-                repository.getGameVideoResults()
-            } catch (e: Exception) {
-                Log.e(TAG, "Error loading game video data: $e")
-            }
+    fun assignYouTubeIdsToGame(game: Game): Game {
+        return when (game.id) {
+            41484 -> game.copy(youtubeId = listOf("c0i88t0Kacs"))
+            36765 -> game.copy(youtubeId = listOf("hvoD7ehZPcM"))
+            81128 -> game.copy(youtubeId = listOf("n8i53TtQ6IQ"))
+            20538 -> game.copy(youtubeId = listOf("1_Q3MZC-34o"))
+            else -> game
         }
     }
+
+
+
 
     fun updateResult(result: Game) {
         _currentResult.value = result

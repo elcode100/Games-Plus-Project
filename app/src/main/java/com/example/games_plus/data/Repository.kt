@@ -33,14 +33,15 @@ class Repository(private val api: GamesApi) {
     }
 
 
-    suspend fun getGameVideoResults() {
-        try {
-            _gameVideoResult.postValue(api.retrofitService.getGameVideoResults().results)
-        } catch (e: Exception) {
-            Log.e("Repository", "Error fetching game video results: ${e.message}")
-        }
-    }
+
 }
+
+
+
+
+
+
+
 
 
 

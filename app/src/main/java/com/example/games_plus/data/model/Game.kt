@@ -5,7 +5,7 @@ data class Game(
     val name: String = "",
     val description: String? = "",
     val image: ImageDetail? = null,
-    val videos: List<VideoDetail>? = null
+    val youtubeId: List<String> = listOf()
 )
 
 

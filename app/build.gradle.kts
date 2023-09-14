@@ -64,6 +64,9 @@ dependencies {
 
     /*implementation("com.google.firebase:firebase-firestore-ktx:24.7.1")*/
 
+    implementation ("com.google.android.exoplayer:exoplayer:2.19.1")
+
+
 
     implementation("com.google.firebase:firebase-auth-ktx:22.1.1")
     implementation ("androidx.core:core-ktx:1.7.0")

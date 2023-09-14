@@ -9,11 +9,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
-import coil.load
 import com.example.games_plus.R
 import com.example.games_plus.databinding.FragmentDetailBinding
 import com.example.games_plus.ui.viewmodels.MainViewModel
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener
 
 
 class DetailFragment : Fragment() {
@@ -35,14 +36,16 @@ class DetailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val bottomNav = activity?.findViewById<BottomNavigationView>(R.id.bottom_nav_bar)
+        bottomNav?.visibility = View.GONE
 
+
+        viewModel.favoriteGames.observe(viewLifecycleOwner) {
+            thumbButtons()
+        }
 
 
         viewModel.currentResult.observe(viewLifecycleOwner) {
-
-            val imageUrl = it.image?.medium_url
-            binding.playGameTitleCover.load(imageUrl)
-
 
 
             binding.tvGameTitle.text = it.name
@@ -51,31 +54,22 @@ class DetailFragment : Fragment() {
             binding.tvDescription.movementMethod = LinkMovementMethod.getInstance()
 
 
-
+            val youtubeId = viewModel.assignYouTubeIdsToGame(it).youtubeId.firstOrNull()
+            if (youtubeId != null) {
+                binding.youtubePlayerView.addYouTubePlayerListener(object : AbstractYouTubePlayerListener() {
+                    override fun onReady(youTubePlayer: YouTubePlayer) {
+                        super.onReady(youTubePlayer)
+                        youTubePlayer.loadVideo(youtubeId, 0f)
+                        youTubePlayer.pause()
+                        binding.youtubePlayerView.setOnClickListener {
+                            youTubePlayer.play()
+                        }
+                    }
+                })
+            }
 
         }
 
-
-        val webView = binding.playGameTitle
-        webView.settings.javaScriptEnabled = true
-
-        val videoId = "c0i88t0Kacs"
-        webView.loadUrl("https://www.youtube.com/embed/$videoId")
-
-        binding.playGameTitleCover.setOnClickListener {
-
-            it.visibility = View.GONE
-
-            webView.loadUrl("https://www.youtube.com/embed/$videoId?autoplay=1")
-        }
-
-
-        viewModel.favoriteGames.observe(viewLifecycleOwner) {
-            thumbButtons()
-        }
-
-        val bottomNav = activity?.findViewById<BottomNavigationView>(R.id.bottom_nav_bar)
-        bottomNav?.visibility = View.GONE
 
 
 
@@ -131,6 +125,30 @@ class DetailFragment : Fragment() {
 
 
 
+
+
+
+
+
+/*val imageUrl = it.image?.medium_url
+binding.playGameTitleCover.load(imageUrl)*/
+
+
+
+
+
+/*val webView = binding.playGameTitle
+webView.settings.javaScriptEnabled = true
+
+val videoId = "c0i88t0Kacs"
+webView.loadUrl("https://www.youtube.com/embed/$videoId")
+
+binding.playGameTitleCover.setOnClickListener {
+
+    it.visibility = View.GONE
+
+    webView.loadUrl("https://www.youtube.com/embed/$videoId?autoplay=1")
+}*/
 
 
 
