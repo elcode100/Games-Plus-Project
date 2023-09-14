@@ -6,40 +6,43 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.games_plus.data.Repository
-import com.example.games_plus.data.model.Response
-import com.example.games_plus.data.model.Result
+import com.example.games_plus.data.model.Game
 import com.example.games_plus.data.remote.GamesApi
-import com.example.games_plus.data.remote.GamesApiService
+import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.coroutines.launch
+
+
 const val TAG = "MainViewModel"
+
+
 class MainViewModel: ViewModel() {
 
 
-
     private val repository = Repository(GamesApi)
-    val dataList= repository.gameResult
+    val dataList = repository.gameResult
+    val videoList = repository.gameVideoResult
+    private val firebaseStore = FirebaseFirestore.getInstance()
 
-    private val _currentResult = MutableLiveData<Result>()
-    val currentResult: LiveData<Result>
+
+    private val _currentResult = MutableLiveData<Game>()
+    val currentResult: LiveData<Game>
         get() = _currentResult
 
+    private val _favoriteGames = MutableLiveData<List<Game>>()
+    val favoriteGames: LiveData<List<Game>>
+        get() = _favoriteGames
 
 
 
 
-    fun fetchGames(size: Int) {
+    fun loadAllGames() {
         viewModelScope.launch {
+
             try {
-
-                repository.getGameResults(size)
-
-
-            }catch (e: Exception) {
-
-                Log.e(TAG,"ERROR LOADING DATA : $e")
-
+                repository.getAllGames()
+            } catch (e: Exception) {
+                Log.e(TAG, "Error loading game data: $e")
             }
-
         }
     }
 
@@ -47,7 +50,67 @@ class MainViewModel: ViewModel() {
 
 
 
-    fun updateResult(result: Result) {
+
+    fun loadGameVideos() {
+        viewModelScope.launch {
+            try {
+                repository.getGameVideoResults()
+            } catch (e: Exception) {
+                Log.e(TAG, "Error loading game video data: $e")
+            }
+        }
+    }
+
+    fun updateResult(result: Game) {
         _currentResult.value = result
     }
+
+
+
+
+    fun addToFavorites(result: Game) {
+        val currentFavorites = _favoriteGames.value?.toMutableList() ?: mutableListOf()
+        if (!currentFavorites.contains(result)) {
+            currentFavorites.add(result)
+            _favoriteGames.value = currentFavorites
+
+
+            firebaseStore.collection("favoriteGames")
+                .document(result.id.toString())
+                .set(result)
+        }
+    }
+
+    fun removeFromFavorites(result: Game) {
+        val currentFavorites = _favoriteGames.value?.toMutableList() ?: mutableListOf()
+        currentFavorites.remove(result)
+        _favoriteGames.value = currentFavorites
+
+
+        firebaseStore.collection("favoriteGames")
+            .document(result.id.toString())
+            .delete()
+    }
+
+
+
+
+    fun isGameFavored(gameId: Int): Boolean {
+        return _favoriteGames.value?.find { it.id == gameId } != null
+    }
+
+
+
+
+    fun loadFavoriteGames() {
+        firebaseStore.collection("favoriteGames")
+            .get()
+            .addOnSuccessListener { documents ->
+                val favorites = documents.map { it.toObject(Game::class.java) }
+                _favoriteGames.value = favorites
+            }
+    }
+
+
+
 }

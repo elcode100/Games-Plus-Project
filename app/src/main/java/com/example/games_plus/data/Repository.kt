@@ -4,24 +4,53 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.games_plus.data.remote.GamesApi
-import com.example.games_plus.data.model.Result
+import com.example.games_plus.data.model.Game
 
 class Repository(private val api: GamesApi) {
 
-
-
-    private val _gameResult = MutableLiveData<List<Result>>()
-    val gameResult: LiveData<List<Result>>
+    private val _gameResult = MutableLiveData<List<Game>>()
+    val gameResult: LiveData<List<Game>>
         get() = _gameResult
 
-    suspend fun getGameResults(size: Int) {
+
+
+
+    private val _gameVideoResult = MutableLiveData<List<Game>>()
+    val gameVideoResult: LiveData<List<Game>>
+        get() = _gameVideoResult
+
+
+
+
+    suspend fun getAllGames() {
         try {
-            _gameResult.postValue(api.retrofitService.getGameResults(size).results)
-
+            val specificGames = api.retrofitService.getSpecificGames().results
+            val recentGames = api.retrofitService.getRecentGames().results
+            _gameResult.postValue(specificGames + recentGames)
         } catch (e: Exception) {
-
-            Log.e("Repository", "${e.message}")
+            Log.e("Repository", "Error fetching game results: ${e.message}")
         }
     }
 
+
+    suspend fun getGameVideoResults() {
+        try {
+            _gameVideoResult.postValue(api.retrofitService.getGameVideoResults().results)
+        } catch (e: Exception) {
+            Log.e("Repository", "Error fetching game video results: ${e.message}")
+        }
+    }
 }
+
+
+
+
+
+/*
+suspend fun getGameResults() {
+    try {
+        _gameResult.postValue(api.retrofitService.getGameResults().results)
+    } catch (e: Exception) {
+        Log.e("Repository", "Error fetching game results: ${e.message}")
+    }
+}*/

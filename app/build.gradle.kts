@@ -10,6 +10,10 @@ android {
     namespace = "com.example.games_plus"
     compileSdk = 33
 
+    /*packagingOptions {
+        pickFirst ("google/protobuf/field_mask.proto")
+    }*/
+
     defaultConfig {
         applicationId = "com.example.games_plus"
         minSdk = 24
@@ -42,6 +46,7 @@ android {
         jvmTarget = "1.8"
     }*/
 
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
@@ -53,8 +58,17 @@ android {
 
 dependencies {
 
-    implementation("com.google.firebase:firebase-auth-ktx:22.1.1")
+    implementation("com.google.firebase:firebase-firestore-ktx:24.7.1")
+
     val room_version = "2.5.2"
+
+    /*implementation("com.google.firebase:firebase-firestore-ktx:24.7.1")*/
+
+
+    implementation("com.google.firebase:firebase-auth-ktx:22.1.1")
+    implementation ("androidx.core:core-ktx:1.7.0")
+
+
 
     implementation("androidx.room:room-runtime:$room_version")
     implementation("androidx.room:room-ktx:$room_version")
@@ -89,4 +103,9 @@ dependencies {
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+
+    implementation("com.pierfrancescosoffritti.androidyoutubeplayer:core:12.0.0")
+    implementation("com.pierfrancescosoffritti.androidyoutubeplayer:chromecast-sender:0.28")
+
+
 }

@@ -4,12 +4,17 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.games_plus.data.model.Profile
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.firestore.FirebaseFirestore
+
 
 class AuthViewModel: ViewModel() {
 
     private val firebaseAuth = FirebaseAuth.getInstance()
+    private val firebaseStore = FirebaseFirestore.getInstance()
+
 
     private var _currentUser = MutableLiveData<FirebaseUser?>(firebaseAuth.currentUser)
     val currentUser: LiveData<FirebaseUser?>
@@ -22,6 +27,7 @@ class AuthViewModel: ViewModel() {
             if (authResult.isSuccessful) {
 
                 login(email, password)
+                newProfile()
 
             } else {
 
@@ -54,6 +60,13 @@ class AuthViewModel: ViewModel() {
 
         firebaseAuth.signOut()
         _currentUser.value = firebaseAuth.currentUser
+
+    }
+
+
+    private fun newProfile() {
+
+        firebaseStore.collection("profile").document(firebaseAuth.currentUser?.uid!!).set(Profile())
 
     }
 

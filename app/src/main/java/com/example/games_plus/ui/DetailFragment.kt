@@ -1,15 +1,19 @@
 package com.example.games_plus.ui
 
+import android.annotation.SuppressLint
 import android.os.Bundle
+import android.text.Html
+import android.text.method.LinkMovementMethod
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.net.toUri
 import androidx.fragment.app.activityViewModels
 import coil.load
+import com.example.games_plus.R
 import com.example.games_plus.databinding.FragmentDetailBinding
 import com.example.games_plus.ui.viewmodels.MainViewModel
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 
 class DetailFragment : Fragment() {
@@ -27,21 +31,113 @@ class DetailFragment : Fragment() {
         return binding.root
     }
 
+    @SuppressLint("SetJavaScriptEnabled")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
 
+
+
         viewModel.currentResult.observe(viewLifecycleOwner) {
 
-            binding.imgCover.load(it.backgroundImage.toUri().buildUpon().scheme("https").build())
-            binding.tvSong.text = it.name
-            binding.tvArtist.text = it.description
+            val imageUrl = it.image?.medium_url
+            binding.playGameTitleCover.load(imageUrl)
+
+
+
+            binding.tvGameTitle.text = it.name
+
+            binding.tvDescription.text = Html.fromHtml(it.description?.trim() ?: "")
+            binding.tvDescription.movementMethod = LinkMovementMethod.getInstance()
 
 
 
 
         }
+
+
+        val webView = binding.playGameTitle
+        webView.settings.javaScriptEnabled = true
+
+        val videoId = "c0i88t0Kacs"
+        webView.loadUrl("https://www.youtube.com/embed/$videoId")
+
+        binding.playGameTitleCover.setOnClickListener {
+
+            it.visibility = View.GONE
+
+            webView.loadUrl("https://www.youtube.com/embed/$videoId?autoplay=1")
+        }
+
+
+        viewModel.favoriteGames.observe(viewLifecycleOwner) {
+            thumbButtons()
+        }
+
+        val bottomNav = activity?.findViewById<BottomNavigationView>(R.id.bottom_nav_bar)
+        bottomNav?.visibility = View.GONE
+
+
+
+
     }
 
 
+
+
+
+
+
+
+
+
+
+
+
+    private fun thumbButtons() {
+        val selectedGame = viewModel.currentResult.value
+
+
+        val isFavored = selectedGame?.let { viewModel.isGameFavored(it.id) } ?: false
+
+
+        if (isFavored) {
+            binding.btnAddToFavorites.setImageResource(R.drawable.baseline_bookmark_24_green)
+        } else {
+            binding.btnAddToFavorites.setImageResource(R.drawable.baseline_bookmark_border_24_black)
+        }
+
+        binding.btnAddToFavorites.setOnClickListener {
+            if (selectedGame != null) {
+                if (isFavored) {
+                    binding.btnAddToFavorites.setImageResource(R.drawable.baseline_bookmark_border_24_black)
+                    viewModel.removeFromFavorites(selectedGame)
+                } else {
+                    binding.btnAddToFavorites.setImageResource(R.drawable.baseline_bookmark_24_green)
+                    viewModel.addToFavorites(selectedGame)
+                }
+            }
+        }
+    }
+
+
+
+
+
+
+
 }
+
+
+
+
+
+
+
+/*binding.tvDescription.text = Html.fromHtml(it.description).toString().trim()*/
+
+/*if (it.description != null) {
+    binding.tvDescription.text = Html.fromHtml(it.description).toString().trim()
+} else {
+    binding.tvDescription.text = ""
+}*/

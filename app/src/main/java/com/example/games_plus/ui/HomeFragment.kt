@@ -1,5 +1,6 @@
 package com.example.games_plus.ui
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -29,33 +30,53 @@ class HomeFragment : Fragment() {
         return binding.root
     }
 
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
         binding.recGames.setHasFixedSize(true)
-        viewModel.fetchGames(20)
 
-        viewModel.dataList.observe(viewLifecycleOwner) {
-            binding.recGames.adapter = HomeAdapter(requireContext(), it, viewModel)
 
-        }
+
+
+        viewModel.loadAllGames()
+        viewModel.loadFavoriteGames()
+        addObservers()
+
+
+
 
 
 
         binding.btnLogout.setOnClickListener {
-
             authViewModel.logout()
         }
 
         authViewModel.currentUser.observe(viewLifecycleOwner) {
-
             if (it == null) {
-
                 findNavController().navigate(R.id.loginFragment)
             }
+        }
+    }
+
+
+
+
+    @SuppressLint("NotifyDataSetChanged")
+    fun addObservers() {
+
+
+        val adapter = HomeAdapter(this.requireContext(), emptyList(), viewModel)
+        binding.recGames.adapter = adapter
+
+        viewModel.dataList.observe(viewLifecycleOwner) { games ->
+            adapter.dataset = games
+            adapter.notifyDataSetChanged()
         }
 
     }
 
+
 }
+
+
