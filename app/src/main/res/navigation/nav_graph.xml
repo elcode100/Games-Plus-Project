@@ -26,7 +26,7 @@
     <fragment
         android:id="@+id/registerFragment"
         android:name="com.example.games_plus.ui.RegisterFragment"
-        android:label="fragment_register"
+        android:label="Registration"
         tools:layout="@layout/fragment_register" />
 
     <fragment

@@ -54,7 +54,9 @@ class DetailFragment : Fragment() {
             binding.tvDescription.movementMethod = LinkMovementMethod.getInstance()
 
 
-            val youtubeId = viewModel.assignYouTubeIdsToGame(it).youtubeId.firstOrNull()
+            val youtubeIds = viewModel.assignYouTubeIdsToGame(it).youtubeId
+            val youtubeId = if (youtubeIds.isNotEmpty()) youtubeIds[0] else null
+
             if (youtubeId != null) {
                 binding.youtubePlayerView.addYouTubePlayerListener(object : AbstractYouTubePlayerListener() {
                     override fun onReady(youTubePlayer: YouTubePlayer) {
@@ -67,6 +69,7 @@ class DetailFragment : Fragment() {
                     }
                 })
             }
+
 
         }
 

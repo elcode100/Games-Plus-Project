@@ -20,7 +20,6 @@ class MainViewModel: ViewModel() {
 
     private val repository = Repository(GamesApi)
     val dataList = repository.gameResult
-    val videoList = repository.gameVideoResult
     private val firebaseStore = FirebaseFirestore.getInstance()
 
 

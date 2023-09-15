@@ -31,7 +31,8 @@ class MainActivity : AppCompatActivity() {
             topLevelDestinationIds = setOf(
                 R.id.navigation_home,
                 R.id.navigation_library,
-                R.id.loginFragment
+                R.id.loginFragment,
+                R.id.registerFragment
             )
         )
 
