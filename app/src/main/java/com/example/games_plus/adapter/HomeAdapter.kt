@@ -27,7 +27,7 @@ class HomeAdapter(private val context: Context, var dataset: List<Game>, private
     override fun onBindViewHolder(holder: GameTitlesViewHolder, position: Int) {
         val item = dataset[position]
 
-        holder.binding.tvGameTitle.text = item.name
+        /*holder.binding.tvGameTitle.text = item.name*/
 
 
         val imageUrl = item.image?.medium_url

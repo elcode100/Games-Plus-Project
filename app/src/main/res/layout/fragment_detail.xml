@@ -25,15 +25,14 @@
             android:layout_height="match_parent" />
 
 
-        <!--<ImageView
-            android:id="@+id/play_game_title_cover"
+        <ImageView
+            android:id="@+id/detail_game_title_cover"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:visibility="visible"
             android:clickable="true"
             android:focusable="true"
             android:scaleType="fitXY"
-            app:srcCompat="@drawable/atomic_heart_cover_placeholder" />-->
+            app:srcCompat="@drawable/atomic_heart_cover_placeholder" />
     </com.google.android.material.card.MaterialCardView>
 
 
@@ -86,5 +85,7 @@
         android:src="@drawable/baseline_bookmark_border_24_black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/tv_game_title" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

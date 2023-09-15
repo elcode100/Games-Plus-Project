@@ -57,6 +57,7 @@ class HomeFragment : Fragment() {
                 findNavController().navigate(R.id.loginFragment)
             }
         }
+
     }
 
 
@@ -68,6 +69,12 @@ class HomeFragment : Fragment() {
 
         val adapter = HomeAdapter(this.requireContext(), emptyList(), viewModel)
         binding.recGames.adapter = adapter
+        binding.recGames.apply {
+            set3DItem(true)
+            setAlpha(true)
+            setInfinite(true)
+            setFlat(false)
+        }
 
         viewModel.dataList.observe(viewLifecycleOwner) { games ->
             adapter.dataset = games

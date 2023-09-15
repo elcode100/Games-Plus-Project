@@ -110,5 +110,8 @@ dependencies {
     implementation("com.pierfrancescosoffritti.androidyoutubeplayer:core:12.0.0")
     implementation("com.pierfrancescosoffritti.androidyoutubeplayer:chromecast-sender:0.28")
 
+    implementation ("com.github.sparrow007:carouselrecyclerview:1.2.6")
+
+
 
 }

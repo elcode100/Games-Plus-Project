@@ -9,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
+import coil.load
 import com.example.games_plus.R
 import com.example.games_plus.databinding.FragmentDetailBinding
 import com.example.games_plus.ui.viewmodels.MainViewModel
@@ -45,8 +46,9 @@ class DetailFragment : Fragment() {
         }
 
 
-        viewModel.currentResult.observe(viewLifecycleOwner) {
-
+       /* viewModel.currentResult.observe(viewLifecycleOwner) {
+            val imageUrl = it.image?.medium_url
+            binding.detailGameTitleCover.load(imageUrl)
 
             binding.tvGameTitle.text = it.name
 
@@ -71,7 +73,42 @@ class DetailFragment : Fragment() {
             }
 
 
+        }*/
+
+
+        viewModel.currentResult.observe(viewLifecycleOwner) {
+
+            binding.tvGameTitle.text = it.name
+            binding.tvDescription.text = Html.fromHtml(it.description?.trim() ?: "")
+            binding.tvDescription.movementMethod = LinkMovementMethod.getInstance()
+
+            val youtubeIds = viewModel.assignYouTubeIdsToGame(it).youtubeId
+            val youtubeId = if (youtubeIds.isNotEmpty()) youtubeIds[0] else null
+
+            if (youtubeId != null) {
+
+                binding.youtubePlayerView.visibility = View.VISIBLE
+                binding.detailGameTitleCover.visibility = View.GONE
+
+                binding.youtubePlayerView.addYouTubePlayerListener(object : AbstractYouTubePlayerListener() {
+                    override fun onReady(youTubePlayer: YouTubePlayer) {
+                        super.onReady(youTubePlayer)
+                        youTubePlayer.cueVideo(youtubeId, 0f)
+                        binding.youtubePlayerView.setOnClickListener {
+                            youTubePlayer.play()
+                        }
+                    }
+                })
+            } else {
+
+                binding.youtubePlayerView.visibility = View.GONE
+                binding.detailGameTitleCover.visibility = View.VISIBLE
+
+                val imageUrl = it.image?.medium_url
+                binding.detailGameTitleCover.load(imageUrl)
+            }
         }
+
 
 
 
@@ -133,8 +170,7 @@ class DetailFragment : Fragment() {
 
 
 
-/*val imageUrl = it.image?.medium_url
-binding.playGameTitleCover.load(imageUrl)*/
+
 
 
 
