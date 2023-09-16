@@ -46,34 +46,7 @@ class DetailFragment : Fragment() {
         }
 
 
-       /* viewModel.currentResult.observe(viewLifecycleOwner) {
-            val imageUrl = it.image?.medium_url
-            binding.detailGameTitleCover.load(imageUrl)
 
-            binding.tvGameTitle.text = it.name
-
-            binding.tvDescription.text = Html.fromHtml(it.description?.trim() ?: "")
-            binding.tvDescription.movementMethod = LinkMovementMethod.getInstance()
-
-
-            val youtubeIds = viewModel.assignYouTubeIdsToGame(it).youtubeId
-            val youtubeId = if (youtubeIds.isNotEmpty()) youtubeIds[0] else null
-
-            if (youtubeId != null) {
-                binding.youtubePlayerView.addYouTubePlayerListener(object : AbstractYouTubePlayerListener() {
-                    override fun onReady(youTubePlayer: YouTubePlayer) {
-                        super.onReady(youTubePlayer)
-                        youTubePlayer.loadVideo(youtubeId, 0f)
-                        youTubePlayer.pause()
-                        binding.youtubePlayerView.setOnClickListener {
-                            youTubePlayer.play()
-                        }
-                    }
-                })
-            }
-
-
-        }*/
 
 
         viewModel.currentResult.observe(viewLifecycleOwner) {
@@ -167,6 +140,53 @@ class DetailFragment : Fragment() {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* viewModel.currentResult.observe(viewLifecycleOwner) {
+            val imageUrl = it.image?.medium_url
+            binding.detailGameTitleCover.load(imageUrl)
+
+            binding.tvGameTitle.text = it.name
+
+            binding.tvDescription.text = Html.fromHtml(it.description?.trim() ?: "")
+            binding.tvDescription.movementMethod = LinkMovementMethod.getInstance()
+
+
+            val youtubeIds = viewModel.assignYouTubeIdsToGame(it).youtubeId
+            val youtubeId = if (youtubeIds.isNotEmpty()) youtubeIds[0] else null
+
+            if (youtubeId != null) {
+                binding.youtubePlayerView.addYouTubePlayerListener(object : AbstractYouTubePlayerListener() {
+                    override fun onReady(youTubePlayer: YouTubePlayer) {
+                        super.onReady(youTubePlayer)
+                        youTubePlayer.loadVideo(youtubeId, 0f)
+                        youTubePlayer.pause()
+                        binding.youtubePlayerView.setOnClickListener {
+                            youTubePlayer.play()
+                        }
+                    }
+                })
+            }
+
+
+        }*/
 
 
 

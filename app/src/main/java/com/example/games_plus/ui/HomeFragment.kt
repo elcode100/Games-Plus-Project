@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.games_plus.R
@@ -36,9 +37,6 @@ class HomeFragment : Fragment() {
 
         binding.recGames.setHasFixedSize(true)
 
-
-
-
         viewModel.loadAllGames()
         viewModel.loadFavoriteGames()
         addObservers()
@@ -52,11 +50,8 @@ class HomeFragment : Fragment() {
             authViewModel.logout()
         }
 
-        authViewModel.currentUser.observe(viewLifecycleOwner) {
-            if (it == null) {
-                findNavController().navigate(R.id.loginFragment)
-            }
-        }
+
+
 
     }
 
@@ -73,17 +68,68 @@ class HomeFragment : Fragment() {
             set3DItem(true)
             setAlpha(true)
             setInfinite(true)
-            setFlat(false)
+
         }
 
+
+
+
+        authViewModel.currentUser.observe(viewLifecycleOwner) {
+            if (it == null) {
+                findNavController().navigate(R.id.loginFragment)
+            }
+        }
+
+
+
+
+        binding.progressBar.visibility = View.VISIBLE
         viewModel.dataList.observe(viewLifecycleOwner) { games ->
             adapter.dataset = games
             adapter.notifyDataSetChanged()
+            binding.progressBar.visibility = View.GONE
         }
 
+
     }
+
 
 
 }
 
 
+
+
+
+/*viewModel.dataList.observe(viewLifecycleOwner) { games ->
+            adapter.dataset = games
+            adapter.notifyDataSetChanged()
+        }*/
+
+
+
+
+/*val adapter = HomeAdapter(this.requireContext(), emptyList(), viewModel)
+    binding.recGames.adapter = adapter
+    binding.recGames.apply {
+        set3DItem(true)
+        setAlpha(true)
+        setInfinite(true)
+
+    }*/
+
+
+
+/*
+binding.apply {
+    recGames.adapter = adapter
+    recGames.set3DItem(true)
+    recGames.setAlpha(true)
+    recGames.setInfinite(true)
+
+}*/
+
+
+/*
+val window = activity?.window
+window?.statusBarColor = ContextCompat.getColor(requireContext(), R.color.black)*/

@@ -77,7 +77,7 @@ dependencies {
     implementation("androidx.room:room-ktx:$room_version")
     annotationProcessor("androidx.room:room-compiler:$room_version")
 
-// To use Kotlin annotation processing tool (kapt)
+
     kapt("androidx.room:room-compiler:$room_version")
 
     implementation("androidx.core:core-ktx:1.9.0")
@@ -111,6 +111,9 @@ dependencies {
     implementation("com.pierfrancescosoffritti.androidyoutubeplayer:chromecast-sender:0.28")
 
     implementation ("com.github.sparrow007:carouselrecyclerview:1.2.6")
+
+    implementation ("com.github.bumptech.glide:glide:4.16.0")
+
 
 
 

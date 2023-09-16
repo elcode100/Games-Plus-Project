@@ -3,9 +3,12 @@ package com.example.games_plus.adapter
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.example.games_plus.R
 import com.example.games_plus.ui.viewmodels.MainViewModel
 import com.example.games_plus.data.model.Game
@@ -27,16 +30,61 @@ class HomeAdapter(private val context: Context, var dataset: List<Game>, private
     override fun onBindViewHolder(holder: GameTitlesViewHolder, position: Int) {
         val item = dataset[position]
 
-        /*holder.binding.tvGameTitle.text = item.name*/
-
-
         val imageUrl = item.image?.medium_url
-        holder.binding.ivGameTitleImage.load(imageUrl)
 
-        holder.binding.cardGameTitle.setOnClickListener {
+        holder.binding.apply {
+
+            Glide.with(ivGameTitleImage).load(imageUrl).into(ivGameTitleImage)
+
+            /*Glide.with(ivGameTitleImage)
+                .load(imageUrl)
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .into(ivGameTitleImage)*/
+
+            tvGameTitle.text = item.name
+        }
+
+
+        holder.binding.ivGameTitleImage.setOnClickListener {
             viewModel.updateResult(item)
             val navController = holder.itemView.findNavController()
             navController.navigate(R.id.detailFragment)
+
+
+
         }
+
+
+
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*holder.binding.tvGameTitle.text = item.name*/
+
+/*holder.binding.ivGameTitleImage.load(imageUrl)*/
+
+/*holder.binding.cardGameTitle.setOnClickListener {
+        viewModel.updateResult(item)
+        val navController = holder.itemView.findNavController()
+        navController.navigate(R.id.detailFragment)
+        /*Toast.makeText(holder.binding.root.context, item.name, Toast. LENGTH_SHORT) . show()*/
+    }*/
