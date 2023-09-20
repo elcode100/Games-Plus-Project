@@ -15,12 +15,6 @@ class Repository(private val api: GamesApi) {
 
 
 
-    private val _gameVideoResult = MutableLiveData<List<Game>>()
-    val gameVideoResult: LiveData<List<Game>>
-        get() = _gameVideoResult
-
-
-
 
     suspend fun getAllGames() {
         try {

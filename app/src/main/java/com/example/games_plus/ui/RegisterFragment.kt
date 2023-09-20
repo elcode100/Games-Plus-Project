@@ -37,7 +37,7 @@ class RegisterFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.btnBack.setOnClickListener {
-            findNavController().navigate(R.id.loginFragment) //im LoginFragment die Alternative
+            findNavController().navigate(R.id.loginFragment)
         }
 
 

@@ -5,7 +5,15 @@
     <item
         android:id="@+id/navigation_home"
         android:icon="@drawable/baseline_home_24_black"
-        android:title="Home"/>
+        android:title="HOME"/>
+
+
+
+    <item
+         android:id="@+id/navigation_search"
+         android:icon="@drawable/baseline_search_24_black"
+         android:title="Search" />
+
 
 
 
@@ -20,8 +28,4 @@
 </menu>
 
 
-    <!--<item
-        android:id="@+id/navigation_search"
-        android:icon="@drawable/baseline_search_24_black"
-        android:title="Search" />
--->
+

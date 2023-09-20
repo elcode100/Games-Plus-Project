@@ -58,27 +58,18 @@ android {
 
 dependencies {
 
+
+    val roomVersion = "2.5.2"
+
+
     implementation("com.google.firebase:firebase-firestore-ktx:24.7.1")
-
-    val room_version = "2.5.2"
-
-    /*implementation("com.google.firebase:firebase-firestore-ktx:24.7.1")*/
-
-    implementation ("com.google.android.exoplayer:exoplayer:2.19.1")
-
-
-
     implementation("com.google.firebase:firebase-auth-ktx:22.1.1")
-    implementation ("androidx.core:core-ktx:1.7.0")
 
 
-
-    implementation("androidx.room:room-runtime:$room_version")
-    implementation("androidx.room:room-ktx:$room_version")
-    annotationProcessor("androidx.room:room-compiler:$room_version")
-
-
-    kapt("androidx.room:room-compiler:$room_version")
+    implementation("androidx.room:room-runtime:$roomVersion")
+    implementation("androidx.room:room-ktx:$roomVersion")
+    annotationProcessor("androidx.room:room-compiler:$roomVersion")
+    kapt("androidx.room:room-compiler:$roomVersion")
 
     implementation("androidx.core:core-ktx:1.9.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
@@ -113,6 +104,10 @@ dependencies {
     implementation ("com.github.sparrow007:carouselrecyclerview:1.2.6")
 
     implementation ("com.github.bumptech.glide:glide:4.16.0")
+
+    implementation ("org.jsoup:jsoup:1.14.3")
+
+
 
 
 

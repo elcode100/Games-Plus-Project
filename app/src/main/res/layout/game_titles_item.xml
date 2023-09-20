@@ -217,6 +217,8 @@
             android:gravity="center"
             android:singleLine="false"
             android:text="Mafia 2"
+            android:visibility="visible"
+            android:textColor="@color/black"
             android:textSize="12sp"
             android:textStyle="bold"
             app:layout_constrainedWidth="true"

@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
 
         binding.bottomNavBar.setupWithNavController(navController)
 
-        setupActionBarWithNavController(navController)
+        /*setupActionBarWithNavController(navController)
         val config = AppBarConfiguration(
             topLevelDestinationIds = setOf(
                 R.id.navigation_home,
@@ -36,7 +36,7 @@ class MainActivity : AppCompatActivity() {
             )
         )
 
-        setupActionBarWithNavController(navController, config)
+        setupActionBarWithNavController(navController, config)*/
 
         navController.addOnDestinationChangedListener { _, destination, _ ->
 

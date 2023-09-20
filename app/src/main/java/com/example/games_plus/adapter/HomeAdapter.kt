@@ -35,12 +35,6 @@ class HomeAdapter(private val context: Context, var dataset: List<Game>, private
         holder.binding.apply {
 
             Glide.with(ivGameTitleImage).load(imageUrl).into(ivGameTitleImage)
-
-            /*Glide.with(ivGameTitleImage)
-                .load(imageUrl)
-                .diskCacheStrategy(DiskCacheStrategy.ALL)
-                .into(ivGameTitleImage)*/
-
             tvGameTitle.text = item.name
         }
 
@@ -73,9 +67,50 @@ class HomeAdapter(private val context: Context, var dataset: List<Game>, private
 
 
 
+/*override fun getItemCount(): Int {
+    return if (dataset.isNotEmpty()) Integer.MAX_VALUE else 0
+}
+
+override fun onBindViewHolder(holder: HomeAdapter.GameTitlesViewHolder, position: Int) {
+    val item = dataset[position % dataset.size]
+
+    val imageUrl = item.image?.medium_url
+
+    holder.binding.apply {
+
+        Glide.with(ivGameTitleImage).load(imageUrl).into(ivGameTitleImage)
+        tvGameTitle.text = item.name
+    }
+
+
+    holder.binding.ivGameTitleImage.setOnClickListener {
+        viewModel.updateResult(item)
+        val navController = holder.itemView.findNavController()
+        navController.navigate(R.id.detailFragment)
 
 
 
+    }
+
+
+
+}*/
+
+
+
+
+
+
+
+
+
+
+
+
+/*Glide.with(ivGameTitleImage)
+.load(imageUrl)
+.diskCacheStrategy(DiskCacheStrategy.ALL)
+.into(ivGameTitleImage)*/
 
 
 /*holder.binding.tvGameTitle.text = item.name*/

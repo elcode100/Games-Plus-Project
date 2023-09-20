@@ -9,8 +9,11 @@ import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.games_plus.R
 import com.example.games_plus.adapter.HomeAdapter
+import com.example.games_plus.adapter.HomeAdapter2
 import com.example.games_plus.databinding.FragmentHomeBinding
 import com.example.games_plus.ui.viewmodels.AuthViewModel
 import com.example.games_plus.ui.viewmodels.MainViewModel
@@ -35,6 +38,10 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+
+        val window = activity?.window
+        window?.statusBarColor = ContextCompat.getColor(requireContext(), R.color.black)
+
         binding.recGames.setHasFixedSize(true)
 
         viewModel.loadAllGames()
@@ -49,6 +56,11 @@ class HomeFragment : Fragment() {
         binding.btnLogout.setOnClickListener {
             authViewModel.logout()
         }
+
+
+
+        adapter2()
+
 
 
 
@@ -74,6 +86,7 @@ class HomeFragment : Fragment() {
 
 
 
+
         authViewModel.currentUser.observe(viewLifecycleOwner) {
             if (it == null) {
                 findNavController().navigate(R.id.loginFragment)
@@ -91,11 +104,88 @@ class HomeFragment : Fragment() {
         }
 
 
+
+
+
+
+    }
+
+
+    @SuppressLint("NotifyDataSetChanged")
+    fun adapter2() {
+
+
+
+
+        val adapter2 = HomeAdapter2(emptyList(), viewModel)
+        binding.recGames2.adapter = adapter2
+
+        viewModel.dataList2.observe(viewLifecycleOwner) { games ->
+            adapter2.dataset2 = games
+            adapter2.notifyDataSetChanged()
+
+        }
+
+        val layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+        layoutManager.scrollToPosition(Integer.MAX_VALUE / 2)
+        binding.recGames2.layoutManager = layoutManager
+
+
+
+        binding.recGames2.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+
+            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                super.onScrolled(recyclerView, dx, dy)
+                val firstVisibleItemPosition = layoutManager.findFirstVisibleItemPosition()
+                val lastVisibleItemPosition = layoutManager.findLastVisibleItemPosition()
+
+                if (firstVisibleItemPosition == 0) {
+
+                    recyclerView.scrollToPosition(Integer.MAX_VALUE / 2)
+                } else if (lastVisibleItemPosition == Integer.MAX_VALUE) {
+
+                    recyclerView.scrollToPosition(Integer.MAX_VALUE / 2)
+                }
+            }
+        })
+
+
+
+
+
+
+
+
     }
 
 
 
+
+
 }
+
+
+
+
+
+
+
+
+
+
+/*val recView = binding.recGames
+viewModel.dataList.observe(viewLifecycleOwner) {
+
+    recView.adapter = HomeAdapter(this.requireContext(), it, viewModel)
+
+    binding.recGames.apply {
+        set3DItem(true)
+        setAlpha(true)
+        setInfinite(true)
+
+    }
+}*/
+
 
 
 
@@ -130,6 +220,4 @@ binding.apply {
 }*/
 
 
-/*
-val window = activity?.window
-window?.statusBarColor = ContextCompat.getColor(requireContext(), R.color.black)*/
+

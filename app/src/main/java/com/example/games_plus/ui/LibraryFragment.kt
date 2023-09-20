@@ -5,7 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.activityViewModels
+import com.example.games_plus.R
 import com.example.games_plus.adapter.LibraryAdapter
 import com.example.games_plus.databinding.FragmentLibraryBinding
 import com.example.games_plus.ui.viewmodels.MainViewModel
@@ -26,6 +28,9 @@ class LibraryFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val window = activity?.window
+        window?.statusBarColor = ContextCompat.getColor(requireContext(), R.color.black)
 
         addObservers()
         viewModel.loadFavoriteGames()
