@@ -24,6 +24,7 @@ class MainViewModel: ViewModel() {
     private val firebaseStore = FirebaseFirestore.getInstance()
 
 
+
     private val _currentResult = MutableLiveData<Game>()
     val currentResult: LiveData<Game>
         get() = _currentResult

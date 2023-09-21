@@ -67,6 +67,9 @@ class DetailFragment : Fragment() {
         viewModel.currentResult.observe(viewLifecycleOwner) {
             binding.tvGameTitle.text = it.name
 
+            val genreNames = it.genres?.joinToString(", ") { genre -> genre.name } ?: "Kein Genre verfügbar"
+            binding.tvDetailGenre.text = genreNames
+
             val document = Jsoup.parse(it.description?.trim() ?: "")
             document.select("a").forEach { aTag ->
                 val href = aTag.attr("href")
@@ -268,7 +271,8 @@ class DetailFragment : Fragment() {
 
 
 
-
+/*val genreNames = it.genres?.joinToString(", ") { genre -> genre.name } ?: "Kein Genre verfügbar"
+binding.tvDetailGenre.text = genreNames*/
 
 
 

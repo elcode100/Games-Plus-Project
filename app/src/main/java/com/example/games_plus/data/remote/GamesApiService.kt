@@ -35,7 +35,7 @@ interface GamesApiService {
     suspend fun getSpecificGames(
         @Query("api_key") apiKey: String = "c65414d8f9676a0036eb9587584863587cc8b250",
         @Query("format") format: String = "json",
-        @Query("field_list") fields: String = "id,name,description,image,videos",
+        @Query("field_list") fields: String = "id,name,description,image,genres,videos",
         @Query("filter") filter: String = "id:41484|36765|81128|20538",
         @Query("limit") limit: Int = 4
     ): GameResponse
@@ -45,7 +45,7 @@ interface GamesApiService {
     suspend fun getRecentGames(
         @Query("api_key") apiKey: String = "c65414d8f9676a0036eb9587584863587cc8b250",
         @Query("format") format: String = "json",
-        @Query("field_list") fields: String = "id,name,description,image,videos",
+        @Query("field_list") fields: String = "id,name,description,image,genres,videos",
         @Query("filter") filter: String = "original_release_date:2010-01-01|2023-01-01",
         @Query("sort") sort: String = "original_release_date:desc",
         @Query("limit") limit: Int = 150
