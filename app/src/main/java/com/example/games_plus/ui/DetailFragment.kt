@@ -48,6 +48,7 @@ class DetailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+
         val window = requireActivity().window
 
 
@@ -67,8 +68,10 @@ class DetailFragment : Fragment() {
         viewModel.currentResult.observe(viewLifecycleOwner) {
             binding.tvGameTitle.text = it.name
 
-            val genreNames = it.genres?.joinToString(", ") { genre -> genre.name } ?: "Kein Genre verfügbar"
+            val genreNames = it.genres?.joinToString(", ") { genre -> genre.name } ?: "No Genre"
             binding.tvDetailGenre.text = genreNames
+
+            binding.tvDetailGuid.text = it.guid
 
             val document = Jsoup.parse(it.description?.trim() ?: "")
             document.select("a").forEach { aTag ->
@@ -161,6 +164,7 @@ class DetailFragment : Fragment() {
                 binding.nestedScrollView.visibility = View.GONE
                 binding.innerConstrainLayout.visibility = View.GONE
                 binding.detailToolbar.visibility = View.GONE
+                binding.tvDetailGuid.visibility = View.GONE
 
             } else {
 
@@ -196,6 +200,7 @@ class DetailFragment : Fragment() {
             binding.nestedScrollView.visibility = View.VISIBLE
             binding.innerConstrainLayout.visibility = View.VISIBLE
             binding.detailToolbar.visibility = View.VISIBLE
+            binding.tvDetailGuid.visibility = View.VISIBLE
 
             lifecycleScope.launch {
                 delay(50)

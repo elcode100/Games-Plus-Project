@@ -24,6 +24,8 @@ class MainViewModel: ViewModel() {
     private val firebaseStore = FirebaseFirestore.getInstance()
 
 
+    val searchList = repository.searchResult
+
 
     private val _currentResult = MutableLiveData<Game>()
     val currentResult: LiveData<Game>
@@ -41,11 +43,27 @@ class MainViewModel: ViewModel() {
 
             try {
                 repository.getAllGames()
+
             } catch (e: Exception) {
                 Log.e(TAG, "Error loading game data: $e")
             }
         }
     }
+
+
+    fun searchGames(query: String) {
+        viewModelScope.launch {
+            try {
+                repository.getSearchGameResult(query)
+            } catch (e: Exception) {
+                Log.e(TAG, "Error loading search results: $e")
+            }
+        }
+    }
+
+
+
+
 
 
 
@@ -55,6 +73,7 @@ class MainViewModel: ViewModel() {
             36765 -> game.copy(youtubeId = listOf("hvoD7ehZPcM"))
             81128 -> game.copy(youtubeId = listOf("n8i53TtQ6IQ"))
             20538 -> game.copy(youtubeId = listOf("1_Q3MZC-34o"))
+            32327 -> game.copy(youtubeId = listOf("SjDMwsbaSd8"))
             else -> game
         }
     }

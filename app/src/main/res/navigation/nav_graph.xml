@@ -41,4 +41,10 @@
         android:label="fragment_forgot_password"
         tools:layout="@layout/fragment_forgot_password" />
 
+    <fragment
+        android:id="@+id/navigation_search"
+        android:name="com.example.games_plus.ui.SearchFragment"
+        android:label="fragment_search"
+        tools:layout="@layout/fragment_search" />
+
 </navigation>

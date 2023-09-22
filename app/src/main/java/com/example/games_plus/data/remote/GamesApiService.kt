@@ -1,19 +1,19 @@
 package com.example.games_plus.data.remote
 
+import com.example.games_plus.data.API_KEY
 import com.squareup.moshi.KotlinJsonAdapterFactory
 import com.squareup.moshi.Moshi
 import retrofit2.Retrofit
 import com.example.games_plus.data.model.GameResponse
+import com.example.games_plus.data.model.GenreResponse
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.GET
+import retrofit2.http.Path
 import retrofit2.http.Query
 
 
-
-
-
-
 const val BASE_URL = "https://www.giantbomb.com/api/"
+
 
 private val moshi = Moshi.Builder()
     .add(KotlinJsonAdapterFactory())
@@ -33,23 +33,48 @@ interface GamesApiService {
 
     @GET("games")
     suspend fun getSpecificGames(
-        @Query("api_key") apiKey: String = "c65414d8f9676a0036eb9587584863587cc8b250",
+        @Query("api_key") apiKey: String = API_KEY,
         @Query("format") format: String = "json",
-        @Query("field_list") fields: String = "id,name,description,image,genres,videos",
-        @Query("filter") filter: String = "id:41484|36765|81128|20538",
-        @Query("limit") limit: Int = 4
+        @Query("field_list") fields: String = "id,name,description,image,guid",
+        @Query("filter") filter: String = "id:41484|36765|81128|20538|78967|75845|32327",
+        /*@Query("limit") limit: Int = 4*/
     ): GameResponse
 
 
     @GET("games")
     suspend fun getRecentGames(
-        @Query("api_key") apiKey: String = "c65414d8f9676a0036eb9587584863587cc8b250",
+        @Query("api_key") apiKey: String = API_KEY,
         @Query("format") format: String = "json",
-        @Query("field_list") fields: String = "id,name,description,image,genres,videos",
+        @Query("field_list") fields: String = "id,name,description,image,guid",
         @Query("filter") filter: String = "original_release_date:2010-01-01|2023-01-01",
         @Query("sort") sort: String = "original_release_date:desc",
         @Query("limit") limit: Int = 150
     ): GameResponse
+
+
+
+
+
+    @GET("search/")
+    suspend fun getSearchGameResult(
+        @Query("api_key") apiKey: String = API_KEY,
+        @Query("format") format: String = "json",
+        @Query("query") query: String,
+        @Query("resources") resources: String = "game",
+        @Query("field_list") fields: String = "id,name,description,image,guid"
+    ): GameResponse
+
+
+
+
+    @GET("game/{guid}/")
+    suspend fun getGameGenres(
+        @Path("guid") guid: String,
+        @Query("api_key") apiKey: String = API_KEY,
+        @Query("format") format: String = "json",
+        @Query("field_list") fields: String = "id,name,genres"
+    ): GenreResponse
+
 
 
 

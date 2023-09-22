@@ -170,10 +170,29 @@
         android:textColor="@color/black"
         android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@id/nestedScrollView"
-        app:layout_constraintEnd_toStartOf="@+id/tv_detail_genre"
+        app:layout_constraintEnd_toStartOf="@+id/btn_add_to_favorites"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/inner_constrain_layout" />
+
+
+    <TextView
+        android:id="@+id/tv_detail_genre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/tv_game_title"
+        app:layout_constraintTop_toBottomOf="@+id/tv_game_title" />
+
+
+    <TextView
+        android:id="@+id/tv_detail_guid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="test guid"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/btn_add_to_favorites"
+        app:layout_constraintTop_toBottomOf="@+id/tv_game_title" />
 
     <androidx.core.widget.NestedScrollView
         android:id="@+id/nestedScrollView"
@@ -184,7 +203,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_game_title">
+        app:layout_constraintTop_toBottomOf="@+id/tv_detail_genre">
 
         <TextView
             android:id="@+id/tv_description"
@@ -206,16 +225,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/tv_game_title" />
 
-    <TextView
-        android:id="@+id/tv_detail_genre"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:text="RPG"
-        android:textStyle="bold"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="@+id/tv_game_title"
-        app:layout_constraintEnd_toStartOf="@+id/btn_add_to_favorites"
-        app:layout_constraintTop_toTopOf="@+id/tv_game_title" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
