@@ -7,13 +7,13 @@
     android:id="@+id/card_search_result"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    app:cardElevation="5dp"
+    app:cardElevation="2dp"
     android:backgroundTint="@color/white"
     android:layout_marginTop="8dp"
     android:layout_marginBottom="0dp"
-    android:layout_marginStart="16dp"
-    android:layout_marginEnd="16dp"
-    app:cardCornerRadius="2dp"
+    android:layout_marginStart="8dp"
+    android:layout_marginEnd="8dp"
+    app:cardCornerRadius="10dp"
     app:cardPreventCornerOverlap="false">
 
 
@@ -34,9 +34,10 @@
                 android:id="@+id/card_logo"
                 android:layout_width="100dp"
                 android:layout_height="130dp"
-                android:layout_margin="8dp"
+                android:layout_margin="6dp"
+                app:cardElevation="1dp"
                 android:backgroundTint="@color/white"
-                app:cardCornerRadius="1dp" >
+                app:cardCornerRadius="6dp" >
 
 
                 <ImageView
@@ -60,6 +61,7 @@
             android:gravity="start"
             android:singleLine="false"
             android:text="Mass Effect"
+            android:fontFamily="sans-serif-condensed"
             android:textColor="@color/black"
             android:textSize="16sp"
             android:textStyle="bold"

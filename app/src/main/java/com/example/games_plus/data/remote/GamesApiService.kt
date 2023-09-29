@@ -1,5 +1,7 @@
 package com.example.games_plus.data.remote
 
+import android.os.Build
+import androidx.annotation.RequiresApi
 import com.example.games_plus.data.API_KEY
 import com.squareup.moshi.KotlinJsonAdapterFactory
 import com.squareup.moshi.Moshi
@@ -10,6 +12,14 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
+import java.time.LocalDate
+
+
+@RequiresApi(Build.VERSION_CODES.O)
+val today: LocalDate = LocalDate.now()
+
+@RequiresApi(Build.VERSION_CODES.O)
+val endDate: LocalDate = today.plusYears(3)
 
 
 const val BASE_URL = "https://www.giantbomb.com/api/"
@@ -31,14 +41,14 @@ private val retrofit = Retrofit.Builder()
 interface GamesApiService {
 
 
-    @GET("games")
+    /*@GET("games")
     suspend fun getSpecificGames(
         @Query("api_key") apiKey: String = API_KEY,
         @Query("format") format: String = "json",
         @Query("field_list") fields: String = "id,name,description,image,guid",
-        @Query("filter") filter: String = "id:41484|36765|81128|20538|78967|75845|32327",
-        /*@Query("limit") limit: Int = 4*/
-    ): GameResponse
+        @Query("filter") filter: String = "id:41484|36765|81128|20538", *//*|78967|75845|32327*//*
+
+    ): GameResponse*/
 
 
     @GET("games")
@@ -47,8 +57,7 @@ interface GamesApiService {
         @Query("format") format: String = "json",
         @Query("field_list") fields: String = "id,name,description,image,guid",
         @Query("filter") filter: String = "original_release_date:2010-01-01|2023-01-01",
-        @Query("sort") sort: String = "original_release_date:desc",
-        @Query("limit") limit: Int = 150
+        @Query("sort") sort: String = "rating:desc"
     ): GameResponse
 
 
@@ -77,6 +86,29 @@ interface GamesApiService {
 
 
 
+    @RequiresApi(Build.VERSION_CODES.O)
+    @GET("games")
+    suspend fun getUpcomingGames(
+        @Query("api_key") apiKey: String = API_KEY,
+        @Query("format") format: String = "json",
+        @Query("field_list") fields: String = "id,name,description,image,guid,original_release_date",
+        @Query("filter") filter: String = "original_release_date:2023-11-01|$endDate",
+        @Query("sort") sort: String = "original_release_date:asc",
+        @Query("limit") limit: Int = 100
+    ): GameResponse
+
+
+    @GET("games")
+    suspend fun getMobileGames(
+        @Query("api_key") apiKey: String = API_KEY,
+        @Query("format") format: String = "json",
+        @Query("field_list") fields: String = "id,name,description,image,guid,original_release_date",
+        @Query("sort") sort: String = "original_release_date:desc",
+        @Query("limit") limit: Int = 100
+    ): GameResponse
+
+
+
 
 }
 
@@ -92,9 +124,9 @@ object GamesApi {
 
 
 
+/*@Query("sort") sort: String = "original_release_date:desc"*/
 
-
-
+/*@Query("sort") sort: String = "rating:desc"*/
 
 
 

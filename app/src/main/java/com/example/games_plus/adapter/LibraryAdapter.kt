@@ -11,7 +11,7 @@ import com.example.games_plus.data.model.Game
 import com.example.games_plus.databinding.LibraryItemBinding
 import com.example.games_plus.ui.viewmodels.MainViewModel
 
-class LibraryAdapter(private val context: Context, private var dataset: List<Game>, private val viewModel: MainViewModel) : RecyclerView.Adapter<LibraryAdapter.LibraryViewHolder>() {
+class LibraryAdapter(private val context: Context, var dataset: List<Game>, private val viewModel: MainViewModel) : RecyclerView.Adapter<LibraryAdapter.LibraryViewHolder>() {
 
 
     inner class LibraryViewHolder(val binding: LibraryItemBinding) : RecyclerView.ViewHolder(binding.root)

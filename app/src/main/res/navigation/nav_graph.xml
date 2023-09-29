@@ -46,5 +46,10 @@
         android:name="com.example.games_plus.ui.SearchFragment"
         android:label="fragment_search"
         tools:layout="@layout/fragment_search" />
+    <fragment
+        android:id="@+id/navigation_news"
+        android:name="com.example.games_plus.ui.NewsFragment"
+        android:label="fragment_news"
+        tools:layout="@layout/fragment_news" />
 
 </navigation>

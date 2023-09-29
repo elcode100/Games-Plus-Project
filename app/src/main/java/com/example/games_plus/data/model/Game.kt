@@ -8,6 +8,7 @@ data class Game(
     val image: ImageDetail? = null,
     var genres: List<Genre>? = listOf(),
     val youtubeId: List<String> = listOf(),
+    var index: Int? = null
 )
 
 

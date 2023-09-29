@@ -3,20 +3,20 @@ package com.example.games_plus.adapter
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
-import coil.load
 import com.bumptech.glide.Glide
-import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.example.games_plus.R
 import com.example.games_plus.ui.viewmodels.MainViewModel
 import com.example.games_plus.data.model.Game
 import com.example.games_plus.databinding.GameTitlesItemBinding
 
+
+
 class HomeAdapter(private val context: Context, var dataset: List<Game>, private val viewModel: MainViewModel) : RecyclerView.Adapter<HomeAdapter.GameTitlesViewHolder>() {
 
     inner class GameTitlesViewHolder(val binding: GameTitlesItemBinding) : RecyclerView.ViewHolder(binding.root)
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeAdapter.GameTitlesViewHolder {
         val binding = GameTitlesItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -35,7 +35,8 @@ class HomeAdapter(private val context: Context, var dataset: List<Game>, private
         holder.binding.apply {
 
             Glide.with(ivGameTitleImage).load(imageUrl).into(ivGameTitleImage)
-            tvGameTitle.text = item.name
+
+            /*tvGameTitle.text = item.name*/
         }
 
 

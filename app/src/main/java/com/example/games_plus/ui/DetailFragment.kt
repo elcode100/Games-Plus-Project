@@ -164,6 +164,7 @@ class DetailFragment : Fragment() {
                 binding.nestedScrollView.visibility = View.GONE
                 binding.innerConstrainLayout.visibility = View.GONE
                 binding.detailToolbar.visibility = View.GONE
+                binding.tvDetailGenre.visibility = View.GONE
                 binding.tvDetailGuid.visibility = View.GONE
 
             } else {
@@ -200,6 +201,7 @@ class DetailFragment : Fragment() {
             binding.nestedScrollView.visibility = View.VISIBLE
             binding.innerConstrainLayout.visibility = View.VISIBLE
             binding.detailToolbar.visibility = View.VISIBLE
+            binding.tvDetailGenre.visibility = View.VISIBLE
             binding.tvDetailGuid.visibility = View.VISIBLE
 
             lifecycleScope.launch {

@@ -1,11 +1,12 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
     <style name="Base.Theme.games_plus" parent="Theme.MaterialComponents.DayNight.NoActionBar">
 
-        <item name="colorPrimary">@animator/bottom_navigation_item_selector</item>
+        <item name="bottomNavigationStyle">@style/BottomNavigationLight</item>
+    </style>
 
-
-
+    <style name="BottomNavigationLight" parent="Widget.MaterialComponents.BottomNavigationView">
+        <item name="itemIconTint">@drawable/bottom_navigation_item_selector</item>
+        <item name="itemTextColor">@drawable/bottom_navigation_item_selector</item>
     </style>
 
     <style name="Theme.EduardApp" parent="Base.Theme.games_plus" />

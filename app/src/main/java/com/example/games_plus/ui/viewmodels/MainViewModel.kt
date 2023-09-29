@@ -1,6 +1,8 @@
 package com.example.games_plus.ui.viewmodels
 
+import android.os.Build
 import android.util.Log
+import androidx.annotation.RequiresApi
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -20,9 +22,9 @@ class MainViewModel: ViewModel() {
 
     private val repository = Repository(GamesApi)
     val dataList = repository.gameResult
-    val dataList2 = repository.gameResult
+    val dataListUpcomingGames = repository.upcomingGameResult
+    val dataListMobileGames = repository.mobileGameResult
     private val firebaseStore = FirebaseFirestore.getInstance()
-
 
     val searchList = repository.searchResult
 
@@ -36,6 +38,14 @@ class MainViewModel: ViewModel() {
         get() = _favoriteGames
 
 
+   /* init {
+        repository.addFirestoreListener()
+    }
+
+    override fun onCleared() {
+        super.onCleared()
+        repository.removeFirestoreListener()
+    }*/
 
 
     fun loadAllGames() {
@@ -43,6 +53,37 @@ class MainViewModel: ViewModel() {
 
             try {
                 repository.getAllGames()
+
+            } catch (e: Exception) {
+                Log.e(TAG, "Error loading game data: $e")
+            }
+        }
+    }
+
+
+
+
+
+
+
+    @RequiresApi(Build.VERSION_CODES.O)
+    fun loadUpcomingGames() {
+        viewModelScope.launch {
+
+            try {
+                repository.getUpcomingGames()
+
+            } catch (e: Exception) {
+                Log.e(TAG, "Error loading game data: $e")
+            }
+        }
+    }
+
+    fun loadMobileGames() {
+        viewModelScope.launch {
+
+            try {
+                repository.getMobileGames()
 
             } catch (e: Exception) {
                 Log.e(TAG, "Error loading game data: $e")
@@ -74,6 +115,9 @@ class MainViewModel: ViewModel() {
             81128 -> game.copy(youtubeId = listOf("n8i53TtQ6IQ"))
             20538 -> game.copy(youtubeId = listOf("1_Q3MZC-34o"))
             32327 -> game.copy(youtubeId = listOf("SjDMwsbaSd8"))
+            68449 -> game.copy(youtubeId = listOf("ZXSi4EcxnuY"))
+            78695 -> game.copy(youtubeId = listOf("3PIWmbtcRgg"))
+            42245 -> game.copy(youtubeId = listOf("9pnK8akbd2M"))
             else -> game
         }
     }
@@ -135,3 +179,25 @@ class MainViewModel: ViewModel() {
 
 
 }
+
+
+
+/*fun loadRolePlayingGamesFromFirebase() {
+    viewModelScope.launch {
+        try {
+            repository.getAllGames()
+
+
+            val rolePlayingGames = dataList.value?.filter { game ->
+                game.genres?.any { genre -> genre.id == 5 } == true
+            } ?: listOf()
+
+            for ((index, game) in rolePlayingGames.withIndex()) {
+                Log.d("GAME", "${index + 1}. ${game.name}")
+            }
+
+        } catch (e: Exception) {
+            Log.e(TAG, "Error loading game data from Firestore: $e")
+        }
+    }
+}*/

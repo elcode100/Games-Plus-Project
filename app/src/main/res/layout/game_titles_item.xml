@@ -197,8 +197,8 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 </LinearLayout>-->
 
-
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<!--Etalon-->
+<!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
@@ -208,44 +208,237 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/tv_game_title"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="5dp"
-            android:gravity="center"
-            android:singleLine="false"
-            android:text="Mafia 2"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/inner_title_constrain"
             android:visibility="visible"
-            android:textColor="@color/black"
-            android:textSize="12sp"
-            android:textStyle="bold"
-            app:layout_constrainedWidth="true"
-            app:layout_constraintBottom_toTopOf="@+id/iv_game_title_image"
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintWidth_max="150dp" />
+            app:layout_constraintTop_toTopOf="parent">
+
+
+            <TextView
+                android:id="@+id/tv_game_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:gravity="center"
+                android:singleLine="false"
+                android:text="Mafia 2"
+                android:textColor="@color/dark_grey"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintWidth_max="130dp" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <com.jackandphantom.carouselrecyclerview.view.ReflectionImageView
             android:id="@+id/iv_game_title_image"
-            android:layout_width="150dp"
-            android:layout_height="300dp"
+            android:layout_width="140dp"
+            android:layout_height="280dp"
+            android:layout_marginTop="5dp"
             android:scaleType="fitXY"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_game_title"
+            app:layout_constraintTop_toBottomOf="@id/inner_title_constrain"
             app:srcCompat="@drawable/atomic_heart_cover_placeholder" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-</LinearLayout>
+</LinearLayout>-->
+
+<!--TEST-->
+<!--<androidx.constraintlayout.widget.ConstraintLayout
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/inner_title_constrain"
+        android:layout_width="match_parent"
+        android:layout_height="42dp"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <TextView
+            android:id="@+id/tv_game_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:singleLine="false"
+            android:text="Mafia 2"
+            android:textColor="@color/dark_grey"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintWidth_max="130dp" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        app:cardCornerRadius="1dp"
+        app:cardElevation="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/inner_title_constrain">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <com.jackandphantom.carouselrecyclerview.view.ReflectionImageView
+                android:id="@+id/iv_game_title_image"
+                android:layout_width="140dp"
+                android:layout_height="280dp"
+                android:scaleType="fitXY"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/atomic_heart_cover_placeholder" />
 
 
 
 
 
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </com.google.android.material.card.MaterialCardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>-->
+
+<!--app:cardUseCompatPadding="true"-->
+
+<!--app:strokeWidth="1dp"
+    app:strokeColor="@color/middle_grey"-->
+
+<!--Final Test-->
+<com.google.android.material.card.MaterialCardView
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginTop="8dp"
+    android:layout_marginBottom="8dp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="2dp"
+    android:layerType="hardware">
+
+
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <ImageView
+                android:id="@+id/iv_game_title_image"
+                android:layout_width="130dp"
+                android:layout_height="180dp"
+                android:scaleType="fitXY"
+                android:antialias="true"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/atomic_heart_cover_placeholder" />
+
+
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+</com.google.android.material.card.MaterialCardView>
+
+<!--Test 2-->
+<!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/inner_title_constrain"
+            android:visibility="visible"
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+            <TextView
+                android:id="@+id/tv_game_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:singleLine="false"
+                android:text="Mafia 2"
+                android:textColor="@color/dark_grey"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintWidth_max="130dp" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <com.jackandphantom.carouselrecyclerview.view.ReflectionViewContainer
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/inner_title_constrain"
+            app:reflect_gap="0dp"
+            app:reflect_relativeDepth="0.5">
+
+            <ImageView
+                android:id="@+id/iv_game_title_image"
+                android:layout_width="130dp"
+                android:layout_height="170dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/atomic_heart_cover_placeholder" />
+        </com.jackandphantom.carouselrecyclerview.view.ReflectionViewContainer>
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>-->
 
 
 

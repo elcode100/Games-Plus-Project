@@ -11,7 +11,7 @@ import com.example.games_plus.data.model.Game
 import com.example.games_plus.databinding.SearchResultItemBinding
 import com.example.games_plus.ui.viewmodels.MainViewModel
 
-class SearchAdapter(private val context: Context, private var dataset: List<Game>, private val viewModel: MainViewModel) : RecyclerView.Adapter<SearchAdapter.SearchViewHolder>() {
+class SearchAdapter(private val context: Context, var dataset: List<Game>, private val viewModel: MainViewModel) : RecyclerView.Adapter<SearchAdapter.SearchViewHolder>() {
 
 
     inner class SearchViewHolder(val binding: SearchResultItemBinding) : RecyclerView.ViewHolder(binding.root)

@@ -10,13 +10,12 @@ android {
     namespace = "com.example.games_plus"
     compileSdk = 33
 
-    /*packagingOptions {
-        pickFirst ("google/protobuf/field_mask.proto")
-    }*/
+
 
     defaultConfig {
         applicationId = "com.example.games_plus"
         minSdk = 24
+        //noinspection OldTargetApi
         targetSdk = 33
         versionCode = 1
         versionName = "1.0"
@@ -58,18 +57,18 @@ android {
 
 dependencies {
 
+    val room_version = "2.5.2"
 
-    val roomVersion = "2.5.2"
+    implementation("androidx.room:room-runtime:$room_version")
+    implementation("androidx.room:room-ktx:$room_version")
+    annotationProcessor("androidx.room:room-compiler:$room_version")
 
+    // To use Kotlin annotation processing tool (kapt)
+    kapt("androidx.room:room-compiler:$room_version")
 
     implementation("com.google.firebase:firebase-firestore-ktx:24.7.1")
     implementation("com.google.firebase:firebase-auth-ktx:22.1.1")
 
-
-    implementation("androidx.room:room-runtime:$roomVersion")
-    implementation("androidx.room:room-ktx:$roomVersion")
-    annotationProcessor("androidx.room:room-compiler:$roomVersion")
-    kapt("androidx.room:room-compiler:$roomVersion")
 
     implementation("androidx.core:core-ktx:1.9.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
@@ -98,7 +97,7 @@ dependencies {
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
 
-    implementation("com.pierfrancescosoffritti.androidyoutubeplayer:core:12.0.0")
+    implementation("com.pierfrancescosoffritti.androidyoutubeplayer:core:12.1.0")
     implementation("com.pierfrancescosoffritti.androidyoutubeplayer:chromecast-sender:0.28")
 
     implementation ("com.github.sparrow007:carouselrecyclerview:1.2.6")
@@ -106,6 +105,15 @@ dependencies {
     implementation ("com.github.bumptech.glide:glide:4.16.0")
 
     implementation ("org.jsoup:jsoup:1.14.3")
+
+    implementation ("io.github.everythingme:overscroll-decor-android:1.1.1")
+
+    implementation ("com.google.code.gson:gson:2.8.8")
+
+
+
+
+
 
 
 

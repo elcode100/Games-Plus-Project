@@ -1,9 +1,11 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
     <style name="Base.Theme.games_plus" parent="Theme.MaterialComponents.DayNight.NoActionBar">
 
-        <item name="colorPrimary">@animator/bottom_navigation_item_selector_dark</item>
+        <item name="bottomNavigationStyle">@style/BottomNavigationDark</item>
+    </style>
 
-
+    <style name="BottomNavigationDark" parent="Widget.MaterialComponents.BottomNavigationView">
+        <item name="itemIconTint">@drawable/bottom_navigation_item_selector_dark</item>
+        <item name="itemTextColor">@drawable/bottom_navigation_item_selector_dark</item>
     </style>
 </resources>
