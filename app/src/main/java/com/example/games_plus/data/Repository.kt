@@ -178,12 +178,46 @@ class Repository(private val api: GamesApi) {
     }
 
 
+    private val replaceMobileGamesIds = mapOf(
+
+        73245 to 67843,
+        34621 to 83987,
+        29030 to 70216,
+
+
+
+        )
+
+
     suspend fun getMobileGames() {
         try {
-            _mobileGameResult.postValue(api.retrofitService.getMobileGames().results)
+            val mobileGames = api.retrofitService.getMobileGames().results.map{ game ->
+
+                if (game.id in replaceMobileGamesIds.keys) {
+
+                    api.retrofitService.getMobileGames(filter = "id:${replaceMobileGamesIds[game.id]}").results.first()
+
+                } else {
+
+                    game
+                }
+
+            }
+            /*for (game in mobileGames) {
+
+                val genreResponse = api.retrofitService.getGameGenres(game.guid)
+                game.genres = genreResponse.results.genres
+            }*/
+
+
+            for ((index, game) in (mobileGames).withIndex()) {
+                Log.d("MOBILE GAME", "${index + 1}. ${game.name}")
+            }
+
+            _mobileGameResult.postValue(mobileGames)
 
         } catch (e: Exception) {
-            Log.e("UPCOMING GAME LOADING ERROR", "Error fetching mobile game results: ${e.message}")
+            Log.e("MOBILE GAME LOADING ERROR", "Error fetching game results: ${e.message}")
         }
     }
 

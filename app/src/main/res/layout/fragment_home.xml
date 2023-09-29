@@ -436,7 +436,7 @@
         </com.google.android.material.appbar.MaterialToolbar>
     </com.google.android.material.appbar.AppBarLayout>
 
-    <ScrollView
+    <androidx.core.widget.NestedScrollView
         android:id="@+id/scroll_view_home"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -518,17 +518,17 @@
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 tools:listitem="@layout/game_titles_item2" />
 
-           <!-- <TextView
-                android:id="@+id/tv_mobile_Games"
+            <TextView
+                android:id="@+id/tv_mobile_games"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingStart="8dp"
                 android:layout_marginTop="16dp"
-                android:text="Upcoming Games"
+                android:text="Mobile Games"
                 android:fontFamily="sans-serif-condensed"
                 android:textColor="@color/black"
                 android:textSize="18sp"
-                android:textStyle="bold" />-->
+                android:textStyle="bold" />
 
 
             <androidx.recyclerview.widget.RecyclerView
@@ -545,7 +545,7 @@
 
 
         </LinearLayout>
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 
     <ProgressBar
         android:id="@+id/progressBar"

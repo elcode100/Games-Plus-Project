@@ -10,14 +10,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.RequiresApi
 import androidx.core.content.ContextCompat
-import androidx.core.view.ViewCompat
-import androidx.core.widget.NestedScrollView
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.games_plus.R
 import com.example.games_plus.adapter.HomeAdapter
 import com.example.games_plus.adapter.HomeAdapter2
-import com.example.games_plus.adapter.HomeAdapter3
+import com.example.games_plus.adapter.MobileGamesAdapter
 import com.example.games_plus.databinding.FragmentHomeBinding
 import com.example.games_plus.ui.viewmodels.AuthViewModel
 import com.example.games_plus.ui.viewmodels.MainViewModel
@@ -53,7 +51,7 @@ class HomeFragment : Fragment() {
 
         viewModel.loadAllGames()
         viewModel.loadUpcomingGames()
-        /*viewModel.loadMobileGames()*/
+        viewModel.loadMobileGames()
         viewModel.loadFavoriteGames()
         addObservers()
 
@@ -96,7 +94,7 @@ class HomeFragment : Fragment() {
     }
 
     private fun areAllDataListsLoaded(): Boolean {
-        return viewModel.dataList.value != null && viewModel.dataListUpcomingGames.value != null /*&& viewModel.dataListMobileGames.value != null*/
+        return viewModel.dataList.value != null && viewModel.dataListUpcomingGames.value != null && viewModel.dataListMobileGames.value != null
     }
 
 
@@ -107,7 +105,8 @@ class HomeFragment : Fragment() {
 
         OverScrollDecoratorHelper.setUpOverScroll(binding.recGames, OverScrollDecoratorHelper.ORIENTATION_HORIZONTAL)
         OverScrollDecoratorHelper.setUpOverScroll(binding.recGames2, OverScrollDecoratorHelper.ORIENTATION_HORIZONTAL)
-        OverScrollDecoratorHelper.setUpOverScroll(binding.scrollViewHome)
+        OverScrollDecoratorHelper.setUpOverScroll(binding.recGames3, OverScrollDecoratorHelper.ORIENTATION_HORIZONTAL)
+        /*OverScrollDecoratorHelper.setUpOverScroll(binding.scrollViewHome)*/
 
 
         val itemRecView1 = HorizontalItemDecoration(8.dpToPx())
@@ -116,13 +115,18 @@ class HomeFragment : Fragment() {
         val itemRecView2 = HorizontalItemDecoration(8.dpToPx())
         binding.recGames2.addItemDecoration(itemRecView2)
 
+        val itemRecView3 = HorizontalItemDecoration(8.dpToPx())
+        binding.recGames3.addItemDecoration(itemRecView3)
+
 
 
         binding.progressBar.visibility = View.VISIBLE
         binding.recGames.visibility = View.INVISIBLE
         binding.recGames2.visibility = View.INVISIBLE
+        binding.recGames3.visibility = View.INVISIBLE
         binding.tvBestGames.visibility = View.INVISIBLE
         binding.tvUpcomingGames.visibility = View.INVISIBLE
+        binding.tvMobileGames.visibility = View.INVISIBLE
         binding.imageViewTest.visibility = View.INVISIBLE
         binding.cardTestPic.visibility = View.INVISIBLE
         binding.customTitle.visibility = View.INVISIBLE
@@ -146,8 +150,10 @@ class HomeFragment : Fragment() {
                 binding.progressBar.visibility = View.GONE
                 binding.recGames.visibility = View.VISIBLE
                 binding.recGames2.visibility = View.VISIBLE
+                binding.recGames3.visibility = View.VISIBLE
                 binding.tvBestGames.visibility = View.VISIBLE
                 binding.tvUpcomingGames.visibility = View.VISIBLE
+                binding.tvMobileGames.visibility = View.VISIBLE
                 binding.imageViewTest.visibility = View.VISIBLE
                 binding.cardTestPic.visibility = View.VISIBLE
                 binding.customTitle.visibility = View.VISIBLE
@@ -181,8 +187,10 @@ class HomeFragment : Fragment() {
                 binding.progressBar.visibility = View.GONE
                 binding.recGames.visibility = View.VISIBLE
                 binding.recGames2.visibility = View.VISIBLE
+                binding.recGames3.visibility = View.VISIBLE
                 binding.tvBestGames.visibility = View.VISIBLE
                 binding.tvUpcomingGames.visibility = View.VISIBLE
+                binding.tvMobileGames.visibility = View.VISIBLE
                 binding.imageViewTest.visibility = View.VISIBLE
                 binding.cardTestPic.visibility = View.VISIBLE
                 binding.customTitle.visibility = View.VISIBLE
@@ -193,8 +201,8 @@ class HomeFragment : Fragment() {
 
 
 
-        /*val adapter3 = HomeAdapter3(emptyList(), viewModel)
-        binding.recGames2.adapter = adapter3
+        val adapter3 = MobileGamesAdapter(emptyList(), viewModel)
+        binding.recGames3.adapter = adapter3
 
 
         viewModel.dataListMobileGames.observe(viewLifecycleOwner) { games ->
@@ -205,14 +213,16 @@ class HomeFragment : Fragment() {
                 binding.progressBar.visibility = View.GONE
                 binding.recGames.visibility = View.VISIBLE
                 binding.recGames2.visibility = View.VISIBLE
+                binding.recGames3.visibility = View.VISIBLE
                 binding.tvBestGames.visibility = View.VISIBLE
                 binding.tvUpcomingGames.visibility = View.VISIBLE
+                binding.tvMobileGames.visibility = View.VISIBLE
                 binding.imageViewTest.visibility = View.VISIBLE
                 binding.cardTestPic.visibility = View.VISIBLE
                 binding.customTitle.visibility = View.VISIBLE
             }
 
-        }*/
+        }
 
 
 

@@ -10,20 +10,20 @@ import com.example.games_plus.data.model.Game
 import com.example.games_plus.databinding.MobileGamesTitlesItemBinding
 import com.example.games_plus.ui.viewmodels.MainViewModel
 
-class HomeAdapter3(var dataset3: List<Game>, private val viewModel: MainViewModel) : RecyclerView.Adapter<HomeAdapter3.HomeAdapter3ViewHolder>() {
+class MobileGamesAdapter(var dataset3: List<Game>, private val viewModel: MainViewModel) : RecyclerView.Adapter<MobileGamesAdapter.MobileGamesViewHolder>() {
 
-    inner class HomeAdapter3ViewHolder(val binding: MobileGamesTitlesItemBinding) : RecyclerView.ViewHolder(binding.root)
+    inner class MobileGamesViewHolder(val binding: MobileGamesTitlesItemBinding) : RecyclerView.ViewHolder(binding.root)
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeAdapter3.HomeAdapter3ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MobileGamesAdapter.MobileGamesViewHolder {
         val binding = MobileGamesTitlesItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return HomeAdapter3ViewHolder(binding)
+        return MobileGamesViewHolder(binding)
     }
 
     override fun getItemCount(): Int {
         return dataset3.size
     }
 
-    override fun onBindViewHolder(holder: HomeAdapter3ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: MobileGamesViewHolder, position: Int) {
         val item = dataset3[position]
 
 

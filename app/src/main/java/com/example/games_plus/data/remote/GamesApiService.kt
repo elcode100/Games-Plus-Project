@@ -103,8 +103,9 @@ interface GamesApiService {
         @Query("api_key") apiKey: String = API_KEY,
         @Query("format") format: String = "json",
         @Query("field_list") fields: String = "id,name,description,image,guid",
-        @Query("sort") sort: String = "original_release_date:desc",
-        @Query("limit") limit: Int = 100
+        @Query("filter") filter: String = "original_release_date:2010-01-01|2023-01-01",
+        @Query("sort") sort: String = "original_release_date:asc",
+        @Query("limit") limit: Int = 10
     ): GameResponse
 
 
