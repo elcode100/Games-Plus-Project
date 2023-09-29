@@ -53,7 +53,7 @@ class HomeFragment : Fragment() {
 
         viewModel.loadAllGames()
         viewModel.loadUpcomingGames()
-        viewModel.loadMobileGames()
+        /*viewModel.loadMobileGames()*/
         viewModel.loadFavoriteGames()
         addObservers()
 
@@ -96,7 +96,7 @@ class HomeFragment : Fragment() {
     }
 
     private fun areAllDataListsLoaded(): Boolean {
-        return viewModel.dataList.value != null && viewModel.dataListUpcomingGames.value != null && viewModel.dataListMobileGames.value != null
+        return viewModel.dataList.value != null && viewModel.dataListUpcomingGames.value != null /*&& viewModel.dataListMobileGames.value != null*/
     }
 
 
@@ -193,7 +193,7 @@ class HomeFragment : Fragment() {
 
 
 
-        val adapter3 = HomeAdapter3(emptyList(), viewModel)
+        /*val adapter3 = HomeAdapter3(emptyList(), viewModel)
         binding.recGames2.adapter = adapter3
 
 
@@ -212,7 +212,7 @@ class HomeFragment : Fragment() {
                 binding.customTitle.visibility = View.VISIBLE
             }
 
-        }
+        }*/
 
 
 

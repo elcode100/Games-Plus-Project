@@ -135,9 +135,9 @@ class Repository(private val api: GamesApi) {
 
     private val replaceUpcomingGamesIds = mapOf(
 
-        78617 to 81572,
-        88115 to 79858,
-        89459 to 32327,
+        89890 to 81572,
+        86125 to 79858,
+        87593 to 32327,
 
 
 

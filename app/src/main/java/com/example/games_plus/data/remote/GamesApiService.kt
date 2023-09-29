@@ -92,7 +92,7 @@ interface GamesApiService {
         @Query("api_key") apiKey: String = API_KEY,
         @Query("format") format: String = "json",
         @Query("field_list") fields: String = "id,name,description,image,guid,original_release_date",
-        @Query("filter") filter: String = "original_release_date:2023-11-01|$endDate",
+        @Query("filter") filter: String = "original_release_date:$today|$endDate",
         @Query("sort") sort: String = "original_release_date:asc",
         @Query("limit") limit: Int = 100
     ): GameResponse
@@ -102,7 +102,7 @@ interface GamesApiService {
     suspend fun getMobileGames(
         @Query("api_key") apiKey: String = API_KEY,
         @Query("format") format: String = "json",
-        @Query("field_list") fields: String = "id,name,description,image,guid,original_release_date",
+        @Query("field_list") fields: String = "id,name,description,image,guid",
         @Query("sort") sort: String = "original_release_date:desc",
         @Query("limit") limit: Int = 100
     ): GameResponse
