@@ -2,6 +2,7 @@ package com.example.games_plus.ui.viewmodels
 
 import android.os.Build
 import android.util.Log
+import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -11,7 +12,9 @@ import com.example.games_plus.data.Repository
 import com.example.games_plus.data.model.Game
 import com.example.games_plus.data.remote.GamesApi
 import com.google.firebase.firestore.FirebaseFirestore
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import retrofit2.HttpException
 
 
 const val TAG = "MainViewModel"
@@ -38,14 +41,6 @@ class MainViewModel: ViewModel() {
         get() = _favoriteGames
 
 
-   /* init {
-        repository.addFirestoreListener()
-    }
-
-    override fun onCleared() {
-        super.onCleared()
-        repository.removeFirestoreListener()
-    }*/
 
 
     fun loadAllGames() {
@@ -55,10 +50,13 @@ class MainViewModel: ViewModel() {
                 repository.getAllGames()
 
             } catch (e: Exception) {
-                Log.e(TAG, "Error loading game data: $e")
+                Log.e(TAG, "Error loading all games data: $e")
             }
         }
     }
+
+
+
 
 
 
@@ -74,7 +72,7 @@ class MainViewModel: ViewModel() {
                 repository.getUpcomingGames()
 
             } catch (e: Exception) {
-                Log.e(TAG, "Error loading game data: $e")
+                Log.e(TAG, "Error loading upcoming games data: $e")
             }
         }
     }
@@ -86,7 +84,7 @@ class MainViewModel: ViewModel() {
                 repository.getMobileGames()
 
             } catch (e: Exception) {
-                Log.e(TAG, "Error loading game data: $e")
+                Log.e(TAG, "Error loading mobile games data: $e")
             }
         }
     }
@@ -201,3 +199,13 @@ class MainViewModel: ViewModel() {
         }
     }
 }*/
+
+
+/* init {
+       repository.addFirestoreListener()
+   }
+
+   override fun onCleared() {
+       super.onCleared()
+       repository.removeFirestoreListener()
+   }*/

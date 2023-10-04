@@ -63,19 +63,16 @@ class HomeFragment : Fragment() {
         /*binding.imageViewXx.setImageResource(R.drawable.atomic_heart_cover_placeholder)*/
 
 
+        /*binding.nestedScrollView.setOnScrollChangeListener(NestedScrollView.OnScrollChangeListener { _, _, scrollY, _, _ ->
+            if (scrollY > 30) {
 
+                binding.customTitle.visibility = View.GONE
+            } else {
 
-
-            /*binding.nestedScrollView.setOnScrollChangeListener(NestedScrollView.OnScrollChangeListener { _, _, scrollY, _, _ ->
-                if (scrollY > 30) {
-
-                    binding.customTitle.visibility = View.GONE
-                } else {
-
-                    binding.customTitle.visibility = View.VISIBLE
-                }
-            })
-    */
+                binding.customTitle.visibility = View.VISIBLE
+            }
+        })
+       */
 
 
 

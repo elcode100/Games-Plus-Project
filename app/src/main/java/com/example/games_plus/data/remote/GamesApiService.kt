@@ -41,23 +41,14 @@ private val retrofit = Retrofit.Builder()
 interface GamesApiService {
 
 
-    /*@GET("games")
-    suspend fun getSpecificGames(
-        @Query("api_key") apiKey: String = API_KEY,
-        @Query("format") format: String = "json",
-        @Query("field_list") fields: String = "id,name,description,image,guid",
-        @Query("filter") filter: String = "id:41484|36765|81128|20538", *//*|78967|75845|32327*//*
-
-    ): GameResponse*/
-
-
     @GET("games")
     suspend fun getRecentGames(
         @Query("api_key") apiKey: String = API_KEY,
         @Query("format") format: String = "json",
         @Query("field_list") fields: String = "id,name,description,image,guid",
         @Query("filter") filter: String = "original_release_date:2010-01-01|2023-01-01",
-        @Query("sort") sort: String = "rating:desc"
+        @Query("sort") sort: String = "rating:desc",
+        @Query("limit") limit: Int = 87
     ): GameResponse
 
 
@@ -94,7 +85,7 @@ interface GamesApiService {
         @Query("field_list") fields: String = "id,name,description,image,guid,original_release_date",
         @Query("filter") filter: String = "original_release_date:$today|$endDate",
         @Query("sort") sort: String = "original_release_date:asc",
-        @Query("limit") limit: Int = 100
+        @Query("limit") limit: Int = 97
     ): GameResponse
 
 
@@ -161,7 +152,14 @@ object GamesApi {
 
 
 
+/*@GET("games")
+    suspend fun getSpecificGames(
+        @Query("api_key") apiKey: String = API_KEY,
+        @Query("format") format: String = "json",
+        @Query("field_list") fields: String = "id,name,description,image,guid",
+        @Query("filter") filter: String = "id:41484|36765|81128|20538", *//*|78967|75845|32327*//*
 
+    ): GameResponse*/
 
 
 
