@@ -2,19 +2,18 @@ package com.example.games_plus.ui.viewmodels
 
 import android.os.Build
 import android.util.Log
-import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.games_plus.R
 import com.example.games_plus.data.Repository
 import com.example.games_plus.data.model.Game
-import com.example.games_plus.data.remote.GamesApi
+import com.example.games_plus.data.model.News
+import com.example.games_plus.data.api.GamesApi
 import com.google.firebase.firestore.FirebaseFirestore
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-import retrofit2.HttpException
 
 
 const val TAG = "MainViewModel"
@@ -41,6 +40,20 @@ class MainViewModel: ViewModel() {
         get() = _favoriteGames
 
 
+    fun loadNewsImages() : List<News> {
+
+        return listOf(
+            News(R.drawable.cyberpunk_2077_phantom_liberty_placeholder),
+            News(R.drawable.atomic_heart_dlc_placeholder),
+            News(R.drawable.placeholder_starfield)
+
+
+
+        )
+
+
+    }
+
 
 
     fun loadAllGames() {
@@ -55,6 +68,12 @@ class MainViewModel: ViewModel() {
         }
     }
 
+
+    fun onUserAction() {
+        viewModelScope.launch {
+            repository.loadGenresForAllGames(dataList.value ?: emptyList())
+        }
+    }
 
 
 

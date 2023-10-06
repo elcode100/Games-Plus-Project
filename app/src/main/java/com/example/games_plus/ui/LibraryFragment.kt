@@ -1,6 +1,7 @@
 package com.example.games_plus.ui
 
 import android.annotation.SuppressLint
+import android.content.res.Resources
 import android.os.Bundle
 import android.os.Parcelable
 import androidx.fragment.app.Fragment
@@ -48,12 +49,19 @@ class LibraryFragment : Fragment() {
 
         OverScrollDecoratorHelper.setUpOverScroll(binding.recLibrary, OverScrollDecoratorHelper.ORIENTATION_VERTICAL)
 
+        val itemRecView1 = ItemLibrary(8.dpToPx())
+        binding.recLibrary.addItemDecoration(itemRecView1)
+
 
         addObservers()
         viewModel.loadFavoriteGames()
 
 
 
+    }
+
+    fun Int.dpToPx(): Int {
+        return (this * Resources.getSystem().displayMetrics.density).toInt()
     }
 
 

@@ -1,9 +1,12 @@
 package com.example.games_plus.ui
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.content.res.Resources
 import android.os.Build
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -12,10 +15,12 @@ import androidx.annotation.RequiresApi
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.RecyclerView
 import com.example.games_plus.R
 import com.example.games_plus.adapter.HomeAdapter
 import com.example.games_plus.adapter.HomeAdapter2
 import com.example.games_plus.adapter.MobileGamesAdapter
+import com.example.games_plus.adapter.NewsAdapter
 import com.example.games_plus.databinding.FragmentHomeBinding
 import com.example.games_plus.ui.viewmodels.AuthViewModel
 import com.example.games_plus.ui.viewmodels.MainViewModel
@@ -55,24 +60,50 @@ class HomeFragment : Fragment() {
         viewModel.loadFavoriteGames()
         addObservers()
 
-        val testPic = R.drawable.cyberpunk_2077_phantom_liberty_placeholder
+
+        val news = MainViewModel().loadNewsImages()
+        val viewPager = binding.viewPager
+        viewPager.adapter = NewsAdapter(news)
+
+        val indicator = binding.indicator
+        indicator.setViewPager(viewPager)
+        indicator.bringToFront()
+
+        val itemViewPager = ItemDecViewPager(8.dpToPx())
+        binding.viewPager.addItemDecoration(itemViewPager)
+
+        /*binding.viewPager.setPageTransformer { page, position ->
+            val offset = -8 * position.dpToPx(requireContext())
+            page.translationX = offset
+        }*/
 
 
-            binding.imageViewTest.setImageResource(testPic)
-
-        /*binding.imageViewXx.setImageResource(R.drawable.atomic_heart_cover_placeholder)*/
 
 
-        /*binding.nestedScrollView.setOnScrollChangeListener(NestedScrollView.OnScrollChangeListener { _, _, scrollY, _, _ ->
-            if (scrollY > 30) {
+        val recyclerView = (binding.viewPager.getChildAt(0) as RecyclerView)
+        OverScrollDecoratorHelper.setUpOverScroll(recyclerView, OverScrollDecoratorHelper.ORIENTATION_HORIZONTAL)
 
-                binding.customTitle.visibility = View.GONE
-            } else {
 
-                binding.customTitle.visibility = View.VISIBLE
-            }
-        })
-       */
+
+
+
+
+
+
+
+
+
+
+            /*binding.nestedScrollView.setOnScrollChangeListener(NestedScrollView.OnScrollChangeListener { _, _, scrollY, _, _ ->
+                if (scrollY > 30) {
+
+                    binding.customTitle.visibility = View.GONE
+                } else {
+
+                    binding.customTitle.visibility = View.VISIBLE
+                }
+            })
+           */
 
 
 
@@ -89,6 +120,20 @@ class HomeFragment : Fragment() {
 
 
     }
+
+
+
+
+
+
+
+    fun Float.dpToPx(context: Context): Float {
+        val metrics = context.resources.displayMetrics
+        return this * metrics.density
+    }
+
+
+
 
     private fun areAllDataListsLoaded(): Boolean {
         return viewModel.dataList.value != null && viewModel.dataListUpcomingGames.value != null && viewModel.dataListMobileGames.value != null
@@ -124,9 +169,9 @@ class HomeFragment : Fragment() {
         binding.tvBestGames.visibility = View.INVISIBLE
         binding.tvUpcomingGames.visibility = View.INVISIBLE
         binding.tvMobileGames.visibility = View.INVISIBLE
-        binding.imageViewTest.visibility = View.INVISIBLE
-        binding.cardTestPic.visibility = View.INVISIBLE
         binding.customTitle.visibility = View.INVISIBLE
+        binding.viewPager.visibility = View.INVISIBLE
+        binding.indicator.visibility = View.INVISIBLE
 
 
 
@@ -151,9 +196,9 @@ class HomeFragment : Fragment() {
                 binding.tvBestGames.visibility = View.VISIBLE
                 binding.tvUpcomingGames.visibility = View.VISIBLE
                 binding.tvMobileGames.visibility = View.VISIBLE
-                binding.imageViewTest.visibility = View.VISIBLE
-                binding.cardTestPic.visibility = View.VISIBLE
                 binding.customTitle.visibility = View.VISIBLE
+                binding.viewPager.visibility = View.VISIBLE
+                binding.indicator.visibility = View.VISIBLE
             }
         }
 
@@ -188,9 +233,9 @@ class HomeFragment : Fragment() {
                 binding.tvBestGames.visibility = View.VISIBLE
                 binding.tvUpcomingGames.visibility = View.VISIBLE
                 binding.tvMobileGames.visibility = View.VISIBLE
-                binding.imageViewTest.visibility = View.VISIBLE
-                binding.cardTestPic.visibility = View.VISIBLE
                 binding.customTitle.visibility = View.VISIBLE
+                binding.viewPager.visibility = View.VISIBLE
+                binding.indicator.visibility = View.VISIBLE
             }
 
         }
@@ -214,9 +259,9 @@ class HomeFragment : Fragment() {
                 binding.tvBestGames.visibility = View.VISIBLE
                 binding.tvUpcomingGames.visibility = View.VISIBLE
                 binding.tvMobileGames.visibility = View.VISIBLE
-                binding.imageViewTest.visibility = View.VISIBLE
-                binding.cardTestPic.visibility = View.VISIBLE
                 binding.customTitle.visibility = View.VISIBLE
+                binding.viewPager.visibility = View.VISIBLE
+                binding.indicator.visibility = View.VISIBLE
             }
 
         }
@@ -242,6 +287,41 @@ class HomeFragment : Fragment() {
 
 
 }
+
+
+
+
+
+
+
+
+
+
+    /*private val handler = Handler(Looper.getMainLooper())
+    private val runnable = object : Runnable {
+        override fun run() {
+            val currentPosition = binding.viewPager.currentItem
+            val nextPosition = if (currentPosition + 1 < (binding.viewPager.adapter?.itemCount ?: 0)) {
+                currentPosition + 1
+            } else {
+                0
+            }
+            binding.viewPager.setCurrentItem(nextPosition, true)
+            handler.postDelayed(this, 6000)
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        binding.viewPager.setCurrentItem(0, true)
+        handler.postDelayed(runnable, 8000)
+    }
+
+    override fun onPause() {
+        super.onPause()
+        handler.removeCallbacks(runnable)
+    }*/
+
 
 
 

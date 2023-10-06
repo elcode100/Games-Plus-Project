@@ -9,6 +9,7 @@ import com.bumptech.glide.Glide
 import com.example.games_plus.R
 import com.example.games_plus.data.model.Game
 import com.example.games_plus.databinding.GameTitlesItem2Binding
+import com.example.games_plus.ui.HomeFragmentDirections
 import com.example.games_plus.ui.viewmodels.MainViewModel
 
 class HomeAdapter2(var dataset2: List<Game>, private val viewModel: MainViewModel) : RecyclerView.Adapter<HomeAdapter2.HomeAdapter2ViewHolder>() {
@@ -37,14 +38,26 @@ class HomeAdapter2(var dataset2: List<Game>, private val viewModel: MainViewMode
             }
 
 
-            holder.binding.ivGameTitleImage.setOnClickListener {
+            /*holder.binding.ivGameTitleImage.setOnClickListener {
                 viewModel.updateResult(item)
                 val navController = holder.itemView.findNavController()
                 navController.navigate(R.id.detailFragment)
 
 
 
-            }
+            }*/
+
+
+        holder.binding.ivGameTitleImage.setOnClickListener {
+            viewModel.updateResult(item)
+            val navController = holder.itemView.findNavController()
+            navController.navigate(HomeFragmentDirections.actionNavigationHomeToDetailFragment())
+
+
+
+
+
+        }
             
             
             

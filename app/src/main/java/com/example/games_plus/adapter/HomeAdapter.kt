@@ -10,7 +10,7 @@ import com.example.games_plus.R
 import com.example.games_plus.ui.viewmodels.MainViewModel
 import com.example.games_plus.data.model.Game
 import com.example.games_plus.databinding.GameTitlesItemBinding
-
+import com.example.games_plus.ui.HomeFragmentDirections
 
 
 class HomeAdapter(private val context: Context, var dataset: List<Game>, private val viewModel: MainViewModel) : RecyclerView.Adapter<HomeAdapter.GameTitlesViewHolder>() {
@@ -40,10 +40,22 @@ class HomeAdapter(private val context: Context, var dataset: List<Game>, private
         }
 
 
-        holder.binding.ivGameTitleImage.setOnClickListener {
+        /*holder.binding.ivGameTitleImage.setOnClickListener {
             viewModel.updateResult(item)
             val navController = holder.itemView.findNavController()
             navController.navigate(R.id.detailFragment)
+
+
+
+
+
+        }*/
+
+
+        holder.binding.ivGameTitleImage.setOnClickListener {
+            viewModel.updateResult(item)
+            val navController = holder.itemView.findNavController()
+            navController.navigate(HomeFragmentDirections.actionNavigationHomeToDetailFragment())
 
 
 

@@ -3,10 +3,18 @@ package com.example.games_plus.ui
 import android.annotation.SuppressLint
 import android.content.res.Configuration
 import android.content.res.Resources
+import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
 import android.text.Html
+import android.text.SpannableString
+import android.text.SpannableStringBuilder
+import android.text.Spanned
+import android.text.TextPaint
 import android.text.method.LinkMovementMethod
+import android.text.style.ClickableSpan
+import android.text.style.ForegroundColorSpan
+import android.text.style.RelativeSizeSpan
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -26,8 +34,10 @@ import com.example.games_plus.ui.viewmodels.MainViewModel
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import org.jsoup.Jsoup
 
 class DetailFragment : Fragment() {
@@ -73,7 +83,7 @@ class DetailFragment : Fragment() {
 
             binding.tvDetailGuid.text = it.guid
 
-            val document = Jsoup.parse(it.description?.trim() ?: "")
+            /*val document = Jsoup.parse(it.description?.trim() ?: "")
             document.select("a").forEach { aTag ->
                 val href = aTag.attr("href")
                 if (href.startsWith("/")) {
@@ -89,7 +99,114 @@ class DetailFragment : Fragment() {
 
             val cleanedHtml = document.html()
             binding.tvDescription.text = Html.fromHtml(cleanedHtml, Html.FROM_HTML_MODE_LEGACY)
-            binding.tvDescription.movementMethod = LinkMovementMethod.getInstance()
+            binding.tvDescription.movementMethod = LinkMovementMethod.getInstance()*/
+
+            /*lifecycleScope.launch(Dispatchers.IO) {
+                val document = Jsoup.parse(it.description?.trim() ?: "")
+
+                document.select("a").forEach { aTag ->
+                    val href = aTag.attr("href")
+                    if (href.startsWith("/")) {
+                        aTag.attr("href", "https://www.giantbomb.com$href")
+                    }
+                    if (aTag.text().trim().isEmpty()) {
+                        aTag.remove()
+                    }
+                }
+
+                val cleanedHtml = document.html()
+                val spanned = Html.fromHtml(cleanedHtml, Html.FROM_HTML_MODE_LEGACY)
+
+                withContext(Dispatchers.Main) {
+                    binding.tvDescription.text = spanned
+                    binding.tvDescription.movementMethod = LinkMovementMethod.getInstance()
+                }
+            }*/
+
+
+            /*lifecycleScope.launch(Dispatchers.IO) {
+                val document = Jsoup.parse(it.description?.trim() ?: "")
+
+                document.select("a").forEach { aTag ->
+                    val href = aTag.attr("href")
+                    if (href.startsWith("/")) {
+                        aTag.attr("href", "https://www.giantbomb.com$href")
+                    }
+                    if (aTag.text().trim().isEmpty()) {
+                        aTag.remove()
+                    }
+                }
+
+                val cleanedHtml = document.html()
+                val fullSpanned = Html.fromHtml(cleanedHtml, Html.FROM_HTML_MODE_LEGACY)
+
+                withContext(Dispatchers.Main) {
+
+                    val maxLength = 200
+                    if (fullSpanned.length > maxLength) {
+                        val shortenedSpanned = SpannableStringBuilder(fullSpanned, 0, maxLength)
+                        shortenedSpanned.append("...")
+                        binding.tvDescription.text = shortenedSpanned
+                    } else {
+                        binding.tvDescription.text = fullSpanned
+                    }
+                    binding.tvDescription.movementMethod = LinkMovementMethod.getInstance()
+                }
+            }*/
+
+            lifecycleScope.launch(Dispatchers.IO) {
+                val document = Jsoup.parse(it.description?.trim() ?: "")
+
+                document.select("a").forEach { aTag ->
+                    val href = aTag.attr("href")
+                    if (href.startsWith("/")) {
+                        aTag.attr("href", "https://www.giantbomb.com$href")
+                    }
+                    if (aTag.text().trim().isEmpty()) {
+                        aTag.remove()
+                    }
+                }
+
+                val cleanedHtml = document.html()
+                val fullSpanned = Html.fromHtml(cleanedHtml, Html.FROM_HTML_MODE_LEGACY)
+
+                val clickableSpan: ClickableSpan = object : ClickableSpan() {
+                    override fun onClick(widget: View) {
+
+                        binding.tvDescription.text = fullSpanned
+                        binding.tvDescription.movementMethod = LinkMovementMethod.getInstance()
+                    }
+
+                    override fun updateDrawState(ds: TextPaint) {
+                        super.updateDrawState(ds)
+                        ds.isUnderlineText = false
+                    }
+                }
+
+                withContext(Dispatchers.Main) {
+                    val maxLength = 150
+                    if (fullSpanned.length > maxLength) {
+                        val shortenedSpanned = SpannableStringBuilder(fullSpanned, 0, maxLength)
+                        val moreText = "...more"
+                        val spannableMore = SpannableString(moreText)
+                        spannableMore.setSpan(ForegroundColorSpan(Color.GRAY), 0, moreText.length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+                        spannableMore.setSpan(RelativeSizeSpan(0.8f), 0, moreText.length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+                        spannableMore.setSpan(clickableSpan, 0, moreText.length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+                        shortenedSpanned.append(spannableMore)
+                        binding.tvDescription.text = shortenedSpanned
+                        binding.tvDescription.movementMethod = LinkMovementMethod.getInstance()
+                    } else {
+                        binding.tvDescription.text = fullSpanned
+                    }
+                }
+            }
+
+
+
+
+
+
+
 
             val youtubeIds = viewModel.assignYouTubeIdsToGame(it).youtubeId
             val youtubeId = if (youtubeIds.isNotEmpty()) youtubeIds[0] else null
@@ -115,6 +232,8 @@ class DetailFragment : Fragment() {
             }
         }
     }
+
+
 
     private fun thumbButtons() {
         val selectedGame = viewModel.currentResult.value

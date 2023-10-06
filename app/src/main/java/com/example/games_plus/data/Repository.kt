@@ -1,35 +1,30 @@
 package com.example.games_plus.data
 
-import android.content.ContentValues.TAG
 import android.os.Build
 import android.util.Log
 import androidx.annotation.RequiresApi
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.example.games_plus.data.remote.GamesApi
+import com.example.games_plus.data.api.GamesApi
 import com.example.games_plus.data.model.Game
-import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.ListenerRegistration
-import com.squareup.moshi.JsonDataException
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 import kotlinx.coroutines.awaitAll
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.delay
-import kotlinx.coroutines.tasks.await
 import kotlinx.coroutines.withContext
 import retrofit2.HttpException
 
 class Repository(private val api: GamesApi) {
 
 
-    private val _gameResult = MutableLiveData<MutableList<Game>>(mutableListOf())
+    /*private val _gameResult = MutableLiveData<MutableList<Game>>(mutableListOf())
     val gameResult: LiveData<MutableList<Game>>
-        get() = _gameResult
-
-    /*private val _gameResult = MutableLiveData<List<Game>>()
-    val gameResult: LiveData<List<Game>>
         get() = _gameResult*/
+
+    private val _gameResult = MutableLiveData<List<Game>>()
+    val gameResult: LiveData<List<Game>>
+        get() = _gameResult
 
 
     /*private val _upcomingGameResult = MutableLiveData<MutableList<Game>>(mutableListOf())
@@ -64,36 +59,10 @@ class Repository(private val api: GamesApi) {
     private val favGames = "id:$cyberpunk2077|$witcher3|$massEffectLegendary|$gta5|51351|38456|78695|52647|78967|$bioShockInfinite|80641|68449|61028"
 
 
-   /* suspend fun getAllGames() {
-        try {
 
-            val gamesFromApi = api.retrofitService.getRecentGames().results
-            val favGames = api.retrofitService.getRecentGames(filter = favGames).results
-            val allGames = favGames + gamesFromApi
-
-
-            allGames.map { game ->
-                val genreResponse = api.retrofitService.getGameGenres(game.guid)
-                game.genres = genreResponse.results.genres
-
-            }
-
-
-            _gameResult.postValue(allGames)
-
-            for ((index, game) in (allGames).withIndex()) {
-                Log.d("BEST GAME", "${index + 1}. ${game.name}")
-            }
-        } catch (e: Exception) {
-            Log.e("BEST GAME LOADING ERROR", "Error fetching game results: ${e.message}")
-
-        }
-    }*/
-
-
-    suspend fun getAllGames() {
+    /*suspend fun getAllGames(){
         coroutineScope {
-            var allGames: List<Game> = listOf()
+            var allGames : List<Game> = listOf()
             async {
                 val gamesFromApi = api.retrofitService.getRecentGames().results
                 val favGames = api.retrofitService.getRecentGames(filter = favGames).results
@@ -108,12 +77,12 @@ class Repository(private val api: GamesApi) {
         }
     }
 
-    suspend fun getGenreDataForGameList(gameList: List<Game>) {
+    suspend fun getGenreDataForGameList(gameList : List<Game>) {
         coroutineScope {
             gameList.map {
                 async {
                     val game = getGenreDataForGame(it)
-                    withContext(Dispatchers.Main) {
+                    withContext(Dispatchers.Main){
                         _gameResult.value?.add(game)
                         _gameResult.postValue(_gameResult.value)
 
@@ -123,9 +92,45 @@ class Repository(private val api: GamesApi) {
         }
     }
 
-    suspend fun getGenreDataForGame(game: Game): Game {
+    suspend fun getGenreDataForGame(game: Game) : Game{
         game.genres = api.retrofitService.getGameGenres(game.guid).results.genres
         return game
+    }*/
+
+
+
+    suspend fun getAllGames() {
+        try {
+
+            val gamesFromApi = api.retrofitService.getRecentGames().results
+            val favGames = api.retrofitService.getRecentGames(filter = favGames).results
+            val allGames = favGames + gamesFromApi
+
+
+            /*allGames.map { game ->
+                val genreResponse = api.retrofitService.getGameGenres(game.guid)
+                game.genres = genreResponse.results.genres
+
+            }*/
+
+
+            _gameResult.postValue(allGames)
+
+            for ((index, game) in (allGames).withIndex()) {
+                Log.d("BEST GAME", "${index + 1}. ${game.name}")
+            }
+        } catch (e: Exception) {
+            Log.e("BEST GAME LOADING ERROR", "Error fetching game results: ${e.message}")
+
+        }
+    }
+
+
+    suspend fun loadGenresForAllGames(allGames: List<Game>) {
+        allGames.map { game ->
+            val genreResponse = api.retrofitService.getGameGenres(game.guid)
+            game.genres = genreResponse.results.genres
+        }
     }
 
 
@@ -134,9 +139,7 @@ class Repository(private val api: GamesApi) {
 
 
 
-
-
-    private val specUpcomingGames = "id:81572|79858|32327"
+    private val specUpcomingGames = "id:81572|32327" /*79858|*/
 
 
     /*@RequiresApi(Build.VERSION_CODES.O)
@@ -186,9 +189,12 @@ class Repository(private val api: GamesApi) {
 
 
              try {
-                 val gamesFromApi = api.retrofitService.getUpcomingGames().results
+                 /*val gamesFromApi = api.retrofitService.getUpcomingGames().results
                  val specUpcomingGames = api.retrofitService.getUpcomingGames(filter = specUpcomingGames).results
-                 val allUpcomingGames = specUpcomingGames + gamesFromApi
+                 val allUpcomingGames = specUpcomingGames + gamesFromApi*/
+
+                 val upcomingGames = api.retrofitService.getUpcomingGames().results
+
 
                  /*for (game in allUpcomingGames) {
                      try {
@@ -200,9 +206,9 @@ class Repository(private val api: GamesApi) {
 
                  }*/
 
-                 _upcomingGameResult.postValue(allUpcomingGames)
+                 _upcomingGameResult.postValue(upcomingGames)
 
-                 for ((index, game) in (allUpcomingGames).withIndex()) {
+                 for ((index, game) in (upcomingGames).withIndex()) {
                      Log.d("UPCOMING GAME", "${index + 1}. ${game.name}")
                  }
 

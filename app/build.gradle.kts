@@ -110,7 +110,8 @@ dependencies {
 
     implementation ("com.google.code.gson:gson:2.8.8")
 
-    
+
+    implementation ("me.relex:circleindicator:2.1.6")
 
 
 

@@ -1,4 +1,4 @@
-package com.example.games_plus.data.remote
+package com.example.games_plus.data.api
 
 import android.os.Build
 import androidx.annotation.RequiresApi
@@ -45,7 +45,7 @@ interface GamesApiService {
     suspend fun getRecentGames(
         @Query("api_key") apiKey: String = API_KEY,
         @Query("format") format: String = "json",
-        @Query("field_list") fields: String = "id,name,description,image,guid",
+        @Query("field_list") fields: String = "id,name,description,image,guid,original_release_date",
         @Query("filter") filter: String = "original_release_date:2010-01-01|2023-01-01",
         @Query("sort") sort: String = "rating:desc",
         @Query("limit") limit: Int = 87
@@ -84,8 +84,9 @@ interface GamesApiService {
         @Query("format") format: String = "json",
         @Query("field_list") fields: String = "id,name,description,image,guid,original_release_date",
         @Query("filter") filter: String = "original_release_date:$today|$endDate",
-        @Query("sort") sort: String = "original_release_date:asc",
-        @Query("limit") limit: Int = 97
+        /*@Query("sort") sort: String = "original_release_date:asc",*/
+        @Query("sort") sort: String = "rating:desc",
+        @Query("limit") limit: Int = 100
     ): GameResponse
 
 
