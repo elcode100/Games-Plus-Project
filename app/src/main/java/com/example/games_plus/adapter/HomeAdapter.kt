@@ -36,24 +36,16 @@ class HomeAdapter(private val context: Context, var dataset: List<Game>, private
 
             Glide.with(ivGameTitleImage).load(imageUrl).into(ivGameTitleImage)
 
-            /*tvGameTitle.text = item.name*/
+
         }
 
 
-        /*holder.binding.ivGameTitleImage.setOnClickListener {
-            viewModel.updateResult(item)
-            val navController = holder.itemView.findNavController()
-            navController.navigate(R.id.detailFragment)
 
-
-
-
-
-        }*/
 
 
         holder.binding.ivGameTitleImage.setOnClickListener {
             viewModel.updateResult(item)
+            viewModel.loadGenresForSelectedGame(item)
             val navController = holder.itemView.findNavController()
             navController.navigate(HomeFragmentDirections.actionNavigationHomeToDetailFragment())
 
@@ -71,10 +63,19 @@ class HomeAdapter(private val context: Context, var dataset: List<Game>, private
 
 
 
+/*tvGameTitle.text = item.name*/
+
+
+/*holder.binding.ivGameTitleImage.setOnClickListener {
+            viewModel.updateResult(item)
+            val navController = holder.itemView.findNavController()
+            navController.navigate(R.id.detailFragment)
 
 
 
 
+
+        }*/
 
 
 

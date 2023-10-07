@@ -50,6 +50,7 @@ class MobileGamesAdapter(var dataset3: List<Game>, private val viewModel: MainVi
 
         holder.binding.ivGameTitleImage.setOnClickListener {
             viewModel.updateResult(item)
+            viewModel.loadGenresForSelectedGame(item)
             val navController = holder.itemView.findNavController()
             navController.navigate(HomeFragmentDirections.actionNavigationHomeToDetailFragment())
 

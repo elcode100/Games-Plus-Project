@@ -397,7 +397,7 @@ class DetailFragment : Fragment() {
 
 
 
-/*val genreNames = it.genres?.joinToString(", ") { genre -> genre.name } ?: "Kein Genre verfügbar"
+/*val genreNames = it.genres?.joinToString(", ") { genre -> genre.name } ?: "No Genre"
 binding.tvDetailGenre.text = genreNames*/
 
 

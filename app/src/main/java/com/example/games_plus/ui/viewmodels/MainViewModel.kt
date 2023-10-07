@@ -69,13 +69,6 @@ class MainViewModel: ViewModel() {
     }
 
 
-    fun onUserAction() {
-        viewModelScope.launch {
-            repository.loadGenresForAllGames(dataList.value ?: emptyList())
-        }
-    }
-
-
 
 
 
@@ -145,6 +138,27 @@ class MainViewModel: ViewModel() {
     fun updateResult(result: Game) {
         _currentResult.value = result
     }
+
+    fun loadGenresForSelectedGame(game: Game) {
+        viewModelScope.launch {
+            try {
+                val gameWithGenres = repository.loadGenresForGame(game)
+                _currentResult.value = gameWithGenres
+            } catch (e: Exception) {
+
+                Log.e(TAG, "Error loading genre for selected game: ${e.message}", e)
+            }
+        }
+    }
+
+
+
+
+
+
+
+
+
 
 
 

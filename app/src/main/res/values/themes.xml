@@ -9,5 +9,5 @@
         <item name="itemTextColor">@drawable/bottom_navigation_item_selector</item>
     </style>
 
-    <style name="Theme.EduardApp" parent="Base.Theme.games_plus" />
+    <style name="Theme.GamesPlus" parent="Base.Theme.games_plus" />
 </resources>

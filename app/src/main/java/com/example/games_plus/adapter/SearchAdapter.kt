@@ -37,6 +37,7 @@ class SearchAdapter(private val context: Context, var dataset: List<Game>, priva
         holder.binding.cardSearchResult.setOnClickListener {
 
             viewModel.updateResult(item)
+            viewModel.loadGenresForSelectedGame(item)
             val navController = holder.itemView.findNavController()
             navController.navigate(R.id.detailFragment)
 
