@@ -34,13 +34,19 @@ class MainViewModel: ViewModel() {
     val dataListVideos = repository.videoResult
 
 
-    private val _currentResult = MutableLiveData<Game>()
-    val currentResult: LiveData<Game>
-        get() = _currentResult
+    private val _currentGame = MutableLiveData<Game>()
+    val currentGame: LiveData<Game>
+        get() = _currentGame
 
     private val _favoriteGames = MutableLiveData<List<Game>>()
     val favoriteGames: LiveData<List<Game>>
         get() = _favoriteGames
+
+
+
+    private val _currentVideo = MutableLiveData<VideoDetail>()
+    val currentVideo: LiveData<VideoDetail>
+        get() = _currentVideo
 
 
 
@@ -63,9 +69,7 @@ class MainViewModel: ViewModel() {
 
 
 
-    private val _currentVideo = MutableLiveData<VideoDetail>()
-    val currentVideo: LiveData<VideoDetail>
-        get() = _currentVideo
+
 
 
 
@@ -164,7 +168,7 @@ class MainViewModel: ViewModel() {
         viewModelScope.launch {
 
             try {
-                _currentResult.value?.guid?.let { repository.getVideoDetails(it) }
+                _currentGame.value?.guid?.let { repository.getVideoDetails(it) }
             } catch (e: Exception) {
 
                 Log.e(TAG, "ERROR LOADING VIDEOS FOR GAME")
@@ -240,7 +244,7 @@ class MainViewModel: ViewModel() {
 
 
     fun updateResult(result: Game) {
-        _currentResult.value = result
+        _currentGame.value = result
     }
 
 
@@ -249,10 +253,24 @@ class MainViewModel: ViewModel() {
         viewModelScope.launch {
             try {
                 val genresForGame = repository.loadGenresForGame(game)
-                _currentResult.value = genresForGame
+                _currentGame.value = genresForGame
             } catch (e: Exception) {
 
                 Log.e(TAG, "Error loading genre for selected game: ${e.message}", e)
+            }
+        }
+    }
+
+
+
+    fun loadDevelopersForSelectedGame(game: Game) {
+        viewModelScope.launch {
+            try {
+                val developersForGame = repository.loadDevelopersForGame(game)
+                _currentGame.value = developersForGame
+            } catch (e: Exception) {
+
+                Log.e(TAG, "Error loading developer for selected game: ${e.message}", e)
             }
         }
     }

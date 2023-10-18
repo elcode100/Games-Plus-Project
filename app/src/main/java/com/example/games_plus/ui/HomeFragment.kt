@@ -280,7 +280,7 @@ class HomeFragment : Fragment() {
 
             val indicator = binding.indicator
             indicator.setViewPager(viewPager)
-            indicator.bringToFront()
+            /*indicator.bringToFront()*/
 
 
 

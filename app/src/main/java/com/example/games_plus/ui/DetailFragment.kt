@@ -85,14 +85,18 @@ class DetailFragment : Fragment() {
 
 
 
-        viewModel.currentResult.observe(viewLifecycleOwner) {
+        viewModel.currentGame.observe(viewLifecycleOwner) {
             binding.tvGameTitle.text = it.name
 
-            val genreNames = it.genres?.joinToString(", ") { genre -> genre.name } ?: "No Genre"
+            val genreNames = it.genres?.joinToString(", ") { genre -> genre.name } ?: "-"
             binding.tvDetailGenre.text = genreNames
 
-            val platformNames = it.platforms?.joinToString(", ") { platform -> platform.abbreviation.toString() } ?: "No Platform"
+            val platformNames = it.platforms?.joinToString(", ") { platform -> platform.abbreviation.toString() } ?: "-"
             binding.tvDetailPlatforms.text = platformNames
+
+
+            val developerNames = it.developers?.joinToString(", ") { developer -> developer.name } ?: "-"
+            binding.tvDetailDeveloper.text = developerNames
 
             binding.tvDetailGuid.text = it.guid
 
@@ -194,7 +198,7 @@ class DetailFragment : Fragment() {
 
 
     private fun thumbButtons() {
-        val selectedGame = viewModel.currentResult.value
+        val selectedGame = viewModel.currentGame.value
 
 
         val isFavored = selectedGame?.let { viewModel.isGameFavored(it.id) } ?: false

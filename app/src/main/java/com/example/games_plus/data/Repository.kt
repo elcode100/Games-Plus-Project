@@ -8,6 +8,7 @@ import androidx.annotation.RequiresApi
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.games_plus.data.api.GamesApi
+import com.example.games_plus.data.models.developers.Developer
 import com.example.games_plus.data.models.games.Game
 import com.example.games_plus.data.models.genres.Genre
 import com.example.games_plus.data.models.reviews.UserReview
@@ -54,6 +55,7 @@ class Repository(private val api: GamesApi) {
 
     private val videoDetailsMap: MutableMap<String, List<VideoDetail>> = mutableMapOf()
     private val loadedGenresMap = mutableMapOf<String, List<Genre>>()
+    private val loadedDevelopersMap = mutableMapOf<String, List<Developer>>()
 
 
 
@@ -347,6 +349,30 @@ class Repository(private val api: GamesApi) {
                 } catch (e: Exception) {
                     Log.e(ContentValues.TAG, "Error Loading Genre: ${e.message}", e)
                     game.genres = emptyList()
+                }
+            }
+
+            game
+        }
+    }
+
+
+    suspend fun loadDevelopersForGame(game: Game): Game {
+        return coroutineScope {
+            val gameId = game.id.toString()
+
+            if (loadedDevelopersMap.containsKey(gameId)) {
+
+                game.developers = loadedDevelopersMap[gameId] ?: emptyList()
+            } else {
+                try {
+                    val developerResponse = api.retrofitService.getGameDevelopers(game.guid)
+                    game.developers = developerResponse.results.developers
+
+                    game.developers?.let { loadedDevelopersMap[gameId] = it }
+                } catch (e: Exception) {
+                    Log.e(ContentValues.TAG, "Error Loading Developer: ${e.message}", e)
+                    game.developers = emptyList()
                 }
             }
 

@@ -34,7 +34,7 @@ class RepositoryNews(private val api: NewsApi) {
                 _articleResult.postValue(articles)
 
                 for ((index, article) in articles.withIndex()) {
-                    val categories = article.categories.joinToString(", ") { "${it.name}(${it.id})" }
+                    val categories = article.categories?.joinToString(", ") { "${it.name}(${it.id})" }
                     Log.d("ARTICLE", "${index + 1}. ${article.title}: ${article.publishDate}, CATEGORIES: $categories")
                 }
 

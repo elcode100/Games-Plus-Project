@@ -1,5 +1,6 @@
 package com.example.games_plus.data.models.games
 
+import com.example.games_plus.data.models.developers.Developer
 import com.example.games_plus.data.models.genres.Genre
 import com.example.games_plus.data.models.platforms.Platform
 import com.squareup.moshi.Json
@@ -12,6 +13,7 @@ data class Game(
     val deck: String? = "",
     val image: ImageDetail? = null,
     var genres: List<Genre>? = listOf(),
+    var developers: List<Developer>? = listOf(),
     val platforms: List<Platform>? = listOf(),
     @Json(name = "original_release_date") val originalReleaseDate: String? = "",
     @Json(name = "expected_release_day") val expectedReleaseDay: Int? = 0,

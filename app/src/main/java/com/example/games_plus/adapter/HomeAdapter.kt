@@ -67,6 +67,7 @@ class HomeAdapter(var dataset: List<Game>, private val viewModel: MainViewModel)
                 it.isClickable = false
                 viewModel.updateResult(item)
                 viewModel.loadGenresForSelectedGame(item)
+                viewModel.loadDevelopersForSelectedGame(item)
 
                 val navController = holder.itemView.findNavController()
                 navController.navigate(HomeFragmentDirections.actionNavigationHomeToDetailFragment())

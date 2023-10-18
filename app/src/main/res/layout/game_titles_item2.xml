@@ -32,8 +32,8 @@
 
             <ImageView
                 android:id="@+id/iv_game_title_image"
-                android:layout_width="150dp"
-                android:layout_height="200dp"
+                android:layout_width="140dp"
+                android:layout_height="180dp"
                 android:antialias="true"
                 android:scaleType="fitXY"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -55,7 +55,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:ellipsize="end"
-        android:maxWidth="150dp"
+        android:maxWidth="140dp"
         android:maxLines="1"
         android:text="The Witcher 3: Wild Hunt"
         android:textColor="@color/black"
@@ -71,6 +71,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
         android:text="2023-09-19"
+        android:textColor="@color/ios_grey"
         android:textSize="12sp"
         app:layout_constraintStart_toStartOf="@+id/tv_game_title"
         app:layout_constraintTop_toBottomOf="@+id/tv_game_title" />

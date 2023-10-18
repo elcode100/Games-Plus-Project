@@ -43,7 +43,7 @@ class DescriptionFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.progressBarDescription.visibility = View.VISIBLE
-        viewModel.currentResult.observe(viewLifecycleOwner) {
+        viewModel.currentGame.observe(viewLifecycleOwner) {
             binding.tvGameTitleBtnBack.text = it.name
 
             lifecycleScope.launch(Dispatchers.IO) {

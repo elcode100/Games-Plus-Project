@@ -40,7 +40,7 @@ interface NewsApiService {
         @Query("api_key") apiKey: String = API_KEY_NEWS,
         @Query("format") format: String = "json",
         @Query("field_list") fields: String = "id,authors,title,deck,lede,body,image,categories,publish_date,update_date,site_detail_url",
-        @Query("limit") limit: Int = 80,
+        @Query("limit") limit: Int = 50,
         @Query("filter") filter: String = dateFilter,
         @Query("sort") sort: String = "publish_date:desc"
     ): ArticleResponse

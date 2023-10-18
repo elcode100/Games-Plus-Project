@@ -1,43 +1,140 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.google.android.material.card.MaterialCardView
-
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_marginTop="8dp"
-    android:layout_marginBottom="8dp"
+    android:id="@+id/article_card"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:cardCornerRadius="8dp"
-    app:cardElevation="2dp"
-    android:layerType="hardware">
-
-
+    android:layout_marginTop="8dp">
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
+        <com.google.android.material.card.MaterialCardView
 
-        <ImageView
-            android:id="@+id/iv_news_headline_image"
+            android:id="@+id/materialCardView"
             android:layout_width="match_parent"
-            android:layout_height="280dp"
-            android:scaleType="fitXY"
-            android:antialias="true"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_height="wrap_content"
+            android:layerType="hardware"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="2dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/atomic_heart_cover_placeholder" />
+            app:strokeColor="@color/ios_grey"
+            app:strokeWidth="0.8dp">
 
 
+            <ImageView
+                android:id="@+id/iv_news_headline_image"
+                android:layout_width="match_parent"
+                android:layout_height="230dp"
+                android:antialias="true"
+                android:scaleType="fitXY"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/atomic_heart_cover_placeholder" />
 
+
+        </com.google.android.material.card.MaterialCardView>
+
+
+        <TextView
+            android:id="@+id/tv_article_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:ellipsize="end"
+            android:gravity="start"
+            android:maxLines="1"
+            android:text="Title"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/materialCardView"
+            app:layout_constraintTop_toBottomOf="@+id/materialCardView" />
+
+
+        <TextView
+            android:id="@+id/tv_publish_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="2023-09-19"
+            android:textColor="@color/ios_grey"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="@+id/tv_article_title"
+            app:layout_constraintTop_toBottomOf="@+id/tv_article_title" />
+
+        <TextView
+            android:id="@+id/tv_publishes_by"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="By"
+            android:textColor="@color/ios_grey"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="@+id/materialCardView"
+            app:layout_constraintTop_toTopOf="@+id/tv_publish_date" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
+</androidx.constraintlayout.widget.ConstraintLayout>
 
 
-</com.google.android.material.card.MaterialCardView>
+
+
+
+
+    <!--
+    <com.google.android.material.card.MaterialCardView
+
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="2dp"
+        android:layerType="hardware">
+
+
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <ImageView
+                android:id="@+id/iv_news_headline_image"
+                android:layout_width="match_parent"
+                android:layout_height="280dp"
+                android:scaleType="fitXY"
+                android:antialias="true"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/atomic_heart_cover_placeholder" />
+
+
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+    </com.google.android.material.card.MaterialCardView>-->
+
+

@@ -35,8 +35,8 @@
                 android:id="@+id/customTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Top Games"
-                android:textSize="30dp"
+                android:text="Home"
+                android:textSize="26sp"
                 android:layout_marginStart="8dp"
                 android:gravity="center"
                 android:textStyle="bold"
@@ -57,7 +57,7 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <com.factor.bouncy.BouncyNestedScrollView
+    <androidx.core.widget.NestedScrollView
         android:id="@+id/scroll_view_home"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -75,16 +75,20 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="260dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="8dp">
 
-                <me.relex.circleindicator.CircleIndicator3
+                <!--<me.relex.circleindicator.CircleIndicator3
                     android:id="@+id/indicator"
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
                     app:layout_constraintBottom_toBottomOf="@id/viewPager"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent" />
+                    app:layout_constraintStart_toStartOf="parent" />-->
+
+
+
+
 
 
                 <androidx.viewpager2.widget.ViewPager2
@@ -104,17 +108,26 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
 
+            <me.relex.circleindicator.CircleIndicator3
+                android:id="@+id/indicator"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                app:layout_constraintTop_toBottomOf="@id/viewPager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:ci_drawable="@drawable/selected_dot"
+                app:ci_drawable_unselected="@drawable/unselected_dot" />
+
+
 
             <TextView
                 android:id="@+id/tv_best_games"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingStart="16dp"
-                android:layout_marginTop="16dp"
                 android:text="Best Games"
-                android:fontFamily="sans-serif-condensed"
                 android:textColor="@color/black"
-                android:textSize="18sp"
+                android:textSize="16sp"
                 android:textStyle="bold" />
 
             <androidx.recyclerview.widget.RecyclerView
@@ -133,11 +146,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingStart="16dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="8dp"
                 android:text="Upcoming Games"
-                android:fontFamily="sans-serif-condensed"
                 android:textColor="@color/black"
-                android:textSize="18sp"
+                android:textSize="16sp"
                 android:textStyle="bold" />
 
             <androidx.recyclerview.widget.RecyclerView
@@ -156,11 +168,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingStart="16dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="8dp"
                 android:text="Mobile Games"
-                android:fontFamily="sans-serif-condensed"
                 android:textColor="@color/black"
-                android:textSize="18sp"
+                android:textSize="16sp"
                 android:textStyle="bold" />
 
 
@@ -179,7 +190,7 @@
 
 
         </LinearLayout>
-    </com.factor.bouncy.BouncyNestedScrollView>
+    </androidx.core.widget.NestedScrollView>
 
     <ProgressBar
         android:id="@+id/progressBar"

@@ -53,7 +53,7 @@ class VideosFragment : Fragment() {
         }
 
 
-        viewModel.currentResult.observe(viewLifecycleOwner) {
+        viewModel.currentGame.observe(viewLifecycleOwner) {
             binding.tvGameTitleBtnBack.text = it.name
         }
 

@@ -3,6 +3,7 @@ package com.example.games_plus.data.api
 import android.os.Build
 import androidx.annotation.RequiresApi
 import com.example.games_plus.data.API_KEY
+import com.example.games_plus.data.models.developers.DeveloperResponse
 import com.example.games_plus.data.models.games.GameResponse
 import com.example.games_plus.data.models.genres.GenreResponse
 import com.example.games_plus.data.models.reviews.UserReviewResponse
@@ -96,6 +97,15 @@ interface GamesApiService {
         @Query("format") format: String = "json",
         @Query("field_list") fields: String = "genres"
     ): GenreResponse
+
+
+    @GET("game/{guid}/")
+    suspend fun getGameDevelopers(
+        @Path("guid") guid: String,
+        @Query("api_key") apiKey: String = API_KEY,
+        @Query("format") format: String = "json",
+        @Query("field_list") fields: String = "developers"
+    ): DeveloperResponse
 
 
     @GET("game/{guid}/")

@@ -24,7 +24,7 @@
         <ImageView
             android:id="@+id/iv_article_image"
             android:layout_width="match_parent"
-            android:layout_height="260dp"
+            android:layout_height="240dp"
             android:antialias="true"
             android:scaleType="fitXY"
             app:layout_constraintEnd_toEndOf="parent"
@@ -38,23 +38,41 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
-            android:layout_marginBottom="16dp"
             android:ellipsize="end"
-            android:gravity="center"
+            android:gravity="start"
             android:maxLines="2"
             android:text="Title"
             android:textColor="@color/black"
             android:textSize="16sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/iv_article_image" />
 
+        <TextView
+            android:id="@+id/tv_publish_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="8dp"
+            android:text="2023-09-19"
+            android:textColor="@color/ios_grey"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/tv_article_title"
+            app:layout_constraintTop_toBottomOf="@+id/tv_article_title" />
 
-
+        <TextView
+            android:id="@+id/tv_publishes_by"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="By"
+            android:textColor="@color/ios_grey"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="@+id/tv_article_title"
+            app:layout_constraintTop_toTopOf="@+id/tv_publish_date" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

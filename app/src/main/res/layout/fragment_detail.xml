@@ -613,16 +613,16 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:text="Screenshots"
-                android:textSize="14sp"
                 android:textColor="@color/ios_grey"
+                android:textSize="14sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_screenshots_count" />
+                app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
 
 
 
 
-            <TextView
+           <!-- <TextView
                 android:id="@+id/tv_screenshots_count"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -634,18 +634,20 @@
                 app:layout_constraintEnd_toEndOf="@+id/tv_screenshots"
                 app:layout_constraintStart_toStartOf="@+id/tv_screenshots"
                 app:layout_constraintTop_toBottomOf="@+id/view_1" />
-
+-->
             <ImageView
                 android:id="@+id/tv_screenshots_count2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
 
+                android:layout_marginTop="16dp"
                 android:src="@drawable/baseline_play_arrow_24_black"
                 app:layout_constraintBottom_toTopOf="@+id/tv_trailer"
                 app:layout_constraintEnd_toEndOf="@+id/tv_trailer"
-                app:layout_constraintStart_toStartOf="@+id/tv_trailer" />
+                app:layout_constraintStart_toStartOf="@+id/tv_trailer"
+                app:layout_constraintTop_toBottomOf="@+id/view_1" />
 
-            <TextView
+            <!--<TextView
                 android:id="@+id/tv_video_count"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -656,7 +658,7 @@
                 app:layout_constraintBottom_toTopOf="@+id/tv_open_videos"
                 app:layout_constraintEnd_toEndOf="@+id/tv_open_videos"
                 app:layout_constraintStart_toStartOf="@+id/tv_open_videos"
-                app:layout_constraintTop_toTopOf="@+id/tv_screenshots_count2" />
+                app:layout_constraintTop_toTopOf="@+id/tv_screenshots_count2" />-->
 
             <TextView
                 android:id="@+id/tv_open_videos"
@@ -668,7 +670,7 @@
                 android:textSize="14sp"
                 app:layout_constraintBottom_toBottomOf="@+id/tv_screenshots"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/tv_screenshots" />
+                app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
 
             <TextView
@@ -839,6 +841,26 @@
                 app:layout_constraintBottom_toBottomOf="@+id/tv_score"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/tv_score" />
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:src="@drawable/baseline_photo_library_24_black"
+                app:layout_constraintEnd_toEndOf="@+id/tv_screenshots"
+                app:layout_constraintStart_toStartOf="@+id/tv_screenshots"
+                app:layout_constraintTop_toBottomOf="@+id/view_1" />
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:src="@drawable/baseline_video_library_24_black"
+                app:layout_constraintEnd_toEndOf="@+id/tv_open_videos"
+                app:layout_constraintStart_toStartOf="@+id/tv_open_videos"
+                app:layout_constraintTop_toBottomOf="@+id/view_1" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
