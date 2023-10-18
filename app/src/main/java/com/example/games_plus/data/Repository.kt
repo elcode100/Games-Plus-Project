@@ -79,7 +79,15 @@ class Repository(private val api: GamesApi) {
         "Elden Ring" to 73745,
         "Batman: Arkham City" to 29443,
         "Mafia 2" to 20538,
-        "Marvel's Spider-Man" to 54233
+        "Marvel's Spider-Man" to 54233,
+        "Resident Evil 4 (2023) " to 86329,
+        "Call of Duty: Modern Warfare 2" to 85447,
+        "Gran Turismo 7" to 78951,
+        "Assassin's Creed Origins" to 59450,
+        "Tom Clancy's Rainbow Six Siege" to 46562,
+        "Gof of War (2018)" to 54229
+
+
     )
 
     val favGames = "id:${gameIds.values.joinToString("|")}"

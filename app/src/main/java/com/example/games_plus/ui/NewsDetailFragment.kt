@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.text.Html
 import android.text.SpannableString
 import android.text.Spanned
+import android.text.method.LinkMovementMethod
 import android.text.style.ForegroundColorSpan
 import android.text.style.URLSpan
 import android.util.Log
@@ -67,13 +68,11 @@ class NewsDetailFragment : Fragment() {
 
                     document.select("a").forEach { aTag ->
                         val href = aTag.attr("href")
-                        if (href.startsWith("/")) {
-                            aTag.attr("href", "https://www.gamespot.com$href")
-                        }
-                        if (aTag.text().trim().isEmpty()) {
-                            aTag.remove()
+                        if (!href.startsWith("http")) {
+                            aTag.attr("href", "https://$href")
                         }
                     }
+
 
                     val cleanedHtml = document.html()
                     val spanned = Html.fromHtml(cleanedHtml, Html.FROM_HTML_MODE_LEGACY)
@@ -95,6 +94,7 @@ class NewsDetailFragment : Fragment() {
 
                     withContext(Dispatchers.Main) {
                         binding.tvBody.text = text
+                        binding.tvBody.movementMethod = LinkMovementMethod.getInstance()
 
                         binding.progressBar.visibility = View.GONE
                     }
