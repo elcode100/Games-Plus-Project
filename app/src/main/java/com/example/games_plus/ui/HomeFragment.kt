@@ -1,7 +1,6 @@
 package com.example.games_plus.ui
 
 import android.annotation.SuppressLint
-import android.content.Context
 import android.content.res.Resources
 import android.os.Build
 import android.os.Bundle
@@ -9,6 +8,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.OnBackPressedCallback
 import androidx.annotation.RequiresApi
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.activityViewModels
@@ -25,6 +25,20 @@ import com.example.games_plus.ui.viewmodels.MainViewModel
 import me.everything.android.ui.overscroll.OverScrollDecoratorHelper
 
 class HomeFragment : Fragment() {
+
+
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        val callback = object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+
+                activity?.moveTaskToBack(true)
+            }
+        }
+        requireActivity().onBackPressedDispatcher.addCallback(this, callback)
+    }
 
 
     private lateinit var binding: FragmentHomeBinding
@@ -47,8 +61,8 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
 
-        val window = activity?.window
-        window?.statusBarColor = ContextCompat.getColor(requireContext(), R.color.black)
+        /*val window = activity?.window
+        window?.statusBarColor = ContextCompat.getColor(requireContext(), R.color.black)*/
 
         binding.recGames.setHasFixedSize(true)
 
@@ -56,24 +70,12 @@ class HomeFragment : Fragment() {
         viewModel.loadUpcomingGames()
         viewModel.loadMobileGames()
         viewModel.loadFavoriteGames()
+        viewModel.loadLatestNews()
         addObservers()
 
 
-        val news = MainViewModel().loadNewsImages()
-        val viewPager = binding.viewPager
-        viewPager.adapter = NewsAdapter(news)
 
-        val indicator = binding.indicator
-        indicator.setViewPager(viewPager)
-        indicator.bringToFront()
 
-        val itemViewPager = ItemDecViewPager(8.dpToPx())
-        binding.viewPager.addItemDecoration(itemViewPager)
-
-        /*binding.viewPager.setPageTransformer { page, position ->
-            val offset = -8 * position.dpToPx(requireContext())
-            page.translationX = offset
-        }*/
 
 
 
@@ -108,11 +110,10 @@ class HomeFragment : Fragment() {
 
 
 
-        /*
-                binding.btnLogout.setOnClickListener {
+              /*  binding.btnLogout.setOnClickListener {
                     authViewModel.logout()
-                }*/
-
+                }
+*/
 
 
 
@@ -125,10 +126,10 @@ class HomeFragment : Fragment() {
 
 
 
-    fun Float.dpToPx(context: Context): Float {
+    /*fun Float.dpToPx(context: Context): Float {
         val metrics = context.resources.displayMetrics
         return this * metrics.density
-    }
+    }*/
 
 
 
@@ -149,13 +150,13 @@ class HomeFragment : Fragment() {
         /*OverScrollDecoratorHelper.setUpOverScroll(binding.scrollViewHome)*/
 
 
-        val itemRecView1 = HorizontalItemDecoration(8.dpToPx())
+        val itemRecView1 = HorizontalItemDecoration(10.dpToPx())
         binding.recGames.addItemDecoration(itemRecView1)
 
-        val itemRecView2 = HorizontalItemDecoration(8.dpToPx())
+        val itemRecView2 = HorizontalItemDecoration(10.dpToPx())
         binding.recGames2.addItemDecoration(itemRecView2)
 
-        val itemRecView3 = HorizontalItemDecoration(8.dpToPx())
+        val itemRecView3 = HorizontalItemDecoration(10.dpToPx())
         binding.recGames3.addItemDecoration(itemRecView3)
 
 
@@ -175,7 +176,7 @@ class HomeFragment : Fragment() {
 
 
 
-        val adapter = HomeAdapter(this.requireContext(), emptyList(), viewModel)
+        val adapter = HomeAdapter(emptyList(), viewModel)
         binding.recGames.adapter = adapter
 
 
@@ -264,6 +265,38 @@ class HomeFragment : Fragment() {
 
         }
 
+
+        val adapter4 = NewsAdapter(emptyList(), viewModel)
+        binding.viewPager.adapter = adapter4
+
+
+        viewModel.dataListLatestNews.observe(viewLifecycleOwner) {
+
+            adapter4.dataset = it
+            adapter4.notifyDataSetChanged()
+
+
+            val viewPager = binding.viewPager
+
+            val indicator = binding.indicator
+            indicator.setViewPager(viewPager)
+            indicator.bringToFront()
+
+
+
+
+        }
+
+
+
+
+        val itemViewPager = ItemDecViewPager(16.dpToPx())
+        binding.viewPager.addItemDecoration(itemViewPager)
+
+        /*binding.viewPager.setPageTransformer { page, position ->
+            val offset = -8 * position.dpToPx(requireContext())
+            page.translationX = offset
+        }*/
 
 
 

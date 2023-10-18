@@ -1,0 +1,395 @@
+{
+  "error": "OK",
+  "limit": 100,
+  "offset": 0,
+  "number_of_page_results": 32,
+  "number_of_total_results": 32,
+  "status_code": 1,
+  "results": [
+    {
+      "api_detail_url": "https:\/\/www.giantbomb.com\/api\/game_rating\/3065-1\/",
+      "id": 1,
+      "guid": "3065-1",
+      "image": null,
+      "name": "ESRB: T",
+      "rating_board": {
+        "api_detail_url": "https:\/\/www.giantbomb.com\/api\/rating_board\/3070-1\/",
+        "id": 1,
+        "name": "ESRB"
+      }
+    },
+    {
+      "api_detail_url": "https:\/\/www.giantbomb.com\/api\/game_rating\/3065-2\/",
+      "id": 2,
+      "guid": "3065-2",
+      "image": null,
+      "name": "PEGI: 16+",
+      "rating_board": {
+        "api_detail_url": "https:\/\/www.giantbomb.com\/api\/rating_board\/3070-2\/",
+        "id": 2,
+        "name": "PEGI"
+      }
+    },
+    {
+      "api_detail_url": "https:\/\/www.giantbomb.com\/api\/game_rating\/3065-5\/",
+      "id": 5,
+      "guid": "3065-5",
+      "image": null,
+      "name": "BBFC: 15",
+      "rating_board": {
+        "api_detail_url": "https:\/\/www.giantbomb.com\/api\/rating_board\/3070-6\/",
+        "id": 6,
+        "name": "BBFC"
+      }
+    },
+    {
+      "api_detail_url": "https:\/\/www.giantbomb.com\/api\/game_rating\/3065-6\/",
+      "id": 6,
+      "guid": "3065-6",
+      "image": null,
+      "name": "ESRB: E",
+      "rating_board": {
+        "api_detail_url": "https:\/\/www.giantbomb.com\/api\/rating_board\/3070-1\/",
+        "id": 1,
+        "name": "ESRB"
+      }
+    },
+    {
+      "api_detail_url": "https:\/\/www.giantbomb.com\/api\/game_rating\/3065-7\/",
+      "id": 7,
+      "guid": "3065-7",
+      "image": null,
+      "name": "PEGI: 3+",
+      "rating_board": {
+        "api_detail_url": "https:\/\/www.giantbomb.com\/api\/rating_board\/3070-2\/",
+        "id": 2,
+        "name": "PEGI"
+      }
+    },
+    {
+      "api_detail_url": "https:\/\/www.giantbomb.com\/api\/game_rating\/3065-9\/",
+      "id": 9,
+      "guid": "3065-9",
+      "image": null,
+      "name": "ESRB: K-A",
+      "rating_board": {
+        "api_detail_url": "https:\/\/www.giantbomb.com\/api\/rating_board\/3070-1\/",
+        "id": 1,
+        "name": "ESRB"
+      }
+    },
+    {
+      "api_detail_url": "https:\/\/www.giantbomb.com\/api\/game_rating\/3065-12\/",
+      "id": 12,
+      "guid": "3065-12",
+      "image": null,
+      "name": "OFLC: MA15+",
+      "rating_board": {
+        "api_detail_url": "https:\/\/www.giantbomb.com\/api\/rating_board\/3070-5\/",
+        "id": 5,
+        "name": "OFLC"
+      }
+    },
+    {
+      "api_detail_url": "https:\/\/www.giantbomb.com\/api\/game_rating\/3065-13\/",
+      "id": 13,
+      "guid": "3065-13",
+      "image": null,
+      "name": "OFLC: M15+",
+      "rating_board": {
+        "api_detail_url": "https:\/\/www.giantbomb.com\/api\/rating_board\/3070-5\/",
+        "id": 5,
+        "name": "OFLC"
+      }
+    },
+    {
+      "api_detail_url": "https:\/\/www.giantbomb.com\/api\/game_rating\/3065-14\/",
+      "id": 14,
+      "guid": "3065-14",
+      "image": null,
+      "name": "OFLC: G",
+      "rating_board": {
+        "api_detail_url": "https:\/\/www.giantbomb.com\/api\/rating_board\/3070-5\/",
+        "id": 5,
+        "name": "OFLC"
+      }
+    },
+    {
+      "api_detail_url": "https:\/\/www.giantbomb.com\/api\/game_rating\/3065-15\/",
+      "id": 15,
+      "guid": "3065-15",
+      "image": null,
+      "name": "OFLC: G8+",
+      "rating_board": {
+        "api_detail_url": "https:\/\/www.giantbomb.com\/api\/rating_board\/3070-5\/",
+        "id": 5,
+        "name": "OFLC"
+      }
+    },
+    {
+      "api_detail_url": "https:\/\/www.giantbomb.com\/api\/game_rating\/3065-16\/",
+      "id": 16,
+      "guid": "3065-16",
+      "image": null,
+      "name": "ESRB: M",
+      "rating_board": {
+        "api_detail_url": "https:\/\/www.giantbomb.com\/api\/rating_board\/3070-1\/",
+        "id": 1,
+        "name": "ESRB"
+      }
+    },
+    {
+      "api_detail_url": "https:\/\/www.giantbomb.com\/api\/game_rating\/3065-17\/",
+      "id": 17,
+      "guid": "3065-17",
+      "image": null,
+      "name": "BBFC: 18",
+      "rating_board": {
+        "api_detail_url": "https:\/\/www.giantbomb.com\/api\/rating_board\/3070-6\/",
+        "id": 6,
+        "name": "BBFC"
+      }
+    },
+    {
+      "api_detail_url": "https:\/\/www.giantbomb.com\/api\/game_rating\/3065-18\/",
+      "id": 18,
+      "guid": "3065-18",
+      "image": null,
+      "name": "PEGI: 7+",
+      "rating_board": {
+        "api_detail_url": "https:\/\/www.giantbomb.com\/api\/rating_board\/3070-2\/",
+        "id": 2,
+        "name": "PEGI"
+      }
+    },
+    {
+      "api_detail_url": "https:\/\/www.giantbomb.com\/api\/game_rating\/3065-19\/",
+      "id": 19,
+      "guid": "3065-19",
+      "image": null,
+      "name": "CERO: All Ages",
+      "rating_board": {
+        "api_detail_url": "https:\/\/www.giantbomb.com\/api\/rating_board\/3070-3\/",
+        "id": 3,
+        "name": "CERO"
+      }
+    },
+    {
+      "api_detail_url": "https:\/\/www.giantbomb.com\/api\/game_rating\/3065-20\/",
+      "id": 20,
+      "guid": "3065-20",
+      "image": null,
+      "name": "BBFC: PG",
+      "rating_board": {
+        "api_detail_url": "https:\/\/www.giantbomb.com\/api\/rating_board\/3070-6\/",
+        "id": 6,
+        "name": "BBFC"
+      }
+    },
+    {
+      "api_detail_url": "https:\/\/www.giantbomb.com\/api\/game_rating\/3065-21\/",
+      "id": 21,
+      "guid": "3065-21",
+      "image": null,
+      "name": "BBFC: 12",
+      "rating_board": {
+        "api_detail_url": "https:\/\/www.giantbomb.com\/api\/rating_board\/3070-6\/",
+        "id": 6,
+        "name": "BBFC"
+      }
+    },
+    {
+      "api_detail_url": "https:\/\/www.giantbomb.com\/api\/game_rating\/3065-23\/",
+      "id": 23,
+      "guid": "3065-23",
+      "image": null,
+      "name": "ESRB: AO",
+      "rating_board": {
+        "api_detail_url": "https:\/\/www.giantbomb.com\/api\/rating_board\/3070-1\/",
+        "id": 1,
+        "name": "ESRB"
+      }
+    },
+    {
+      "api_detail_url": "https:\/\/www.giantbomb.com\/api\/game_rating\/3065-24\/",
+      "id": 24,
+      "guid": "3065-24",
+      "image": null,
+      "name": "CERO: 18+",
+      "rating_board": {
+        "api_detail_url": "https:\/\/www.giantbomb.com\/api\/rating_board\/3070-3\/",
+        "id": 3,
+        "name": "CERO"
+      }
+    },
+    {
+      "api_detail_url": "https:\/\/www.giantbomb.com\/api\/game_rating\/3065-25\/",
+      "id": 25,
+      "guid": "3065-25",
+      "image": null,
+      "name": "CERO: A",
+      "rating_board": {
+        "api_detail_url": "https:\/\/www.giantbomb.com\/api\/rating_board\/3070-3\/",
+        "id": 3,
+        "name": "CERO"
+      }
+    },
+    {
+      "api_detail_url": "https:\/\/www.giantbomb.com\/api\/game_rating\/3065-26\/",
+      "id": 26,
+      "guid": "3065-26",
+      "image": null,
+      "name": "ESRB: EC",
+      "rating_board": {
+        "api_detail_url": "https:\/\/www.giantbomb.com\/api\/rating_board\/3070-1\/",
+        "id": 1,
+        "name": "ESRB"
+      }
+    },
+    {
+      "api_detail_url": "https:\/\/www.giantbomb.com\/api\/game_rating\/3065-27\/",
+      "id": 27,
+      "guid": "3065-27",
+      "image": null,
+      "name": "CERO: C",
+      "rating_board": {
+        "api_detail_url": "https:\/\/www.giantbomb.com\/api\/rating_board\/3070-3\/",
+        "id": 3,
+        "name": "CERO"
+      }
+    },
+    {
+      "api_detail_url": "https:\/\/www.giantbomb.com\/api\/game_rating\/3065-28\/",
+      "id": 28,
+      "guid": "3065-28",
+      "image": null,
+      "name": "CERO: 15+",
+      "rating_board": {
+        "api_detail_url": "https:\/\/www.giantbomb.com\/api\/rating_board\/3070-3\/",
+        "id": 3,
+        "name": "CERO"
+      }
+    },
+    {
+      "api_detail_url": "https:\/\/www.giantbomb.com\/api\/game_rating\/3065-29\/",
+      "id": 29,
+      "guid": "3065-29",
+      "image": null,
+      "name": "ESRB: E10+",
+      "rating_board": {
+        "api_detail_url": "https:\/\/www.giantbomb.com\/api\/rating_board\/3070-1\/",
+        "id": 1,
+        "name": "ESRB"
+      }
+    },
+    {
+      "api_detail_url": "https:\/\/www.giantbomb.com\/api\/game_rating\/3065-30\/",
+      "id": 30,
+      "guid": "3065-30",
+      "image": null,
+      "name": "BBFC: U",
+      "rating_board": {
+        "api_detail_url": "https:\/\/www.giantbomb.com\/api\/rating_board\/3070-6\/",
+        "id": 6,
+        "name": "BBFC"
+      }
+    },
+    {
+      "api_detail_url": "https:\/\/www.giantbomb.com\/api\/game_rating\/3065-31\/",
+      "id": 31,
+      "guid": "3065-31",
+      "image": null,
+      "name": "OFLC: M",
+      "rating_board": {
+        "api_detail_url": "https:\/\/www.giantbomb.com\/api\/rating_board\/3070-5\/",
+        "id": 5,
+        "name": "OFLC"
+      }
+    },
+    {
+      "api_detail_url": "https:\/\/www.giantbomb.com\/api\/game_rating\/3065-32\/",
+      "id": 32,
+      "guid": "3065-32",
+      "image": null,
+      "name": "CERO: D",
+      "rating_board": {
+        "api_detail_url": "https:\/\/www.giantbomb.com\/api\/rating_board\/3070-3\/",
+        "id": 3,
+        "name": "CERO"
+      }
+    },
+    {
+      "api_detail_url": "https:\/\/www.giantbomb.com\/api\/game_rating\/3065-33\/",
+      "id": 33,
+      "guid": "3065-33",
+      "image": null,
+      "name": "CERO: B",
+      "rating_board": {
+        "api_detail_url": "https:\/\/www.giantbomb.com\/api\/rating_board\/3070-3\/",
+        "id": 3,
+        "name": "CERO"
+      }
+    },
+    {
+      "api_detail_url": "https:\/\/www.giantbomb.com\/api\/game_rating\/3065-34\/",
+      "id": 34,
+      "guid": "3065-34",
+      "image": null,
+      "name": "CERO: Z",
+      "rating_board": {
+        "api_detail_url": "https:\/\/www.giantbomb.com\/api\/rating_board\/3070-3\/",
+        "id": 3,
+        "name": "CERO"
+      }
+    },
+    {
+      "api_detail_url": "https:\/\/www.giantbomb.com\/api\/game_rating\/3065-36\/",
+      "id": 36,
+      "guid": "3065-36",
+      "image": null,
+      "name": "PEGI: 12+",
+      "rating_board": {
+        "api_detail_url": "https:\/\/www.giantbomb.com\/api\/rating_board\/3070-2\/",
+        "id": 2,
+        "name": "PEGI"
+      }
+    },
+    {
+      "api_detail_url": "https:\/\/www.giantbomb.com\/api\/game_rating\/3065-37\/",
+      "id": 37,
+      "guid": "3065-37",
+      "image": null,
+      "name": "PEGI: 18+",
+      "rating_board": {
+        "api_detail_url": "https:\/\/www.giantbomb.com\/api\/rating_board\/3070-2\/",
+        "id": 2,
+        "name": "PEGI"
+      }
+    },
+    {
+      "api_detail_url": "https:\/\/www.giantbomb.com\/api\/game_rating\/3065-38\/",
+      "id": 38,
+      "guid": "3065-38",
+      "image": null,
+      "name": "OFLC: PG",
+      "rating_board": {
+        "api_detail_url": "https:\/\/www.giantbomb.com\/api\/rating_board\/3070-5\/",
+        "id": 5,
+        "name": "OFLC"
+      }
+    },
+    {
+      "api_detail_url": "https:\/\/www.giantbomb.com\/api\/game_rating\/3065-39\/",
+      "id": 39,
+      "guid": "3065-39",
+      "image": null,
+      "name": "OFLC: R18+",
+      "rating_board": {
+        "api_detail_url": "https:\/\/www.giantbomb.com\/api\/rating_board\/3070-5\/",
+        "id": 5,
+        "name": "OFLC"
+      }
+    }
+  ],
+  "version": "1.0"
+}

@@ -1,0 +1,375 @@
+{
+  "error": "OK",
+  "limit": 1,
+  "offset": 0,
+  "number_of_page_results": 1,
+  "number_of_total_results": 1,
+  "status_code": 1,
+  "results": {
+    "aliases": "MW3\nCall of Duty: Modern Warfare 3",
+    "api_detail_url": "https:\/\/www.giantbomb.com\/api\/game\/3030-89613\/",
+    "date_added": "2023-07-17 17:25:46",
+    "date_last_updated": "2023-08-10 09:34:39",
+    "deck": "The 2023 edition of Call of Duty continues the story from the 2022 remake of MW2 while allowing players to bring content from MW2 into MW3.",
+    "description": "<h2>Development<\/h2><p>The 2023 edition of <a href=\"\/call-of-duty\/3025-82\/\" data-ref-id=\"3025-82\">Call of Duty<\/a> was originally intended to be DLC or an expansion for <a href=\"\/call-of-duty-modern-warfare-ii\/3030-85447\/\" data-ref-id=\"3030-85447\">Call of Duty: Modern Warfare II<\/a> rather than a fully new game. Development of this edition is led by <a href=\"\/sledgehammer-games\/3010-6917\/\" data-ref-id=\"3010-6917\">Sledgehammer Games<\/a> with support from <a href=\"\/infinity-ward\/3010-1526\/\" data-ref-id=\"3010-1526\">Infinity Ward<\/a>, <a href=\"\/raven-software\/3010-1841\/\" data-ref-id=\"3010-1841\">Raven Software<\/a>, and other <a href=\"\/activision\/3010-78\/\" data-ref-id=\"3010-78\">Activision<\/a> studios.<\/p>",
+    "expected_release_day": 10,
+    "expected_release_month": 11,
+    "expected_release_quarter": null,
+    "expected_release_year": 2023,
+    "guid": "3030-89613",
+    "id": 89613,
+    "image": {
+      "icon_url": "https:\/\/www.giantbomb.com\/a\/uploads\/square_avatar\/33\/338034\/3493478-9583838408-F3Glrf8XoAg7Wiq.jpg",
+      "medium_url": "https:\/\/www.giantbomb.com\/a\/uploads\/scale_medium\/33\/338034\/3493478-9583838408-F3Glrf8XoAg7Wiq.jpg",
+      "screen_url": "https:\/\/www.giantbomb.com\/a\/uploads\/screen_medium\/33\/338034\/3493478-9583838408-F3Glrf8XoAg7Wiq.jpg",
+      "screen_large_url": "https:\/\/www.giantbomb.com\/a\/uploads\/screen_kubrick\/33\/338034\/3493478-9583838408-F3Glrf8XoAg7Wiq.jpg",
+      "small_url": "https:\/\/www.giantbomb.com\/a\/uploads\/scale_small\/33\/338034\/3493478-9583838408-F3Glrf8XoAg7Wiq.jpg",
+      "super_url": "https:\/\/www.giantbomb.com\/a\/uploads\/scale_large\/33\/338034\/3493478-9583838408-F3Glrf8XoAg7Wiq.jpg",
+      "thumb_url": "https:\/\/www.giantbomb.com\/a\/uploads\/scale_avatar\/33\/338034\/3493478-9583838408-F3Glrf8XoAg7Wiq.jpg",
+      "tiny_url": "https:\/\/www.giantbomb.com\/a\/uploads\/square_mini\/33\/338034\/3493478-9583838408-F3Glrf8XoAg7Wiq.jpg",
+      "original_url": "https:\/\/www.giantbomb.com\/a\/uploads\/original\/33\/338034\/3493478-9583838408-F3Glrf8XoAg7Wiq.jpg",
+      "image_tags": "All Images"
+    },
+    "image_tags": [
+      {
+        "api_detail_url": "https:\/\/www.giantbomb.com\/api\/images\/3030-89613\/?filter=image_tag:All%20Images",
+        "name": "All Images",
+        "total": 2
+      }
+    ],
+    "name": "Call of Duty: Modern Warfare III",
+    "number_of_user_reviews": 0,
+    "original_game_rating": null,
+    "original_release_date": null,
+    "platforms": [
+      {
+        "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-94\/",
+        "id": 94,
+        "name": "PC",
+        "site_detail_url": "https:\/\/www.giantbomb.com\/pc\/3045-94\/",
+        "abbreviation": "PC"
+      },
+      {
+        "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-145\/",
+        "id": 145,
+        "name": "Xbox One",
+        "site_detail_url": "https:\/\/www.giantbomb.com\/xbox-one\/3045-145\/",
+        "abbreviation": "XONE"
+      },
+      {
+        "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-146\/",
+        "id": 146,
+        "name": "PlayStation 4",
+        "site_detail_url": "https:\/\/www.giantbomb.com\/playstation-4\/3045-146\/",
+        "abbreviation": "PS4"
+      },
+      {
+        "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-176\/",
+        "id": 176,
+        "name": "PlayStation 5",
+        "site_detail_url": "https:\/\/www.giantbomb.com\/playstation-5\/3045-176\/",
+        "abbreviation": "PS5"
+      },
+      {
+        "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-179\/",
+        "id": 179,
+        "name": "Xbox Series X|S",
+        "site_detail_url": "https:\/\/www.giantbomb.com\/xbox-series-xs\/3045-179\/",
+        "abbreviation": "XSX"
+      }
+    ],
+    "site_detail_url": "https:\/\/www.giantbomb.com\/call-of-duty-modern-warfare-iii\/3030-89613\/",
+    "images": [
+      {
+        "icon_url": "https:\/\/www.giantbomb.com\/a\/uploads\/square_avatar\/33\/338034\/3493478-9583838408-F3Glrf8XoAg7Wiq.jpg",
+        "medium_url": "https:\/\/www.giantbomb.com\/a\/uploads\/screen_medium\/33\/338034\/3493478-9583838408-F3Glrf8XoAg7Wiq.jpg",
+        "screen_url": "https:\/\/www.giantbomb.com\/a\/uploads\/screen_medium\/33\/338034\/3493478-9583838408-F3Glrf8XoAg7Wiq.jpg",
+        "small_url": "https:\/\/www.giantbomb.com\/a\/uploads\/square_avatar\/33\/338034\/3493478-9583838408-F3Glrf8XoAg7Wiq.jpg",
+        "super_url": "https:\/\/www.giantbomb.com\/a\/uploads\/scale_large\/33\/338034\/3493478-9583838408-F3Glrf8XoAg7Wiq.jpg",
+        "thumb_url": "https:\/\/www.giantbomb.com\/a\/uploads\/scale_small\/33\/338034\/3493478-9583838408-F3Glrf8XoAg7Wiq.jpg",
+        "tiny_url": "https:\/\/www.giantbomb.com\/a\/uploads\/square_mini\/33\/338034\/3493478-9583838408-F3Glrf8XoAg7Wiq.jpg",
+        "original": "https:\/\/www.giantbomb.com\/a\/uploads\/original\/33\/338034\/3493478-9583838408-F3Glrf8XoAg7Wiq.jpg",
+        "tags": "All Images"
+      },
+      {
+        "icon_url": "https:\/\/www.giantbomb.com\/a\/uploads\/square_avatar\/33\/338034\/3492948-2413330442-F28NlOAWgAASUkj.jpg",
+        "medium_url": "https:\/\/www.giantbomb.com\/a\/uploads\/screen_medium\/33\/338034\/3492948-2413330442-F28NlOAWgAASUkj.jpg",
+        "screen_url": "https:\/\/www.giantbomb.com\/a\/uploads\/screen_medium\/33\/338034\/3492948-2413330442-F28NlOAWgAASUkj.jpg",
+        "small_url": "https:\/\/www.giantbomb.com\/a\/uploads\/square_avatar\/33\/338034\/3492948-2413330442-F28NlOAWgAASUkj.jpg",
+        "super_url": "https:\/\/www.giantbomb.com\/a\/uploads\/scale_large\/33\/338034\/3492948-2413330442-F28NlOAWgAASUkj.jpg",
+        "thumb_url": "https:\/\/www.giantbomb.com\/a\/uploads\/scale_small\/33\/338034\/3492948-2413330442-F28NlOAWgAASUkj.jpg",
+        "tiny_url": "https:\/\/www.giantbomb.com\/a\/uploads\/square_mini\/33\/338034\/3492948-2413330442-F28NlOAWgAASUkj.jpg",
+        "original": "https:\/\/www.giantbomb.com\/a\/uploads\/original\/33\/338034\/3492948-2413330442-F28NlOAWgAASUkj.jpg",
+        "tags": "All Images"
+      }
+    ],
+    "videos": [],
+    "characters": [
+      {
+        "api_detail_url": "https:\/\/www.giantbomb.com\/api\/character\/3005-87\/",
+        "id": 87,
+        "name": "Shredder",
+        "site_detail_url": "https:\/\/www.giantbomb.com\/shredder\/3005-87\/"
+      },
+      {
+        "api_detail_url": "https:\/\/www.giantbomb.com\/api\/character\/3005-765\/",
+        "id": 765,
+        "name": "Ash Williams",
+        "site_detail_url": "https:\/\/www.giantbomb.com\/ash-williams\/3005-765\/"
+      },
+      {
+        "api_detail_url": "https:\/\/www.giantbomb.com\/api\/character\/3005-2694\/",
+        "id": 2694,
+        "name": "Spawn",
+        "site_detail_url": "https:\/\/www.giantbomb.com\/spawn\/3005-2694\/"
+      },
+      {
+        "api_detail_url": "https:\/\/www.giantbomb.com\/api\/character\/3005-5997\/",
+        "id": 5997,
+        "name": "Skeletor",
+        "site_detail_url": "https:\/\/www.giantbomb.com\/skeletor\/3005-5997\/"
+      },
+      {
+        "api_detail_url": "https:\/\/www.giantbomb.com\/api\/character\/3005-9960\/",
+        "id": 9960,
+        "name": "Inarius",
+        "site_detail_url": "https:\/\/www.giantbomb.com\/inarius\/3005-9960\/"
+      },
+      {
+        "api_detail_url": "https:\/\/www.giantbomb.com\/api\/character\/3005-40270\/",
+        "id": 40270,
+        "name": "Lilith",
+        "site_detail_url": "https:\/\/www.giantbomb.com\/lilith\/3005-40270\/"
+      },
+      {
+        "api_detail_url": "https:\/\/www.giantbomb.com\/api\/character\/3005-41229\/",
+        "id": 41229,
+        "name": "Violator",
+        "site_detail_url": "https:\/\/www.giantbomb.com\/violator\/3005-41229\/"
+      },
+      {
+        "api_detail_url": "https:\/\/www.giantbomb.com\/api\/character\/3005-50931\/",
+        "id": 50931,
+        "name": "Jason Wynn",
+        "site_detail_url": "https:\/\/www.giantbomb.com\/jason-wynn\/3005-50931\/"
+      },
+      {
+        "api_detail_url": "https:\/\/www.giantbomb.com\/api\/character\/3005-51717\/",
+        "id": 51717,
+        "name": "Alucard",
+        "site_detail_url": "https:\/\/www.giantbomb.com\/alucard\/3005-51717\/"
+      },
+      {
+        "api_detail_url": "https:\/\/www.giantbomb.com\/api\/character\/3005-51718\/",
+        "id": 51718,
+        "name": "Soul Crusher ",
+        "site_detail_url": "https:\/\/www.giantbomb.com\/soul-crusher\/3005-51718\/"
+      },
+      {
+        "api_detail_url": "https:\/\/www.giantbomb.com\/api\/character\/3005-51965\/",
+        "id": 51965,
+        "name": "Gaia",
+        "site_detail_url": "https:\/\/www.giantbomb.com\/gaia\/3005-51965\/"
+      }
+    ],
+    "concepts": [
+      {
+        "api_detail_url": "https:\/\/www.giantbomb.com\/api\/concept\/3015-330\/",
+        "id": 330,
+        "name": "First-Person Perspective",
+        "site_detail_url": "https:\/\/www.giantbomb.com\/first-person-perspective\/3015-330\/"
+      },
+      {
+        "api_detail_url": "https:\/\/www.giantbomb.com\/api\/concept\/3015-340\/",
+        "id": 340,
+        "name": "Remake",
+        "site_detail_url": "https:\/\/www.giantbomb.com\/remake\/3015-340\/"
+      },
+      {
+        "api_detail_url": "https:\/\/www.giantbomb.com\/api\/concept\/3015-2329\/",
+        "id": 2329,
+        "name": "Digital Distribution",
+        "site_detail_url": "https:\/\/www.giantbomb.com\/digital-distribution\/3015-2329\/"
+      },
+      {
+        "api_detail_url": "https:\/\/www.giantbomb.com\/api\/concept\/3015-3178\/",
+        "id": 3178,
+        "name": "Sequel",
+        "site_detail_url": "https:\/\/www.giantbomb.com\/sequel\/3015-3178\/"
+      },
+      {
+        "api_detail_url": "https:\/\/www.giantbomb.com\/api\/concept\/3015-7405\/",
+        "id": 7405,
+        "name": "Content Import",
+        "site_detail_url": "https:\/\/www.giantbomb.com\/content-import\/3015-7405\/"
+      }
+    ],
+    "developers": [
+      {
+        "api_detail_url": "https:\/\/www.giantbomb.com\/api\/company\/3010-6917\/",
+        "id": 6917,
+        "name": "Sledgehammer Games",
+        "site_detail_url": "https:\/\/www.giantbomb.com\/sledgehammer-games\/3010-6917\/"
+      },
+      {
+        "api_detail_url": "https:\/\/www.giantbomb.com\/api\/company\/3010-1526\/",
+        "id": 1526,
+        "name": "Infinity Ward",
+        "site_detail_url": "https:\/\/www.giantbomb.com\/infinity-ward\/3010-1526\/"
+      },
+      {
+        "api_detail_url": "https:\/\/www.giantbomb.com\/api\/company\/3010-1841\/",
+        "id": 1841,
+        "name": "Raven Software",
+        "site_detail_url": "https:\/\/www.giantbomb.com\/raven-software\/3010-1841\/"
+      }
+    ],
+    "first_appearance_characters": [
+      {
+        "api_detail_url": "https:\/\/www.giantbomb.com\/api\/character\/3005-87\/",
+        "id": 87,
+        "name": "Shredder",
+        "site_detail_url": "https:\/\/www.giantbomb.com\/shredder\/3005-87\/"
+      },
+      {
+        "api_detail_url": "https:\/\/www.giantbomb.com\/api\/character\/3005-765\/",
+        "id": 765,
+        "name": "Ash Williams",
+        "site_detail_url": "https:\/\/www.giantbomb.com\/ash-williams\/3005-765\/"
+      },
+      {
+        "api_detail_url": "https:\/\/www.giantbomb.com\/api\/character\/3005-2694\/",
+        "id": 2694,
+        "name": "Spawn",
+        "site_detail_url": "https:\/\/www.giantbomb.com\/spawn\/3005-2694\/"
+      },
+      {
+        "api_detail_url": "https:\/\/www.giantbomb.com\/api\/character\/3005-5997\/",
+        "id": 5997,
+        "name": "Skeletor",
+        "site_detail_url": "https:\/\/www.giantbomb.com\/skeletor\/3005-5997\/"
+      },
+      {
+        "api_detail_url": "https:\/\/www.giantbomb.com\/api\/character\/3005-9960\/",
+        "id": 9960,
+        "name": "Inarius",
+        "site_detail_url": "https:\/\/www.giantbomb.com\/inarius\/3005-9960\/"
+      },
+      {
+        "api_detail_url": "https:\/\/www.giantbomb.com\/api\/character\/3005-40270\/",
+        "id": 40270,
+        "name": "Lilith",
+        "site_detail_url": "https:\/\/www.giantbomb.com\/lilith\/3005-40270\/"
+      },
+      {
+        "api_detail_url": "https:\/\/www.giantbomb.com\/api\/character\/3005-41229\/",
+        "id": 41229,
+        "name": "Violator",
+        "site_detail_url": "https:\/\/www.giantbomb.com\/violator\/3005-41229\/"
+      },
+      {
+        "api_detail_url": "https:\/\/www.giantbomb.com\/api\/character\/3005-50931\/",
+        "id": 50931,
+        "name": "Jason Wynn",
+        "site_detail_url": "https:\/\/www.giantbomb.com\/jason-wynn\/3005-50931\/"
+      },
+      {
+        "api_detail_url": "https:\/\/www.giantbomb.com\/api\/character\/3005-51717\/",
+        "id": 51717,
+        "name": "Alucard",
+        "site_detail_url": "https:\/\/www.giantbomb.com\/alucard\/3005-51717\/"
+      },
+      {
+        "api_detail_url": "https:\/\/www.giantbomb.com\/api\/character\/3005-51718\/",
+        "id": 51718,
+        "name": "Soul Crusher ",
+        "site_detail_url": "https:\/\/www.giantbomb.com\/soul-crusher\/3005-51718\/"
+      },
+      {
+        "api_detail_url": "https:\/\/www.giantbomb.com\/api\/character\/3005-51965\/",
+        "id": 51965,
+        "name": "Gaia",
+        "site_detail_url": "https:\/\/www.giantbomb.com\/gaia\/3005-51965\/"
+      }
+    ],
+    "first_appearance_concepts": [
+      {
+        "api_detail_url": "https:\/\/www.giantbomb.com\/api\/concept\/3015-330\/",
+        "id": 330,
+        "name": "First-Person Perspective",
+        "site_detail_url": "https:\/\/www.giantbomb.com\/first-person-perspective\/3015-330\/"
+      },
+      {
+        "api_detail_url": "https:\/\/www.giantbomb.com\/api\/concept\/3015-340\/",
+        "id": 340,
+        "name": "Remake",
+        "site_detail_url": "https:\/\/www.giantbomb.com\/remake\/3015-340\/"
+      },
+      {
+        "api_detail_url": "https:\/\/www.giantbomb.com\/api\/concept\/3015-2329\/",
+        "id": 2329,
+        "name": "Digital Distribution",
+        "site_detail_url": "https:\/\/www.giantbomb.com\/digital-distribution\/3015-2329\/"
+      },
+      {
+        "api_detail_url": "https:\/\/www.giantbomb.com\/api\/concept\/3015-3178\/",
+        "id": 3178,
+        "name": "Sequel",
+        "site_detail_url": "https:\/\/www.giantbomb.com\/sequel\/3015-3178\/"
+      },
+      {
+        "api_detail_url": "https:\/\/www.giantbomb.com\/api\/concept\/3015-7405\/",
+        "id": 7405,
+        "name": "Content Import",
+        "site_detail_url": "https:\/\/www.giantbomb.com\/content-import\/3015-7405\/"
+      }
+    ],
+    "first_appearance_locations": null,
+    "first_appearance_objects": null,
+    "first_appearance_people": null,
+    "franchises": [
+      {
+        "api_detail_url": "https:\/\/www.giantbomb.com\/api\/franchise\/3025-82\/",
+        "id": 82,
+        "name": "Call of Duty",
+        "site_detail_url": "https:\/\/www.giantbomb.com\/call-of-duty\/3025-82\/"
+      },
+      {
+        "api_detail_url": "https:\/\/www.giantbomb.com\/api\/franchise\/3025-1258\/",
+        "id": 1258,
+        "name": "Modern Warfare",
+        "site_detail_url": "https:\/\/www.giantbomb.com\/modern-warfare\/3025-1258\/"
+      }
+    ],
+    "genres": [
+      {
+        "api_detail_url": "https:\/\/www.giantbomb.com\/api\/genre\/3060-32\/",
+        "id": 32,
+        "name": "First-Person Shooter",
+        "site_detail_url": "https:\/\/www.giantbomb.com\/games\/?wikiSlug=first-person-shooter&wikiTypeId=3060&wikiId=32&genre=32"
+      }
+    ],
+    "killed_characters": null,
+    "locations": null,
+    "objects": null,
+    "people": null,
+    "publishers": [
+      {
+        "api_detail_url": "https:\/\/www.giantbomb.com\/api\/publisher\/3010-78\/",
+        "id": 78,
+        "name": "Activision",
+        "site_detail_url": "https:\/\/www.giantbomb.com\/activision\/3010-78\/"
+      }
+    ],
+    "similar_games": null,
+    "themes": [
+      {
+        "api_detail_url": "https:\/\/www.giantbomb.com\/api\/theme\/3032-12\/",
+        "id": 12,
+        "name": "Modern Military",
+        "site_detail_url": "https:\/\/www.giantbomb.com\/games\/?wikiSlug=modern-military&wikiTypeId=3032&wikiId=12&theme=12"
+      }
+    ]
+  },
+  "version": "1.0"
+}

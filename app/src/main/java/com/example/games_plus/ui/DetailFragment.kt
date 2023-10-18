@@ -3,18 +3,9 @@ package com.example.games_plus.ui
 import android.annotation.SuppressLint
 import android.content.res.Configuration
 import android.content.res.Resources
-import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
-import android.text.Html
-import android.text.SpannableString
-import android.text.SpannableStringBuilder
-import android.text.Spanned
-import android.text.TextPaint
-import android.text.method.LinkMovementMethod
-import android.text.style.ClickableSpan
-import android.text.style.ForegroundColorSpan
-import android.text.style.RelativeSizeSpan
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -34,11 +25,9 @@ import com.example.games_plus.ui.viewmodels.MainViewModel
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
-import org.jsoup.Jsoup
+import me.everything.android.ui.overscroll.OverScrollDecoratorHelper
 
 class DetailFragment : Fragment() {
 
@@ -59,21 +48,42 @@ class DetailFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
 
-        val window = requireActivity().window
-
-
-        val bottomNav = activity?.findViewById<BottomNavigationView>(R.id.bottom_nav_bar)
-        bottomNav?.visibility = View.GONE
-
-        window?.statusBarColor = ContextCompat.getColor(requireContext(), R.color.black)
 
         binding.btnBackDetailToHome.setOnClickListener {
-            findNavController().navigateUp()
+            try {
+                it.isClickable = false
+                findNavController().navigateUp()
+                it.postDelayed({ it.isClickable = true }, 500)
+            } catch (e: Exception) {
+
+                Log.e("NAVIGATION ERROR", "Error on clicking back from detail to home: ${e.message}")
+            }
         }
+
 
         viewModel.favoriteGames.observe(viewLifecycleOwner) {
             thumbButtons()
         }
+
+        binding.tvDeck.setOnClickListener {
+
+
+            findNavController().navigate(DetailFragmentDirections.actionDetailFragmentToDescriptionFragment())
+        }
+
+
+
+        binding.tvOpenVideos.setOnClickListener {
+
+            findNavController().navigate(R.id.videosFragment)
+            viewModel.loadVideos()
+        }
+        val bottomNav = activity?.findViewById<BottomNavigationView>(R.id.bottom_nav_bar)
+        bottomNav?.visibility = View.GONE
+
+        OverScrollDecoratorHelper.setUpOverScroll(binding.detailScroll)
+
+
 
         viewModel.currentResult.observe(viewLifecycleOwner) {
             binding.tvGameTitle.text = it.name
@@ -81,134 +91,50 @@ class DetailFragment : Fragment() {
             val genreNames = it.genres?.joinToString(", ") { genre -> genre.name } ?: "No Genre"
             binding.tvDetailGenre.text = genreNames
 
+            val platformNames = it.platforms?.joinToString(", ") { platform -> platform.abbreviation.toString() } ?: "No Platform"
+            binding.tvDetailPlatforms.text = platformNames
+
             binding.tvDetailGuid.text = it.guid
 
-            /*val document = Jsoup.parse(it.description?.trim() ?: "")
-            document.select("a").forEach { aTag ->
-                val href = aTag.attr("href")
-                if (href.startsWith("/")) {
-                    aTag.attr("href", "https://www.giantbomb.com$href")
-                }
-            }
+            binding.tvDeck.text = it.deck
 
-            document.select("a").forEach { aTag ->
-                if (aTag.text().trim().isEmpty()) {
-                    aTag.remove()
-                }
-            }
-
-            val cleanedHtml = document.html()
-            binding.tvDescription.text = Html.fromHtml(cleanedHtml, Html.FROM_HTML_MODE_LEGACY)
-            binding.tvDescription.movementMethod = LinkMovementMethod.getInstance()*/
-
-            /*lifecycleScope.launch(Dispatchers.IO) {
-                val document = Jsoup.parse(it.description?.trim() ?: "")
-
-                document.select("a").forEach { aTag ->
-                    val href = aTag.attr("href")
-                    if (href.startsWith("/")) {
-                        aTag.attr("href", "https://www.giantbomb.com$href")
-                    }
-                    if (aTag.text().trim().isEmpty()) {
-                        aTag.remove()
-                    }
-                }
-
-                val cleanedHtml = document.html()
-                val spanned = Html.fromHtml(cleanedHtml, Html.FROM_HTML_MODE_LEGACY)
-
-                withContext(Dispatchers.Main) {
-                    binding.tvDescription.text = spanned
-                    binding.tvDescription.movementMethod = LinkMovementMethod.getInstance()
-                }
-            }*/
+            val imageUrl = it.image?.mediumUrl
+            binding.detailGameTitleCover.load(imageUrl)
 
 
-            /*lifecycleScope.launch(Dispatchers.IO) {
-                val document = Jsoup.parse(it.description?.trim() ?: "")
 
-                document.select("a").forEach { aTag ->
-                    val href = aTag.attr("href")
-                    if (href.startsWith("/")) {
-                        aTag.attr("href", "https://www.giantbomb.com$href")
-                    }
-                    if (aTag.text().trim().isEmpty()) {
-                        aTag.remove()
-                    }
-                }
+            if (it.averageUserScore == null) {
 
-                val cleanedHtml = document.html()
-                val fullSpanned = Html.fromHtml(cleanedHtml, Html.FROM_HTML_MODE_LEGACY)
 
-                withContext(Dispatchers.Main) {
+                binding.tvScore.text = ""
+                binding.tvStar.visibility = View.GONE
 
-                    val maxLength = 200
-                    if (fullSpanned.length > maxLength) {
-                        val shortenedSpanned = SpannableStringBuilder(fullSpanned, 0, maxLength)
-                        shortenedSpanned.append("...")
-                        binding.tvDescription.text = shortenedSpanned
-                    } else {
-                        binding.tvDescription.text = fullSpanned
-                    }
-                    binding.tvDescription.movementMethod = LinkMovementMethod.getInstance()
-                }
-            }*/
+            } else {
 
-            lifecycleScope.launch(Dispatchers.IO) {
-                val document = Jsoup.parse(it.description?.trim() ?: "")
+                binding.tvScore.text = it.averageUserScore.toString()
+                binding.tvStar.visibility = View.VISIBLE
 
-                document.select("a").forEach { aTag ->
-                    val href = aTag.attr("href")
-                    if (href.startsWith("/")) {
-                        aTag.attr("href", "https://www.giantbomb.com$href")
-                    }
-                    if (aTag.text().trim().isEmpty()) {
-                        aTag.remove()
-                    }
-                }
-
-                val cleanedHtml = document.html()
-                val fullSpanned = Html.fromHtml(cleanedHtml, Html.FROM_HTML_MODE_LEGACY)
-
-                val clickableSpan: ClickableSpan = object : ClickableSpan() {
-                    override fun onClick(widget: View) {
-
-                        binding.tvDescription.text = fullSpanned
-                        binding.tvDescription.movementMethod = LinkMovementMethod.getInstance()
-                    }
-
-                    override fun updateDrawState(ds: TextPaint) {
-                        super.updateDrawState(ds)
-                        ds.isUnderlineText = false
-                    }
-                }
-
-                withContext(Dispatchers.Main) {
-                    val maxLength = 150
-                    if (fullSpanned.length > maxLength) {
-                        val shortenedSpanned = SpannableStringBuilder(fullSpanned, 0, maxLength)
-                        val moreText = "...more"
-                        val spannableMore = SpannableString(moreText)
-                        spannableMore.setSpan(ForegroundColorSpan(Color.GRAY), 0, moreText.length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
-                        spannableMore.setSpan(RelativeSizeSpan(0.8f), 0, moreText.length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
-                        spannableMore.setSpan(clickableSpan, 0, moreText.length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
-                        shortenedSpanned.append(spannableMore)
-                        binding.tvDescription.text = shortenedSpanned
-                        binding.tvDescription.movementMethod = LinkMovementMethod.getInstance()
-                    } else {
-                        binding.tvDescription.text = fullSpanned
-                    }
-                }
             }
 
 
+            val expectedYear = it.expectedReleaseYear
+            val expectedMonth = it.expectedReleaseMonth
+            val expectedDay = it.expectedReleaseDay
+
+            val releaseDate = it.originalReleaseDate
+
+
+            binding.tvDetailRelease.text = formatDate(releaseDate, expectedYear, expectedMonth, expectedDay)
 
 
 
 
 
 
-            val youtubeIds = viewModel.assignYouTubeIdsToGame(it).youtubeId
+
+
+
+            /*val youtubeIds = viewModel.assignYouTubeIdsToGame(it).youId
             val youtubeId = if (youtubeIds.isNotEmpty()) youtubeIds[0] else null
 
             if (youtubeId != null) {
@@ -227,15 +153,23 @@ class DetailFragment : Fragment() {
             } else {
                 binding.youtubePlayerView.visibility = View.GONE
                 binding.detailGameTitleCover.visibility = View.VISIBLE
-                val imageUrl = it.image?.medium_url
+                val imageUrl = it.image?.mediumUrl
                 binding.detailGameTitleCover.load(imageUrl)
-            }
+            }*/
         }
+
+
+
+
+
     }
 
 
 
-    private fun thumbButtons() {
+
+
+
+   /* private fun thumbButtons() {
         val selectedGame = viewModel.currentResult.value
         val isFavored = selectedGame?.let { viewModel.isGameFavored(it.id) } ?: false
 
@@ -256,12 +190,60 @@ class DetailFragment : Fragment() {
                 }
             }
         }
+    }*/
+
+
+    private fun thumbButtons() {
+        val selectedGame = viewModel.currentResult.value
+
+
+        val isFavored = selectedGame?.let { viewModel.isGameFavored(it.id) } ?: false
+        if (isFavored) {
+            binding.btnAddToFavorites.setImageResource(R.drawable.baseline_bookmark_24_green)
+        } else {
+            binding.btnAddToFavorites.setImageResource(R.drawable.baseline_bookmark_border_24_black)
+        }
+
+        binding.btnAddToFavorites.setOnClickListener {
+            selectedGame?.let { viewModel.toggleFavoriteStatus(it) }
+
+
+            val updatedIsFavored = selectedGame?.let { viewModel.isGameFavored(it.id) } ?: false
+            if (updatedIsFavored) {
+                binding.btnAddToFavorites.setImageResource(R.drawable.baseline_bookmark_24_green)
+            } else {
+                binding.btnAddToFavorites.setImageResource(R.drawable.baseline_bookmark_border_24_black)
+            }
+        }
+    }
+
+
+
+    private fun formatDate(
+        releaseDate: String?,
+        expectedYear: Int?,
+        expectedMonth: Int?,
+        expectedDay: Int?
+    ): String {
+        return when {
+            releaseDate != null -> releaseDate
+            expectedYear != null && expectedMonth != null && expectedDay != null -> "$expectedYear-${
+                expectedMonth.toString().padStart(2, '0')
+            }-${expectedDay.toString().padStart(2, '0')}"
+
+            expectedYear != null && expectedMonth != null -> "$expectedYear-${
+                expectedMonth.toString().padStart(2, '0')
+            }"
+
+            expectedYear != null -> "$expectedYear"
+            else -> "-"
+        }
     }
 
 
 
 
-    @RequiresApi(Build.VERSION_CODES.R)
+    /*@RequiresApi(Build.VERSION_CODES.R)
     override fun onConfigurationChanged(newConfig: Configuration) {
         super.onConfigurationChanged(newConfig)
 
@@ -280,11 +262,13 @@ class DetailFragment : Fragment() {
 
                 binding.tvGameTitle.visibility = View.GONE
                 binding.btnAddToFavorites.visibility = View.GONE
-                binding.nestedScrollView.visibility = View.GONE
+                *//*binding.nestedScrollView.visibility = View.GONE*//*
                 binding.innerConstrainLayout.visibility = View.GONE
                 binding.detailToolbar.visibility = View.GONE
                 binding.tvDetailGenre.visibility = View.GONE
                 binding.tvDetailGuid.visibility = View.GONE
+                binding.tvDeck.visibility = View.GONE
+                binding.view1.visibility = View.GONE
 
             } else {
 
@@ -317,11 +301,13 @@ class DetailFragment : Fragment() {
 
             binding.tvGameTitle.visibility = View.VISIBLE
             binding.btnAddToFavorites.visibility = View.VISIBLE
-            binding.nestedScrollView.visibility = View.VISIBLE
+            *//*binding.nestedScrollView.visibility = View.VISIBLE*//*
             binding.innerConstrainLayout.visibility = View.VISIBLE
             binding.detailToolbar.visibility = View.VISIBLE
             binding.tvDetailGenre.visibility = View.VISIBLE
             binding.tvDetailGuid.visibility = View.VISIBLE
+            binding.tvDeck.visibility = View.VISIBLE
+            binding.view1.visibility = View.VISIBLE
 
             lifecycleScope.launch {
                 delay(50)
@@ -332,7 +318,7 @@ class DetailFragment : Fragment() {
 
 
         }
-    }
+    }*/
 
 
     private fun Int.dpToPx(): Int {
@@ -510,3 +496,26 @@ binding.playGameTitleCover.setOnClickListener {
 } else {
     binding.tvDescription.text = ""
 }*/
+
+
+
+
+// Maybe I need it
+
+/*val document = Jsoup.parse(it.description?.trim() ?: "")
+            document.select("a").forEach { aTag ->
+                val href = aTag.attr("href")
+                if (href.startsWith("/")) {
+                    aTag.attr("href", "https://www.giantbomb.com$href")
+                }
+            }
+
+            document.select("a").forEach { aTag ->
+                if (aTag.text().trim().isEmpty()) {
+                    aTag.remove()
+                }
+            }
+
+            val cleanedHtml = document.html()
+            binding.tvDescription.text = Html.fromHtml(cleanedHtml, Html.FROM_HTML_MODE_LEGACY)
+            binding.tvDescription.movementMethod = LinkMovementMethod.getInstance()*/

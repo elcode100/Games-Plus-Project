@@ -37,8 +37,8 @@ class LibraryFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val window = activity?.window
-        window?.statusBarColor = ContextCompat.getColor(requireContext(), R.color.black)
+        /*val window = activity?.window
+        window?.statusBarColor = ContextCompat.getColor(requireContext(), R.color.black)*/
 
         adapter = LibraryAdapter(this.requireContext(), emptyList(), viewModel)
 

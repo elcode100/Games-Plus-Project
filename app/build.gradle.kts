@@ -113,6 +113,15 @@ dependencies {
 
     implementation ("me.relex:circleindicator:2.1.6")
 
+    implementation ("androidx.recyclerview:recyclerview:1.2.1")
+    implementation ("com.github.valkriaine:Bouncy:2.3")
+
+
+
+    /*implementation ("com.google.android.exoplayer:exoplayer-core:2.19.1")
+    implementation ("com.google.android.exoplayer:exoplayer-dash:2.19.1")
+    implementation ("com.google.android.exoplayer:exoplayer-ui:2.19.1")*/
+
 
 
 

@@ -2,12 +2,31 @@
     <style name="Base.Theme.games_plus" parent="Theme.MaterialComponents.DayNight.NoActionBar">
 
         <item name="bottomNavigationStyle">@style/BottomNavigationLight</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="colorPrimaryDark">@color/light_grey</item>
+        <item name="colorOnPrimary">@color/light_grey</item>
+
+
+
+        <item name="colorSecondary">@color/black</item>
+
+        <item name="colorButtonNormal">@color/black</item>
+
+        <item name="colorPrimary">@color/black</item>
+
+
+
+
+
+
+
     </style>
 
     <style name="BottomNavigationLight" parent="Widget.MaterialComponents.BottomNavigationView">
         <item name="itemIconTint">@drawable/bottom_navigation_item_selector</item>
         <item name="itemTextColor">@drawable/bottom_navigation_item_selector</item>
+        <item name="colorContainer">@color/light_nav_bar</item>
     </style>
 
-    <style name="Theme.GamesPlus" parent="Base.Theme.games_plus" />
+    <style name="Theme.EduardApp" parent="Base.Theme.games_plus" />
 </resources>

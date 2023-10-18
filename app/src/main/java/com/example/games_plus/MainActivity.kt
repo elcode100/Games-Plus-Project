@@ -43,7 +43,9 @@ class MainActivity : AppCompatActivity() {
             if (destination.id == R.id.fragment_detail
                 || destination.id == R.id.loginFragment
                 || destination.id == R.id.registerFragment
-                || destination.id == R.id.forgotPasswordFragment)
+                || destination.id == R.id.forgotPasswordFragment
+                || destination.id == R.id.descriptionFragment
+                || destination.id == R.id.videoDetailFragment)
             {
                 binding.bottomNavBar.visibility = View.GONE
 
@@ -66,9 +68,9 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    override fun onSupportNavigateUp(): Boolean {
+    /*override fun onSupportNavigateUp(): Boolean {
         return navController.navigateUp() || super.onSupportNavigateUp()
-    }
+    }*/
 
 
 

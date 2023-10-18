@@ -1,43 +1,108 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.google.android.material.card.MaterialCardView
-
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_marginTop="8dp"
-    android:layout_marginBottom="8dp"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/card_game_title"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    app:cardCornerRadius="8dp"
-    app:cardElevation="2dp"
-    android:layerType="hardware">
+    android:layout_marginTop="8dp"
+    android:layout_marginBottom="8dp">
 
 
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/materialCardView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layerType="hardware"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="2dp"
+        app:strokeWidth="0.8dp"
+        app:strokeColor="@color/ios_grey"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
 
-        <ImageView
-            android:id="@+id/iv_game_title_image"
-            android:layout_width="130dp"
-            android:layout_height="180dp"
-            android:scaleType="fitXY"
-            android:antialias="true"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/atomic_heart_cover_placeholder" />
+            <ImageView
+                android:id="@+id/iv_game_title_image"
+                android:layout_width="150dp"
+                android:layout_height="200dp"
+                android:antialias="true"
+                android:scaleType="fitXY"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/atomic_heart_cover_placeholder" />
 
 
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
+    </com.google.android.material.card.MaterialCardView>
 
 
+    <TextView
+        android:id="@+id/tv_game_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:ellipsize="end"
+        android:maxWidth="150dp"
+        android:maxLines="1"
+        android:text="The Witcher 3: Wild Hunt"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constrainedWidth="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/materialCardView" />
 
-</com.google.android.material.card.MaterialCardView>
+    <TextView
+        android:id="@+id/tv_release_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="2023-09-19"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@+id/tv_game_title"
+        app:layout_constraintTop_toBottomOf="@+id/tv_game_title" />
+
+    <!--<ImageView
+        android:id="@+id/iv_user_score_star"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_review_score"
+        app:layout_constraintStart_toEndOf="@+id/tv_review_score"
+        app:layout_constraintTop_toTopOf="@+id/tv_review_score"
+        app:srcCompat="@drawable/baseline_star_rate_24_ios_grey" />
+
+    <TextView
+        android:id="@+id/tv_review_score"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="  /  4.7"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_release_date"
+        app:layout_constraintStart_toEndOf="@+id/tv_release_date"
+        app:layout_constraintTop_toTopOf="@+id/tv_release_date" />
+
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="18dp"
+        android:layout_height="13dp"
+        android:layout_marginEnd="2dp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_user_score_star"
+        app:layout_constraintEnd_toStartOf="@+id/iv_user_score_star"
+        app:layout_constraintTop_toTopOf="@+id/iv_user_score_star" />-->
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

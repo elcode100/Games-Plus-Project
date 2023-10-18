@@ -7,7 +7,7 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.example.games_plus.R
-import com.example.games_plus.data.model.Game
+import com.example.games_plus.data.models.games.Game
 import com.example.games_plus.databinding.LibraryItemBinding
 import com.example.games_plus.ui.viewmodels.MainViewModel
 
@@ -31,7 +31,7 @@ class LibraryAdapter(private val context: Context, var dataset: List<Game>, priv
         val item = dataset[position]
 
         holder.binding.tvGameTitleLibrary.text = item.name
-        val imageUrl = item.image?.medium_url
+        val imageUrl = item.image?.mediumUrl
         holder.binding.imgGameLibrary.load(imageUrl)
 
         holder.binding.cardLibrary.setOnClickListener {

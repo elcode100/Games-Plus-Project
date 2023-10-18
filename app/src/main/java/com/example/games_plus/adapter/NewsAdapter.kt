@@ -3,11 +3,14 @@ package com.example.games_plus.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.games_plus.data.model.News
+import com.bumptech.glide.Glide
+import com.example.games_plus.data.models.News
+import com.example.games_plus.data.models.news.Article
 import com.example.games_plus.databinding.NewsItemBinding
+import com.example.games_plus.ui.viewmodels.MainViewModel
 
 
-class NewsAdapter(private val dataset: List<News>) : RecyclerView.Adapter<NewsAdapter.NewsViewHolder>() {
+class NewsAdapter(var dataset: List<Article>, private val viewModel: MainViewModel) : RecyclerView.Adapter<NewsAdapter.NewsViewHolder>() {
 
     inner class NewsViewHolder(val binding: NewsItemBinding) : RecyclerView.ViewHolder(binding.root)
 
@@ -26,7 +29,15 @@ class NewsAdapter(private val dataset: List<News>) : RecyclerView.Adapter<NewsAd
     override fun onBindViewHolder(holder: NewsViewHolder, position: Int) {
         val item = dataset[position]
 
-       holder.binding.ivNewsHeadlineImage.setImageResource(item.image)
+        val imageUrl = item.image.original
+
+        holder.binding.apply {
+
+            Glide.with(ivNewsHeadlineImage).load(imageUrl).into(ivNewsHeadlineImage)
+           /* tvArticleTitle.text = item.title*/
+
+
+        }
 
 
 

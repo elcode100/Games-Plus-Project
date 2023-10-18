@@ -1,0 +1,89 @@
+{
+  "error": "OK",
+  "limit": 1,
+  "offset": 0,
+  "number_of_page_results": 1,
+  "number_of_total_results": 1,
+  "status_code": 1,
+  "results": {
+    "api_detail_url": "https:\/\/www.giantbomb.com\/api\/video\/2300-13693\/",
+    "associations": [
+      {
+        "api_detail_url": "https:\/\/www.giantbomb.com\/api\/game\/3030-56725\/",
+        "guid": "3030-56725",
+        "id": 56725,
+        "name": "Red Dead Redemption II",
+        "site_detail_url": "https:\/\/www.giantbomb.com\/red-dead-redemption-ii\/3030-56725\/"
+      }
+    ],
+    "deck": "Cowboys are known for three things: horses, drinking, and taking baths.",
+    "embed_player": "https:\/\/www.giantbomb.com\/videos\/embed\/13693\/",
+    "guid": "2300-13693",
+    "id": 13693,
+    "length_seconds": 4445,
+    "name": "Quick Look: Red Dead Redemption 2",
+    "premium": false,
+    "publish_date": "2018-10-25 04:01:00",
+    "site_detail_url": "https:\/\/www.giantbomb.com\/videos\/quick-look-red-dead-redemption-2\/2300-13693\/",
+    "image": {
+      "icon_url": "https:\/\/www.giantbomb.com\/a\/uploads\/square_avatar\/0\/31\/3058505-cp_reddead2_ql_10242018.00_51_11_26.still001.jpg",
+      "medium_url": "https:\/\/www.giantbomb.com\/a\/uploads\/scale_medium\/0\/31\/3058505-cp_reddead2_ql_10242018.00_51_11_26.still001.jpg",
+      "screen_url": "https:\/\/www.giantbomb.com\/a\/uploads\/screen_medium\/0\/31\/3058505-cp_reddead2_ql_10242018.00_51_11_26.still001.jpg",
+      "screen_large_url": "https:\/\/www.giantbomb.com\/a\/uploads\/screen_kubrick\/0\/31\/3058505-cp_reddead2_ql_10242018.00_51_11_26.still001.jpg",
+      "small_url": "https:\/\/www.giantbomb.com\/a\/uploads\/scale_small\/0\/31\/3058505-cp_reddead2_ql_10242018.00_51_11_26.still001.jpg",
+      "super_url": "https:\/\/www.giantbomb.com\/a\/uploads\/scale_large\/0\/31\/3058505-cp_reddead2_ql_10242018.00_51_11_26.still001.jpg",
+      "thumb_url": "https:\/\/www.giantbomb.com\/a\/uploads\/scale_avatar\/0\/31\/3058505-cp_reddead2_ql_10242018.00_51_11_26.still001.jpg",
+      "tiny_url": "https:\/\/www.giantbomb.com\/a\/uploads\/square_mini\/0\/31\/3058505-cp_reddead2_ql_10242018.00_51_11_26.still001.jpg",
+      "original_url": "https:\/\/www.giantbomb.com\/a\/uploads\/original\/0\/31\/3058505-cp_reddead2_ql_10242018.00_51_11_26.still001.jpg",
+      "image_tags": "All Images"
+    },
+    "user": "ybbaaabby",
+    "hosts": "vinny, alex, danryckert, ybbaaabby",
+    "crew": "ybbaaabby",
+    "video_type": "Quick Looks",
+    "video_show": {
+      "api_detail_url": "https:\/\/www.giantbomb.com\/api\/video_show\/2340-3\/",
+      "id": 3,
+      "title": "Quick Looks",
+      "position": 41,
+      "site_detail_url": "https:\/\/www.giantbomb.com\/shows\/quick-looks\/",
+      "image": {
+        "icon_url": "https:\/\/www.giantbomb.com\/a\/uploads\/square_avatar\/27\/272636\/3134778-show%20artwork.jpg",
+        "medium_url": "https:\/\/www.giantbomb.com\/a\/uploads\/scale_medium\/27\/272636\/3134778-show%20artwork.jpg",
+        "screen_url": "https:\/\/www.giantbomb.com\/a\/uploads\/screen_medium\/27\/272636\/3134778-show%20artwork.jpg",
+        "screen_large_url": "https:\/\/www.giantbomb.com\/a\/uploads\/screen_kubrick\/27\/272636\/3134778-show%20artwork.jpg",
+        "small_url": "https:\/\/www.giantbomb.com\/a\/uploads\/scale_small\/27\/272636\/3134778-show%20artwork.jpg",
+        "super_url": "https:\/\/www.giantbomb.com\/a\/uploads\/scale_large\/27\/272636\/3134778-show%20artwork.jpg",
+        "thumb_url": "https:\/\/www.giantbomb.com\/a\/uploads\/scale_avatar\/27\/272636\/3134778-show%20artwork.jpg",
+        "tiny_url": "https:\/\/www.giantbomb.com\/a\/uploads\/square_mini\/27\/272636\/3134778-show%20artwork.jpg",
+        "original_url": "https:\/\/www.giantbomb.com\/a\/uploads\/original\/27\/272636\/3134778-show%20artwork.jpg",
+        "image_tags": "All Images"
+      },
+      "logo": {
+        "icon_url": "https:\/\/www.giantbomb.com\/a\/uploads\/square_avatar\/27\/272636\/3134779-ql-logo.png",
+        "medium_url": "https:\/\/www.giantbomb.com\/a\/uploads\/scale_medium\/27\/272636\/3134779-ql-logo.png",
+        "screen_url": "https:\/\/www.giantbomb.com\/a\/uploads\/screen_medium\/27\/272636\/3134779-ql-logo.png",
+        "screen_large_url": "https:\/\/www.giantbomb.com\/a\/uploads\/screen_kubrick\/27\/272636\/3134779-ql-logo.png",
+        "small_url": "https:\/\/www.giantbomb.com\/a\/uploads\/scale_small\/27\/272636\/3134779-ql-logo.png",
+        "super_url": "https:\/\/www.giantbomb.com\/a\/uploads\/scale_large\/27\/272636\/3134779-ql-logo.png",
+        "thumb_url": "https:\/\/www.giantbomb.com\/a\/uploads\/scale_avatar\/27\/272636\/3134779-ql-logo.png",
+        "tiny_url": "https:\/\/www.giantbomb.com\/a\/uploads\/square_mini\/27\/272636\/3134779-ql-logo.png",
+        "original_url": "https:\/\/www.giantbomb.com\/a\/uploads\/original\/27\/272636\/3134779-ql-logo.png"
+      }
+    },
+    "video_categories": [
+      {
+        "api_detail_url": "https:\/\/www.giantbomb.com\/api\/video_category\/2320-3\/",
+        "id": 3,
+        "name": "Quick Looks",
+        "site_detail_url": "https:\/\/www.giantbomb.com\/videos\/quick-looks\/"
+      }
+    ],
+    "saved_time": null,
+    "youtube_id": "6PLjf0SHfww",
+    "low_url": "https:\/\/static-mt-rv-v1.giantbomb.com\/vr\/2018\/10\/24\/vf_reddead2_ql_10242018_gfdasd_1800.mp4",
+    "high_url": "https:\/\/static-mt-rv-v1.giantbomb.com\/vr\/2018\/10\/24\/vf_reddead2_ql_10242018_gfdasd_3200.mp4",
+    "url": "vf_reddead2_ql_10242018_gfdasd.mp4"
+  },
+  "version": "1.0"
+}

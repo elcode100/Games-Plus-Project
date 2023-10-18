@@ -29,6 +29,10 @@
     <color name="grey_bg_light_mode">#c6c6c6</color>
     <color name="button_grey">#d4d4d4</color>
 
+    <color name="game_orange">#ff8e34</color>
+
+    <color name="ios_grey">#858e99</color>
+
 
 
 </resources>

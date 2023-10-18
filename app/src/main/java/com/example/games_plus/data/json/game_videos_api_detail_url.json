@@ -1,0 +1,60 @@
+{
+  "error": "OK",
+  "limit": 1,
+  "offset": 0,
+  "number_of_page_results": 1,
+  "number_of_total_results": 1,
+  "status_code": 1,
+  "results": {
+    "api_detail_url": "https:\/\/www.giantbomb.com\/api\/video\/2300-7012\/",
+    "associations": [
+      {
+        "api_detail_url": "https:\/\/www.giantbomb.com\/api\/game\/3030-41484\/",
+        "guid": "3030-41484",
+        "id": 41484,
+        "name": "The Witcher 3: Wild Hunt",
+        "site_detail_url": "https:\/\/www.giantbomb.com\/the-witcher-3-wild-hunt\/3030-41484\/"
+      }
+    ],
+    "deck": "This debut teaser has no real information in it other than \"hey, we're making a new The Witcher video game!\"",
+    "embed_player": "https:\/\/www.giantbomb.com\/videos\/embed\/7012\/",
+    "guid": "2300-7012",
+    "id": 7012,
+    "length_seconds": 49,
+    "name": "The Witcher 3 Exists",
+    "premium": false,
+    "publish_date": "2013-02-05 12:20:00",
+    "site_detail_url": "https:\/\/www.giantbomb.com\/videos\/the-witcher-3-exists\/2300-7012\/",
+    "image": {
+      "icon_url": "https:\/\/www.giantbomb.com\/a\/uploads\/square_avatar\/0\/26\/2427688-screen_shot_2013_02_05_at_12.19.05_pm.png",
+      "medium_url": "https:\/\/www.giantbomb.com\/a\/uploads\/scale_medium\/0\/26\/2427688-screen_shot_2013_02_05_at_12.19.05_pm.png",
+      "screen_url": "https:\/\/www.giantbomb.com\/a\/uploads\/screen_medium\/0\/26\/2427688-screen_shot_2013_02_05_at_12.19.05_pm.png",
+      "screen_large_url": "https:\/\/www.giantbomb.com\/a\/uploads\/screen_kubrick\/0\/26\/2427688-screen_shot_2013_02_05_at_12.19.05_pm.png",
+      "small_url": "https:\/\/www.giantbomb.com\/a\/uploads\/scale_small\/0\/26\/2427688-screen_shot_2013_02_05_at_12.19.05_pm.png",
+      "super_url": "https:\/\/www.giantbomb.com\/a\/uploads\/scale_large\/0\/26\/2427688-screen_shot_2013_02_05_at_12.19.05_pm.png",
+      "thumb_url": "https:\/\/www.giantbomb.com\/a\/uploads\/scale_avatar\/0\/26\/2427688-screen_shot_2013_02_05_at_12.19.05_pm.png",
+      "tiny_url": "https:\/\/www.giantbomb.com\/a\/uploads\/square_mini\/0\/26\/2427688-screen_shot_2013_02_05_at_12.19.05_pm.png",
+      "original_url": "https:\/\/www.giantbomb.com\/a\/uploads\/original\/0\/26\/2427688-screen_shot_2013_02_05_at_12.19.05_pm.png",
+      "image_tags": "All Images"
+    },
+    "user": "jeff",
+    "hosts": null,
+    "crew": null,
+    "video_type": "Trailers",
+    "video_show": null,
+    "video_categories": [
+      {
+        "api_detail_url": "https:\/\/www.giantbomb.com\/api\/video_category\/2320-7\/",
+        "id": 7,
+        "name": "Trailers",
+        "site_detail_url": "https:\/\/www.giantbomb.com\/videos\/trailers\/"
+      }
+    ],
+    "saved_time": "49",
+    "youtube_id": "WVHldmx3MHc",
+    "low_url": null,
+    "high_url": "https:\/\/static-mt-rv-v1.giantbomb.com\/vr\/video\/tr_witcher3_020513_3500.mp4",
+    "url": "tr_witcher3_020513.mp4"
+  },
+  "version": "1.0"
+}
