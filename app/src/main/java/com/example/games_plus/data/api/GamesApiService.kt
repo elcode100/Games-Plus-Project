@@ -24,10 +24,13 @@ import java.util.concurrent.TimeUnit
 val today: LocalDate = LocalDate.now()
 
 @RequiresApi(Build.VERSION_CODES.O)
+val tomorrow: LocalDate = today.plusDays(1)
+
+@RequiresApi(Build.VERSION_CODES.O)
 val endDate: LocalDate = today.plusYears(3)
 
 @RequiresApi(Build.VERSION_CODES.O)
-val thirtyDaysAgo: LocalDate = LocalDate.now().minusDays(30)
+val thirtyDaysAgo: LocalDate = today.minusDays(30)
 
 
 const val BASE_URL = "https://www.giantbomb.com/api/"
@@ -58,7 +61,7 @@ interface GamesApiService {
 
 
     @GET("games")
-    suspend fun getRecentGames(
+    suspend fun getBestGames(
         @Query("api_key") apiKey: String = API_KEY,
         @Query("format") format: String = "json",
         @Query("field_list") fields: String = "id,name,deck,description,image,guid,original_release_date,platforms",
@@ -131,10 +134,11 @@ interface GamesApiService {
     suspend fun getLast30DaysGames(
         @Query("api_key") apiKey: String = API_KEY,
         @Query("format") format: String = "json",
-        @Query("field_list") fields: String = "id,name,deck,description,image,guid,original_release_date,platforms",
+        @Query("field_list") fields: String = "id,name,deck,description,image,guid,original_release_date,platforms,expected_release_day,expected_release_month,expected_release_year",
         @Query("filter") filter: String = "original_release_date:$thirtyDaysAgo|$today",
         @Query("sort") sort: String = "original_release_date:desc",
-        @Query("limit") limit: Int = 100
+        @Query("limit") limit: Int = 40,
+        @Query("offset") offset: Int = 0
     ): GameResponse
 
 
@@ -148,10 +152,10 @@ interface GamesApiService {
         @Query("api_key") apiKey: String = API_KEY,
         @Query("format") format: String = "json",
         @Query("field_list") fields: String = "id,name,deck,description,image,guid,original_release_date,platforms,expected_release_day,expected_release_month,expected_release_year",
-        @Query("filter") filter: String = "original_release_date:$today|$endDate",
+        @Query("filter") filter: String = "original_release_date:$tomorrow|$endDate",
         @Query("sort") sort: String = "original_release_date:asc",
-        @Query("limit") limit: Int = 100,
-        /*@Query("offset") offset: Int = 0*/
+        @Query("limit") limit: Int = 60,
+        @Query("offset") offset: Int = 0
     ): GameResponse
 
 
@@ -163,9 +167,9 @@ interface GamesApiService {
         @Query("api_key") apiKey: String = API_KEY,
         @Query("format") format: String = "json",
         @Query("field_list") fields: String = "id,name,deck,description,image,guid,original_release_date,platforms",
-        @Query("filter") filter: String = "original_release_date:2010-01-01|2023-01-01",
-        @Query("sort") sort: String = "original_release_date:asc",
-        @Query("limit") limit: Int = 10
+        @Query("filter") filter: String = "original_release_date:2016-01-01|2023-01-01",
+        @Query("sort") sort: String = "original_release_date:desc",
+        @Query("limit") limit: Int = 100
     ): GameResponse
 
 

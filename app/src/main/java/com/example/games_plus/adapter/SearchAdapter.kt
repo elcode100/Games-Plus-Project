@@ -40,6 +40,7 @@ class SearchAdapter(private val context: Context, var dataset: List<Game>, priva
                 it.isClickable = false
                 viewModel.updateResult(item)
                 viewModel.loadGenresForSelectedGame(item)
+                viewModel.loadDevelopersForSelectedGame(item)
 
                 val navController = holder.itemView.findNavController()
                 navController.navigate(SearchFragmentDirections.actionNavigationSearchToDetailFragment())

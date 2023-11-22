@@ -57,12 +57,13 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <androidx.core.widget.NestedScrollView
+   <!-- app:fling_animation_size=".1"
+    app:overscroll_animation_size=".7"-->
+
+    <ScrollView
         android:id="@+id/scroll_view_home"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:fling_animation_size=".1"
-        app:overscroll_animation_size=".7"
         android:fillViewport="true"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
@@ -85,9 +86,6 @@
                     app:layout_constraintBottom_toBottomOf="@id/viewPager"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent" />-->
-
-
-
 
 
 
@@ -131,7 +129,7 @@
                 android:textStyle="bold" />
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rec_games"
+                android:id="@+id/rec_games_best"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:clipToPadding="false"
@@ -140,6 +138,9 @@
                 android:paddingEnd="16dp"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 tools:listitem="@layout/game_titles_item" />
+
+
+
 
             <TextView
                 android:id="@+id/tv_upcomingGames"
@@ -153,7 +154,7 @@
                 android:textStyle="bold" />
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rec_games2"
+                android:id="@+id/rec_games_upcoming"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
@@ -162,6 +163,35 @@
                 android:clipToPadding="false"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 tools:listitem="@layout/game_titles_item2" />
+
+
+
+            <TextView
+                android:id="@+id/tv_last_30_days"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="16dp"
+                android:layout_marginTop="8dp"
+                android:text="Last 30 days"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rec_games_last_30_days"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:clipToPadding="false"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/last_30_days_item" />
+
+
+
+
 
             <TextView
                 android:id="@+id/tv_mobile_games"
@@ -176,7 +206,7 @@
 
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rec_games3"
+                android:id="@+id/rec_games_mobile"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
@@ -190,7 +220,7 @@
 
 
         </LinearLayout>
-    </androidx.core.widget.NestedScrollView>
+    </ScrollView>
 
     <ProgressBar
         android:id="@+id/progressBar"

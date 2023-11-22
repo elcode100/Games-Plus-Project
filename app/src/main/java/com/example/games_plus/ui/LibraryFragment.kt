@@ -49,7 +49,7 @@ class LibraryFragment : Fragment() {
 
         OverScrollDecoratorHelper.setUpOverScroll(binding.recLibrary, OverScrollDecoratorHelper.ORIENTATION_VERTICAL)
 
-        val itemRecView1 = ItemLibrary(16.dpToPx())
+        val itemRecView1 = ItemLibrary(10.dpToPx())
         binding.recLibrary.addItemDecoration(itemRecView1)
 
 

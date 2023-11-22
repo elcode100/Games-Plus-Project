@@ -1,6 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -79,43 +77,3 @@
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
-
-
-    <!--<com.jackandphantom.carouselrecyclerview.view.ReflectionImageView
-                android:id="@+id/iv_game_title_image"
-                android:layout_width="135dp"
-                android:layout_height="270dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="16dp"
-                android:scaleType="fitXY"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/inner_title_constrain"
-                app:srcCompat="@drawable/atomic_heart_cover_placeholder" />-->
-
-
-
-    <!--
-    <com.jackandphantom.carouselrecyclerview.view.ReflectionViewContainer
-    android:layout_width="130dp"
-    android:layout_height="wrap_content"
-    android:layout_marginStart="10dp"
-    android:layout_marginTop="16dp"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@id/inner_title_constrain"
-    app:reflect_gap="0dp"
-    app:reflect_relativeDepth="0.5">
-
-    <ImageView
-        android:id="@+id/iv_game_title_image"
-        android:layout_width="130dp"
-        android:layout_height="180dp"
-        android:scaleType="fitXY"
-        android:src="@drawable/atomic_heart_cover_placeholder" />
-    </com.jackandphantom.carouselrecyclerview.view.ReflectionViewContainer>-->

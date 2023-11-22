@@ -3,7 +3,6 @@ package com.example.games_plus.adapter
 import android.annotation.SuppressLint
 import android.util.Log
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
@@ -13,23 +12,23 @@ import com.example.games_plus.databinding.GameTitlesItem2Binding
 import com.example.games_plus.ui.HomeFragmentDirections
 import com.example.games_plus.ui.viewmodels.MainViewModel
 
-class HomeAdapter2(var dataset2: List<Game>, private val viewModel: MainViewModel) : RecyclerView.Adapter<HomeAdapter2.HomeAdapter2ViewHolder>() {
+class UpcomingGamesAdapter(var dataset: List<Game>, private val viewModel: MainViewModel) : RecyclerView.Adapter<UpcomingGamesAdapter.HomeAdapter2ViewHolder>() {
 
     inner class HomeAdapter2ViewHolder(val binding: GameTitlesItem2Binding) : RecyclerView.ViewHolder(binding.root)
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeAdapter2.HomeAdapter2ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UpcomingGamesAdapter.HomeAdapter2ViewHolder {
         val binding = GameTitlesItem2Binding.inflate(LayoutInflater.from(parent.context), parent, false)
         return HomeAdapter2ViewHolder(binding)
     }
 
     override fun getItemCount(): Int {
-        return dataset2.size
+        return dataset.size
     }
 
     @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: HomeAdapter2ViewHolder, position: Int) {
 
-        val item = dataset2[position]
+        val item = dataset[position]
 
         val imageUrl = item.image?.mediumUrl
         val expectedYear = item.expectedReleaseYear

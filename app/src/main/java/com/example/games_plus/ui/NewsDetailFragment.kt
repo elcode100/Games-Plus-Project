@@ -23,6 +23,7 @@ import com.example.games_plus.databinding.FragmentHomeBinding
 import com.example.games_plus.databinding.FragmentNewsBinding
 import com.example.games_plus.databinding.FragmentNewsDetailBinding
 import com.example.games_plus.ui.viewmodels.MainViewModel
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener
 import kotlinx.coroutines.Dispatchers
@@ -49,6 +50,9 @@ class NewsDetailFragment : Fragment() {
     @SuppressLint("SetTextI18n")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val bottomNav = activity?.findViewById<BottomNavigationView>(R.id.bottom_nav_bar)
+        bottomNav?.visibility = View.GONE
 
 
         viewModel.currentArticle.observe(viewLifecycleOwner) {
@@ -126,6 +130,9 @@ class NewsDetailFragment : Fragment() {
 
 
     }
+
+
+
 
 
 }

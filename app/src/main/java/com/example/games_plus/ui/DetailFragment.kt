@@ -78,6 +78,14 @@ class DetailFragment : Fragment() {
             findNavController().navigate(R.id.videosFragment)
             viewModel.loadVideos()
         }
+
+        binding.btnVideos.setOnClickListener {
+
+            findNavController().navigate(R.id.videosFragment)
+            viewModel.loadVideos()
+        }
+
+
         val bottomNav = activity?.findViewById<BottomNavigationView>(R.id.bottom_nav_bar)
         bottomNav?.visibility = View.GONE
 
@@ -243,6 +251,8 @@ class DetailFragment : Fragment() {
             else -> "-"
         }
     }
+
+
 
 
 

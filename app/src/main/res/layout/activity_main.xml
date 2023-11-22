@@ -7,17 +7,6 @@
     tools:context=".MainActivity">
 
 
-   <!-- <View
-        android:id="@+id/top_line"
-        android:layout_width="0dp"
-        android:layout_height="0.5dp"
-        android:background="@android:color/darker_gray"
-        android:elevation="0.8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/bottom_nav_bar"/>-->
-
-
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_nav_bar"
@@ -48,3 +37,15 @@
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+    <!-- <View
+        android:id="@+id/top_line"
+        android:layout_width="0dp"
+        android:layout_height="0.5dp"
+        android:background="@android:color/darker_gray"
+        android:elevation="0.8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_nav_bar"/>-->

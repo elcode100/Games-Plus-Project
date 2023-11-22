@@ -13,7 +13,8 @@ data class Game(
     val deck: String? = "",
     val image: ImageDetail? = null,
     var genres: List<Genre>? = listOf(),
-    var developers: List<Developer>? = listOf(),
+    /*var developers: List<Developer>? = listOf(),*/
+    var developers: List<Developer>? = null,
     val platforms: List<Platform>? = listOf(),
     @Json(name = "original_release_date") val originalReleaseDate: String? = "",
     @Json(name = "expected_release_day") val expectedReleaseDay: Int? = 0,

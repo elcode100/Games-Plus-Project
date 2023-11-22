@@ -1,0 +1,159 @@
+{
+  "error": "OK",
+  "limit": 1,
+  "offset": 0,
+  "number_of_page_results": 1,
+  "number_of_total_results": 1,
+  "status_code": 1,
+  "results": {
+    "aliases": null,
+    "api_detail_url": "https:\/\/www.giantbomb.com\/api\/game\/3030-89816\/",
+    "date_added": "2023-09-07 08:19:53",
+    "date_last_updated": "2023-09-07 08:31:40",
+    "deck": "An upcoming character-based shooter with roguelike elements, Ira is a fantasy bullet hell game that draws on Korean mythology.",
+    "description": null,
+    "expected_release_day": null,
+    "expected_release_month": null,
+    "expected_release_quarter": null,
+    "expected_release_year": null,
+    "guid": "3030-89816",
+    "id": 89816,
+    "image": {
+      "icon_url": "https:\/\/www.giantbomb.com\/a\/uploads\/square_avatar\/11\/110673\/3026329-gb_default-16_9.jpg",
+      "medium_url": "https:\/\/www.giantbomb.com\/a\/uploads\/scale_medium\/11\/110673\/3026329-gb_default-16_9.jpg",
+      "screen_url": "https:\/\/www.giantbomb.com\/a\/uploads\/screen_medium\/11\/110673\/3026329-gb_default-16_9.jpg",
+      "screen_large_url": "https:\/\/www.giantbomb.com\/a\/uploads\/screen_kubrick\/11\/110673\/3026329-gb_default-16_9.jpg",
+      "small_url": "https:\/\/www.giantbomb.com\/a\/uploads\/scale_small\/11\/110673\/3026329-gb_default-16_9.jpg",
+      "super_url": "https:\/\/www.giantbomb.com\/a\/uploads\/scale_large\/11\/110673\/3026329-gb_default-16_9.jpg",
+      "thumb_url": "https:\/\/www.giantbomb.com\/a\/uploads\/scale_avatar\/11\/110673\/3026329-gb_default-16_9.jpg",
+      "tiny_url": "https:\/\/www.giantbomb.com\/a\/uploads\/square_mini\/11\/110673\/3026329-gb_default-16_9.jpg",
+      "original_url": "https:\/\/www.giantbomb.com\/a\/uploads\/original\/11\/110673\/3026329-gb_default-16_9.png",
+      "image_tags": "All Images"
+    },
+    "image_tags": [],
+    "name": "Ira",
+    "number_of_user_reviews": 0,
+    "original_game_rating": null,
+    "original_release_date": "2023-10-03",
+    "platforms": [
+      {
+        "api_detail_url": "https:\/\/www.giantbomb.com\/api\/platform\/3045-94\/",
+        "id": 94,
+        "name": "PC",
+        "site_detail_url": "https:\/\/www.giantbomb.com\/pc\/3045-94\/",
+        "abbreviation": "PC"
+      }
+    ],
+    "site_detail_url": "https:\/\/www.giantbomb.com\/ira\/3030-89816\/",
+    "images": [],
+    "videos": [],
+    "characters": null,
+    "concepts": [
+      {
+        "api_detail_url": "https:\/\/www.giantbomb.com\/api\/concept\/3015-321\/",
+        "id": 321,
+        "name": "Bullet Hell",
+        "site_detail_url": "https:\/\/www.giantbomb.com\/bullet-hell\/3015-321\/"
+      },
+      {
+        "api_detail_url": "https:\/\/www.giantbomb.com\/api\/concept\/3015-718\/",
+        "id": 718,
+        "name": "Steam",
+        "site_detail_url": "https:\/\/www.giantbomb.com\/steam\/3015-718\/"
+      },
+      {
+        "api_detail_url": "https:\/\/www.giantbomb.com\/api\/concept\/3015-2379\/",
+        "id": 2379,
+        "name": "GOG.com",
+        "site_detail_url": "https:\/\/www.giantbomb.com\/gogcom\/3015-2379\/"
+      },
+      {
+        "api_detail_url": "https:\/\/www.giantbomb.com\/api\/concept\/3015-9402\/",
+        "id": 9402,
+        "name": "Epic Games Store",
+        "site_detail_url": "https:\/\/www.giantbomb.com\/epic-games-store\/3015-9402\/"
+      }
+    ],
+    "developers": [
+      {
+        "api_detail_url": "https:\/\/www.giantbomb.com\/api\/company\/3010-25134\/",
+        "id": 25134,
+        "name": "ABShot",
+        "site_detail_url": "https:\/\/www.giantbomb.com\/abshot\/3010-25134\/"
+      },
+      {
+        "api_detail_url": "https:\/\/www.giantbomb.com\/api\/company\/3010-6661\/",
+        "id": 6661,
+        "name": "Nicalis, Inc.",
+        "site_detail_url": "https:\/\/www.giantbomb.com\/nicalis-inc\/3010-6661\/"
+      }
+    ],
+    "first_appearance_characters": null,
+    "first_appearance_concepts": [
+      {
+        "api_detail_url": "https:\/\/www.giantbomb.com\/api\/concept\/3015-321\/",
+        "id": 321,
+        "name": "Bullet Hell",
+        "site_detail_url": "https:\/\/www.giantbomb.com\/bullet-hell\/3015-321\/"
+      },
+      {
+        "api_detail_url": "https:\/\/www.giantbomb.com\/api\/concept\/3015-718\/",
+        "id": 718,
+        "name": "Steam",
+        "site_detail_url": "https:\/\/www.giantbomb.com\/steam\/3015-718\/"
+      },
+      {
+        "api_detail_url": "https:\/\/www.giantbomb.com\/api\/concept\/3015-2379\/",
+        "id": 2379,
+        "name": "GOG.com",
+        "site_detail_url": "https:\/\/www.giantbomb.com\/gogcom\/3015-2379\/"
+      },
+      {
+        "api_detail_url": "https:\/\/www.giantbomb.com\/api\/concept\/3015-9402\/",
+        "id": 9402,
+        "name": "Epic Games Store",
+        "site_detail_url": "https:\/\/www.giantbomb.com\/epic-games-store\/3015-9402\/"
+      }
+    ],
+    "first_appearance_locations": null,
+    "first_appearance_objects": null,
+    "first_appearance_people": null,
+    "franchises": null,
+    "genres": [
+      {
+        "api_detail_url": "https:\/\/www.giantbomb.com\/api\/genre\/3060-11\/",
+        "id": 11,
+        "name": "Shooter",
+        "site_detail_url": "https:\/\/www.giantbomb.com\/games\/?wikiSlug=shooter&wikiTypeId=3060&wikiId=11&genre=11"
+      },
+      {
+        "api_detail_url": "https:\/\/www.giantbomb.com\/api\/genre\/3060-43\/",
+        "id": 43,
+        "name": "Action-Adventure",
+        "site_detail_url": "https:\/\/www.giantbomb.com\/games\/?wikiSlug=action-adventure&wikiTypeId=3060&wikiId=43&genre=43"
+      }
+    ],
+    "killed_characters": null,
+    "locations": null,
+    "objects": null,
+    "people": null,
+    "publishers": [
+      {
+        "api_detail_url": "https:\/\/www.giantbomb.com\/api\/publisher\/3010-6661\/",
+        "id": 6661,
+        "name": "Nicalis, Inc.",
+        "site_detail_url": "https:\/\/www.giantbomb.com\/nicalis-inc\/3010-6661\/"
+      }
+    ],
+    "similar_games": null,
+    "themes": [
+      {
+        "api_detail_url": "https:\/\/www.giantbomb.com\/api\/theme\/3032-2\/",
+        "id": 2,
+        "name": "Fantasy",
+        "site_detail_url": "https:\/\/www.giantbomb.com\/games\/?wikiSlug=fantasy&wikiTypeId=3032&wikiId=2&theme=2"
+      }
+    ]
+  },
+  "version": "1.0"
+}

@@ -33,6 +33,11 @@ class Repository(private val api: GamesApi) {
         get() = _gameResult
 
 
+    private val _last30DaysGameResult = MutableLiveData<List<Game>>()
+    val last30DaysGameResult: LiveData<List<Game>>
+        get() = _last30DaysGameResult
+
+
     private val _upcomingGameResult = MutableLiveData<List<Game>>()
     val upcomingGameResult: LiveData<List<Game>>
         get() = _upcomingGameResult
@@ -85,7 +90,18 @@ class Repository(private val api: GamesApi) {
         "Gran Turismo 7" to 78951,
         "Assassin's Creed Origins" to 59450,
         "Tom Clancy's Rainbow Six Siege" to 46562,
-        "Gof of War (2018)" to 54229
+        "Gof of War (2018)" to 54229,
+        "Middle-Earth: Shadow of Mordor" to 44484,
+        "Control" to 68937,
+        "Horizon Zero Down" to 49973,
+        "The Last of Us" to 36989,
+        /*"Portal 2" to 21662,*/
+        "Call of Duty: Black Ops 2" to 38039,
+        /*"L.A. Noire" to 21500,*/
+        "Dark Souls 3" to 49884,
+        /*"tomb Raider (2013)" to 27312,*/
+        "Prey" to 54211,
+        "Resident Evil 2 (2019)" to 50601,
 
 
     )
@@ -95,107 +111,10 @@ class Repository(private val api: GamesApi) {
 
 
 
-/*
-    suspend fun getAllGames() {
-        coroutineScope {
-            var retryCount = 0
-            val maxRetries = 3
-
-            while (retryCount < maxRetries) {
-                try {
-                    val gamesDeferred = async { api.retrofitService.getRecentGames().results }
-                    val favGamesDeferred = async { api.retrofitService.getRecentGames(filter = favGames).results }
-
-                    val gamesFromApi = gamesDeferred.await()
-                    val favGames = favGamesDeferred.await()
-                    val allGames = favGames + gamesFromApi
-
-                    for ((index, game) in allGames.withIndex()) {
-                        Log.d("BEST GAME", "${index + 1}. ${game.name}")
-                    }
-
-                    _gameResult.postValue(allGames)
-                    break
-
-                } catch (e: HttpException) {
-                    if (e.code() == 502) {
-                        retryCount++
-                        delay(3000)
-                    } else {
-                        Log.e("BEST GAME LOADING ERROR", "Error fetching game results: ${e.message}")
-                        break
-                    }
-                } catch (e: SocketTimeoutException) {
-                    retryCount++
-                    Log.e("NETWORK TIMEOUT ERROR", "Network Timeout, retrying... ${e.message}")
-                    delay(3000)
-
-                } catch (e: Exception) {
-                    Log.e("BEST GAME LOADING ERROR", "Error fetching game results: ${e.message}")
-                    break
-                }
-            }
-        }
-    }
-*/
 
 
 
-
-    @SuppressLint("SuspiciousIndentation")
-    /*suspend fun getAllGames() {
-        coroutineScope {
-            var retryCount = 0
-            val maxRetries = 3
-
-            while (retryCount < maxRetries) {
-                try {
-                    val gamesDeferred = async { api.retrofitService.getRecentGames().results }
-                    val favGamesDeferred = async { api.retrofitService.getRecentGames(filter = favGames).results }
-
-                    val gamesFromApi = gamesDeferred.await()
-                    val favGames = favGamesDeferred.await()
-                    val allGames = favGames + gamesFromApi
-
-
-                    *//*for ((index, game) in allGames.withIndex()) {
-                        Log.d("BEST GAME", "${index + 1}. ${game.name}")
-                    }*//*
-
-                 val gamesWithScore = allGames.map { game ->
-                        async {
-                            val reviews = getUserReviews(game.guid)
-                            game.averageUserScore = calculateAverageScore(reviews)
-                            return@async game
-                        }
-
-                    }.awaitAll()
-
-                    _gameResult.postValue(gamesWithScore)
-                    break
-
-                } catch (e: HttpException) {
-                    if (e.code() == 420 || e.code() == 502) {
-                        retryCount++
-                        delay((retryCount * 1000).toLong())
-                    } else {
-                        Log.e("BEST GAME LOADING ERROR", "Error fetching game results: ${e.message}")
-                        break
-                    }
-                } catch (e: SocketTimeoutException) {
-                    retryCount++
-                    Log.e("NETWORK TIMEOUT ERROR", "Network Timeout, retrying... ${e.message}")
-                    delay(3000)
-
-                } catch (e: Exception) {
-                    Log.e("BEST GAME LOADING ERROR", "Error fetching game results: ${e.message}")
-                    break
-                }
-            }
-        }
-    }*/
-
-    suspend fun getAllGames() {
+    suspend fun getBestGames() {
         coroutineScope {
             var retryCount = 0
             val maxRetries = 3
@@ -203,7 +122,7 @@ class Repository(private val api: GamesApi) {
             while (retryCount < maxRetries) {
                 try {
 
-                    val bestGamesDeferred = async { api.retrofitService.getRecentGames(filter = favGames).results }
+                    val bestGamesDeferred = async { api.retrofitService.getBestGames(filter = favGames).results }
 
 
                     val bestGames = bestGamesDeferred.await()
@@ -330,17 +249,6 @@ class Repository(private val api: GamesApi) {
 
 
 
-
-
-
-    /*fun calculateAverageScore(reviews: List<UserReview>): Double {
-        val totalScore = reviews.fold(0) { sum, review -> sum + (review.score ?: 0) }
-        return totalScore.toDouble() / reviews.size
-    }*/
-
-
-
-
     suspend fun loadGenresForGame(game: Game): Game {
         return coroutineScope {
             val gameId = game.id.toString()
@@ -448,6 +356,68 @@ class Repository(private val api: GamesApi) {
     }
 
 
+    // 94 - PC , 145 - Xbox One, 146 - PlayStation 4, 176 - PlayStation 5, 179 - Xbox Series X|S, 199 - Amazon Luna
+
+    @RequiresApi(Build.VERSION_CODES.O)
+    suspend fun getLast30DaysGames() {
+        coroutineScope {
+            try {
+                val last30DaysGamesDeferred =
+                    async { api.retrofitService.getLast30DaysGames().results }
+                val last30DaysGames = last30DaysGamesDeferred.await()
+
+                val filteredGames = last30DaysGames.filter { game ->
+                    game.platforms?.all { platform ->
+                        platform.id in listOf(94, 145, 146, 176, 179, 199)
+                    } == true
+                }/*.filter { game ->
+                    try {
+                        val genreResponse = api.retrofitService.getGameGenres(game.guid)
+
+                        try {
+                            game.genres = genreResponse.results.genres
+                        } catch (_: Exception) {}
+
+                        game.genres?.none { genre -> genre.id in listOf(18, 41, 13) } == true
+                    } catch (e: Exception) {
+                        Log.e("GENRE FILTER ERROR", "Error filtering genres for game: ${game.name}, ${e.message}")
+                        false
+                    }
+                }.*/ .filter { game ->
+                    game.id != 72971 && game.id != 89957 && game.id != 89958 && game.id != 89814
+
+                }.filter { game ->
+                    game.image?.let { image ->
+                        !listOf(
+                            image.iconUrl,
+                            image.mediumUrl,
+                            image.screenUrl,
+                            image.screenLargeUrl,
+                            image.smallUrl,
+                            image.superUrl,
+                            image.thumbUrl,
+                            image.tinyUrl,
+                            image.originalUrl
+                        ).contains("https://www.giantbomb.com/a/uploads/square_avatar/11/110673/3026329-gb_default-16_9.jpg")
+                    } == true
+                }
+
+                _last30DaysGameResult.postValue(filteredGames)
+
+                for ((index, game) in filteredGames.withIndex()) {
+                    Log.d("LAST 30 DAYS GAME", "${index + 1}. ${game.name}")
+                }
+            } catch (e: Exception) {
+                Log.e(
+                    "LAST 30 DAYS GAME LOADING ERROR",
+                    "Error fetching game results: ${e.message}"
+                )
+            }
+        }
+    }
+
+
+
 
 
 
@@ -456,20 +426,36 @@ class Repository(private val api: GamesApi) {
     suspend fun getUpcomingGames() {
         coroutineScope {
             try {
-                val upcomingGamesDeferred = async { api.retrofitService.getUpcomingGames().results }
-                val upcomingGames = upcomingGamesDeferred.await()
+                var offset = 0
+                val allGames = mutableListOf<Game>()
 
-                val filteredGames = upcomingGames.filter { game ->
-                    game.platforms?.all { platform ->
-                        platform.id in listOf(94, 145, 146, 176, 179)
-                    } == true
+                while (allGames.size < 50) {
+                    val upcomingGamesDeferred = async { api.retrofitService.getUpcomingGames(offset = offset).results }
+                    val upcomingGames = upcomingGamesDeferred.await()
+
+                    val validGames = upcomingGames.filter { game ->
+                        game.platforms?.all { platform ->
+                            platform.id in listOf(94, 145, 146, 176, 179, 199)
+                        } == true
+                    }
+
+
+                    allGames.addAll(validGames)
+                    offset += 100
+
+                    if (upcomingGames.isEmpty()) {
+                        break
+                    }
+
+
                 }
-
-                _upcomingGameResult.postValue(filteredGames)
-
-                for ((index, game) in filteredGames.withIndex()) {
+                for ((index, game) in allGames.take(50).withIndex()) {
                     Log.d("UPCOMING GAME", "${index + 1}. ${game.name}")
                 }
+
+                _upcomingGameResult.postValue(allGames.take(50))
+
+
             } catch (e: Exception) {
                 Log.e("UPCOMING GAME LOADING ERROR", "Error fetching game results: ${e.message}")
             }
@@ -477,65 +463,43 @@ class Repository(private val api: GamesApi) {
     }
 
 
-    /*@RequiresApi(Build.VERSION_CODES.O)
-    suspend fun getUpcomingGames() {
-        coroutineScope {
-            try {
-                var offset = 0
-                val limit = 50
-                val filteredGames = mutableListOf<Game>()
-
-                while (filteredGames.size < 50) {
-                    val upcomingGamesDeferred = async {
-                        api.retrofitService.getUpcomingGames(offset = offset, limit = limit).results
-                    }
-                    val upcomingGames = upcomingGamesDeferred.await()
-
-                    val validGames = upcomingGames.filter { game ->
-                        game.platforms?.all { platform ->
-                            platform.id in listOf(94, 145, 146, 176, 179)
-                        } == true
-                    }
-
-                    filteredGames.addAll(validGames)
-                    offset += limit
-                }
-
-                _upcomingGameResult.postValue(filteredGames.take(50))
-
-                for ((index, game) in filteredGames.withIndex()) {
-                    Log.d("UPCOMING GAME", "${index + 1}. ${game.name}")
-                }
-            } catch (e: Exception) {
-                Log.e("UPCOMING GAME LOADING ERROR", "Error fetching game results: ${e.message}")
-            }
-        }
-    }*/
 
 
 
 
 
 
-    private val specMobileGames = "id:67843|83987|70216"
+
+
+    private val specMobileGames = "id:67843|83987|70216|72614|54166|52342|58046|89951"
+
+    /*filter = specMobileGames*/
 
 
 
     suspend fun getMobileGames() {
         coroutineScope {
             try {
-                val gamesFromApiDeferred = async { api.retrofitService.getMobileGames().results }
-                val specMobileGamesDeferred = async { api.retrofitService.getMobileGames(filter = specMobileGames).results }
 
-                val gamesFromApi = gamesFromApiDeferred.await()
-                val specMobileGames = specMobileGamesDeferred.await()
-                val allMobileGames = specMobileGames + gamesFromApi
+                val mobileGamesDeferred = async { api.retrofitService.getMobileGames(filter = specMobileGames).results }
 
-                _mobileGameResult.postValue(allMobileGames)
 
-                /*for ((index, game) in allMobileGames.withIndex()) {
-                    Log.d("MOBILE GAME", "${index + 1}. ${game.name}")
+                val mobileGames = mobileGamesDeferred.await()
+
+
+               /* val filteredGames = mobileGames.filter { game ->
+                    game.platforms?.all { platform ->
+                        platform.id in listOf(96, 123)
+                    } == true
                 }*/
+
+
+
+                _mobileGameResult.postValue(mobileGames)
+
+                for ((index, game) in mobileGames.withIndex()) {
+                    Log.d("MOBILE GAME", "${index + 1}. ${game.name}")
+                }
             } catch (e: Exception) {
                 Log.e("MOBILE GAME LOADING ERROR", "Error fetching game results: ${e.message}")
             }
@@ -561,7 +525,103 @@ class Repository(private val api: GamesApi) {
 
 
 
+/*fun calculateAverageScore(reviews: List<UserReview>): Double {
+       val totalScore = reviews.fold(0) { sum, review -> sum + (review.score ?: 0) }
+       return totalScore.toDouble() / reviews.size
+   }*/
 
+
+
+/*@SuppressLint("SuspiciousIndentation")
+    suspend fun getBestGames() {
+        coroutineScope {
+            var retryCount = 0
+            val maxRetries = 3
+
+            while (retryCount < maxRetries) {
+                try {
+                    val bestGamesDeferred = async { api.retrofitService.getBestGames(filter = favGames).results }
+
+                    val bestGames = bestGamesDeferred.await()
+
+
+                    for ((index, game) in bestGames.withIndex()) {
+                        Log.d("BEST GAME", "${index + 1}. ${game.name}")
+                    }
+
+                 val gamesWithScore = bestGames.map { game ->
+                        async {
+                            val reviews = getUserReviews(game.guid)
+                            game.averageUserScore = calculateAverageScore(reviews)
+                            return@async game
+                        }
+
+                    }.awaitAll()
+
+                    _gameResult.postValue(gamesWithScore)
+                    break
+
+                } catch (e: HttpException) {
+                    if (e.code() == 420 || e.code() == 502) {
+                        retryCount++
+                        delay((retryCount * 1000).toLong())
+                    } else {
+                        Log.e("BEST GAME LOADING ERROR", "Error fetching game results: ${e.message}")
+                        break
+                    }
+                } catch (e: SocketTimeoutException) {
+                    retryCount++
+                    Log.e("NETWORK TIMEOUT ERROR", "Network Timeout, retrying... ${e.message}")
+                    delay(3000)
+
+                } catch (e: Exception) {
+                    Log.e("BEST GAME LOADING ERROR", "Error fetching game results: ${e.message}")
+                    break
+                }
+            }
+        }
+    }*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*    @RequiresApi(Build.VERSION_CODES.O)
+    suspend fun getUpcomingGames() {
+        coroutineScope {
+            try {
+                val upcomingGamesDeferred = async { api.retrofitService.getUpcomingGames().results }
+                val upcomingGames = upcomingGamesDeferred.await()
+
+                val filteredGames = upcomingGames.filter { game ->
+                    game.platforms?.all { platform ->
+                        platform.id in listOf(94, 145, 146, 176, 179)
+                    } == true
+                }
+
+                _upcomingGameResult.postValue(filteredGames)
+
+                for ((index, game) in filteredGames.withIndex()) {
+                    Log.d("UPCOMING GAME", "${index + 1}. ${game.name}")
+                }
+            } catch (e: Exception) {
+                Log.e("UPCOMING GAME LOADING ERROR", "Error fetching game results: ${e.message}")
+            }
+        }
+    }*/
 
 
 /*suspend fun loadGenresForGame(game: Game): Game {

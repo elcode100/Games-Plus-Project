@@ -361,7 +361,7 @@
                 android:id="@+id/tv_detail_guid"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="test guid"
+                android:text=""
                 android:layout_gravity="center"
                 android:textStyle="bold"
                 android:visibility="visible"
@@ -493,23 +493,24 @@
 
             <TextView
                 android:id="@+id/tv_game_title"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
-                app:maxWidth="300dp"
-                app:layout_constraintWidth_max="300dp"
-                android:maxLines="2"
-                android:paddingEnd="4dp"
+                android:layout_marginEnd="72dp"
                 android:ellipsize="end"
                 android:gravity="start"
+                android:maxLines="2"
                 android:singleLine="false"
                 android:text="Atomic Heart"
                 android:textColor="@color/black"
                 android:textSize="18sp"
                 android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/card_x" />
+                app:layout_constraintTop_toBottomOf="@id/card_x"
+                app:layout_constraintWidth_max="300dp"
+                app:maxWidth="300dp" />
 
 
 
@@ -616,7 +617,7 @@
                 android:textColor="@color/ios_grey"
                 android:textSize="14sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+                app:layout_constraintTop_toBottomOf="@+id/btn_screenshots" />
 
 
 
@@ -670,7 +671,7 @@
                 android:textSize="14sp"
                 app:layout_constraintBottom_toBottomOf="@+id/tv_screenshots"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+                app:layout_constraintTop_toBottomOf="@+id/btn_videos" />
 
 
             <TextView
@@ -843,7 +844,7 @@
                 app:layout_constraintTop_toTopOf="@+id/tv_score" />
 
             <ImageView
-                android:id="@+id/imageView2"
+                android:id="@+id/btn_screenshots"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
@@ -853,7 +854,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/view_1" />
 
             <ImageView
-                android:id="@+id/imageView3"
+                android:id="@+id/btn_videos"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"

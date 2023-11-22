@@ -15,12 +15,12 @@ import com.example.games_plus.databinding.GameTitlesItemBinding
 import com.example.games_plus.ui.HomeFragmentDirections
 
 
-class HomeAdapter(var dataset: List<Game>, private val viewModel: MainViewModel) : RecyclerView.Adapter<HomeAdapter.GameTitlesViewHolder>() {
+class BestGamesAdapter(var dataset: List<Game>, private val viewModel: MainViewModel) : RecyclerView.Adapter<BestGamesAdapter.GameTitlesViewHolder>() {
 
     inner class GameTitlesViewHolder(val binding: GameTitlesItemBinding) : RecyclerView.ViewHolder(binding.root)
 
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeAdapter.GameTitlesViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BestGamesAdapter.GameTitlesViewHolder {
         val binding = GameTitlesItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return GameTitlesViewHolder(binding)
     }
@@ -78,9 +78,6 @@ class HomeAdapter(var dataset: List<Game>, private val viewModel: MainViewModel)
                 Log.e("ERROR HOME ADAPTER", "Error on clicking: ${e.message}")
             }
         }
-
-
-
 
 
 

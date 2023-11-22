@@ -10,13 +10,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
 import androidx.annotation.RequiresApi
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.games_plus.R
-import com.example.games_plus.adapter.HomeAdapter
-import com.example.games_plus.adapter.HomeAdapter2
+import com.example.games_plus.adapter.BestGamesAdapter
+import com.example.games_plus.adapter.Last30DaysGamesAdapter
+import com.example.games_plus.adapter.UpcomingGamesAdapter
 import com.example.games_plus.adapter.MobileGamesAdapter
 import com.example.games_plus.adapter.NewsAdapter
 import com.example.games_plus.databinding.FragmentHomeBinding
@@ -61,12 +61,14 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
 
-        /*val window = activity?.window
-        window?.statusBarColor = ContextCompat.getColor(requireContext(), R.color.black)*/
 
-        binding.recGames.setHasFixedSize(true)
+        binding.recGamesBest.setHasFixedSize(true)
+        binding.recGamesLast30Days.setHasFixedSize(true)
+        binding.recGamesUpcoming.setHasFixedSize(true)
+        binding.recGamesMobile.setHasFixedSize(true)
 
-        viewModel.loadAllGames()
+        viewModel.loadBestGames()
+        viewModel.loadLast30DaysGames()
         viewModel.loadUpcomingGames()
         viewModel.loadMobileGames()
         viewModel.loadFavoriteGames()
@@ -80,8 +82,7 @@ class HomeFragment : Fragment() {
 
 
 
-        val recyclerView = (binding.viewPager.getChildAt(0) as RecyclerView)
-        OverScrollDecoratorHelper.setUpOverScroll(recyclerView, OverScrollDecoratorHelper.ORIENTATION_HORIZONTAL)
+
 
 
 
@@ -110,10 +111,9 @@ class HomeFragment : Fragment() {
 
 
 
-              /*  binding.btnLogout.setOnClickListener {
+                /*binding.btnLogout.setOnClickListener {
                     authViewModel.logout()
-                }
-*/
+                }*/
 
 
 
@@ -144,28 +144,45 @@ class HomeFragment : Fragment() {
     fun addObservers() {
 
 
-        OverScrollDecoratorHelper.setUpOverScroll(binding.recGames, OverScrollDecoratorHelper.ORIENTATION_HORIZONTAL)
-        OverScrollDecoratorHelper.setUpOverScroll(binding.recGames2, OverScrollDecoratorHelper.ORIENTATION_HORIZONTAL)
-        OverScrollDecoratorHelper.setUpOverScroll(binding.recGames3, OverScrollDecoratorHelper.ORIENTATION_HORIZONTAL)
-        /*OverScrollDecoratorHelper.setUpOverScroll(binding.scrollViewHome)*/
+        authViewModel.currentUser.observe(viewLifecycleOwner) {
+            if (it == null) {
+                findNavController().navigate(R.id.loginFragment)
+            }
+        }
+
+
+        OverScrollDecoratorHelper.setUpOverScroll(binding.recGamesBest, OverScrollDecoratorHelper.ORIENTATION_HORIZONTAL)
+        OverScrollDecoratorHelper.setUpOverScroll(binding.recGamesLast30Days, OverScrollDecoratorHelper.ORIENTATION_HORIZONTAL)
+        OverScrollDecoratorHelper.setUpOverScroll(binding.recGamesUpcoming, OverScrollDecoratorHelper.ORIENTATION_HORIZONTAL)
+        OverScrollDecoratorHelper.setUpOverScroll(binding.recGamesMobile, OverScrollDecoratorHelper.ORIENTATION_HORIZONTAL)
+
+        val recyclerView = (binding.viewPager.getChildAt(0) as RecyclerView)
+        OverScrollDecoratorHelper.setUpOverScroll(recyclerView, OverScrollDecoratorHelper.ORIENTATION_HORIZONTAL)
+        OverScrollDecoratorHelper.setUpOverScroll(binding.scrollViewHome)
 
 
         val itemRecView1 = HorizontalItemDecoration(10.dpToPx())
-        binding.recGames.addItemDecoration(itemRecView1)
+        binding.recGamesBest.addItemDecoration(itemRecView1)
 
         val itemRecView2 = HorizontalItemDecoration(10.dpToPx())
-        binding.recGames2.addItemDecoration(itemRecView2)
+        binding.recGamesLast30Days.addItemDecoration(itemRecView2)
+
 
         val itemRecView3 = HorizontalItemDecoration(10.dpToPx())
-        binding.recGames3.addItemDecoration(itemRecView3)
+        binding.recGamesUpcoming.addItemDecoration(itemRecView3)
+
+        val itemRecView4 = HorizontalItemDecoration(10.dpToPx())
+        binding.recGamesMobile.addItemDecoration(itemRecView4)
 
 
 
         binding.progressBar.visibility = View.VISIBLE
-        binding.recGames.visibility = View.INVISIBLE
-        binding.recGames2.visibility = View.INVISIBLE
-        binding.recGames3.visibility = View.INVISIBLE
+        binding.recGamesBest.visibility = View.INVISIBLE
+        binding.recGamesLast30Days.visibility = View.INVISIBLE
+        binding.recGamesUpcoming.visibility = View.INVISIBLE
+        binding.recGamesMobile.visibility = View.INVISIBLE
         binding.tvBestGames.visibility = View.INVISIBLE
+        binding.tvLast30Days.visibility = View.INVISIBLE
         binding.tvUpcomingGames.visibility = View.INVISIBLE
         binding.tvMobileGames.visibility = View.INVISIBLE
         binding.customTitle.visibility = View.INVISIBLE
@@ -176,23 +193,21 @@ class HomeFragment : Fragment() {
 
 
 
-        val adapter = HomeAdapter(emptyList(), viewModel)
-        binding.recGames.adapter = adapter
-
-
-
-
+        val adapterBestGames = BestGamesAdapter(emptyList(), viewModel)
+        binding.recGamesBest.adapter = adapterBestGames
 
         viewModel.dataList.observe(viewLifecycleOwner) { games ->
-            adapter.dataset = games
-            adapter.notifyDataSetChanged()
+            adapterBestGames.dataset = games
+            adapterBestGames.notifyDataSetChanged()
 
             if (areAllDataListsLoaded()) {
                 binding.progressBar.visibility = View.GONE
-                binding.recGames.visibility = View.VISIBLE
-                binding.recGames2.visibility = View.VISIBLE
-                binding.recGames3.visibility = View.VISIBLE
+                binding.recGamesBest.visibility = View.VISIBLE
+                binding.recGamesLast30Days.visibility = View.VISIBLE
+                binding.recGamesUpcoming.visibility = View.VISIBLE
+                binding.recGamesMobile.visibility = View.VISIBLE
                 binding.tvBestGames.visibility = View.VISIBLE
+                binding.tvLast30Days.visibility = View.VISIBLE
                 binding.tvUpcomingGames.visibility = View.VISIBLE
                 binding.tvMobileGames.visibility = View.VISIBLE
                 binding.customTitle.visibility = View.VISIBLE
@@ -205,10 +220,29 @@ class HomeFragment : Fragment() {
 
 
 
-        authViewModel.currentUser.observe(viewLifecycleOwner) {
-            if (it == null) {
-                findNavController().navigate(R.id.loginFragment)
+
+        val adapterLast30DaysGames = Last30DaysGamesAdapter(emptyList(), viewModel)
+        binding.recGamesLast30Days.adapter = adapterLast30DaysGames
+
+        viewModel.dataListLast30DaysGames.observe(viewLifecycleOwner) { games ->
+            adapterLast30DaysGames.dataset = games
+            adapterLast30DaysGames.notifyDataSetChanged()
+
+            if (areAllDataListsLoaded()) {
+                binding.progressBar.visibility = View.GONE
+                binding.recGamesBest.visibility = View.VISIBLE
+                binding.recGamesLast30Days.visibility = View.VISIBLE
+                binding.recGamesUpcoming.visibility = View.VISIBLE
+                binding.recGamesMobile.visibility = View.VISIBLE
+                binding.tvBestGames.visibility = View.VISIBLE
+                binding.tvLast30Days.visibility = View.VISIBLE
+                binding.tvUpcomingGames.visibility = View.VISIBLE
+                binding.tvMobileGames.visibility = View.VISIBLE
+                binding.customTitle.visibility = View.VISIBLE
+                binding.viewPager.visibility = View.VISIBLE
+                binding.indicator.visibility = View.VISIBLE
             }
+
         }
 
 
@@ -216,20 +250,23 @@ class HomeFragment : Fragment() {
 
 
 
-        val adapter2 = HomeAdapter2(emptyList(), viewModel)
-        binding.recGames2.adapter = adapter2
 
+
+        val adapterUpcomingGames = UpcomingGamesAdapter(emptyList(), viewModel)
+        binding.recGamesUpcoming.adapter = adapterUpcomingGames
 
         viewModel.dataListUpcomingGames.observe(viewLifecycleOwner) { games ->
-            adapter2.dataset2 = games
-            adapter2.notifyDataSetChanged()
+            adapterUpcomingGames.dataset = games
+            adapterUpcomingGames.notifyDataSetChanged()
 
             if (areAllDataListsLoaded()) {
                 binding.progressBar.visibility = View.GONE
-                binding.recGames.visibility = View.VISIBLE
-                binding.recGames2.visibility = View.VISIBLE
-                binding.recGames3.visibility = View.VISIBLE
+                binding.recGamesBest.visibility = View.VISIBLE
+                binding.recGamesLast30Days.visibility = View.VISIBLE
+                binding.recGamesUpcoming.visibility = View.VISIBLE
+                binding.recGamesMobile.visibility = View.VISIBLE
                 binding.tvBestGames.visibility = View.VISIBLE
+                binding.tvLast30Days.visibility = View.VISIBLE
                 binding.tvUpcomingGames.visibility = View.VISIBLE
                 binding.tvMobileGames.visibility = View.VISIBLE
                 binding.customTitle.visibility = View.VISIBLE
@@ -242,20 +279,21 @@ class HomeFragment : Fragment() {
 
 
 
-        val adapter3 = MobileGamesAdapter(emptyList(), viewModel)
-        binding.recGames3.adapter = adapter3
-
+        val adapterMobileGames = MobileGamesAdapter(emptyList(), viewModel)
+        binding.recGamesMobile.adapter = adapterMobileGames
 
         viewModel.dataListMobileGames.observe(viewLifecycleOwner) { games ->
-            adapter3.dataset3 = games
-            adapter3.notifyDataSetChanged()
+            adapterMobileGames.dataset = games
+            adapterMobileGames.notifyDataSetChanged()
 
             if (areAllDataListsLoaded()) {
                 binding.progressBar.visibility = View.GONE
-                binding.recGames.visibility = View.VISIBLE
-                binding.recGames2.visibility = View.VISIBLE
-                binding.recGames3.visibility = View.VISIBLE
+                binding.recGamesBest.visibility = View.VISIBLE
+                binding.recGamesLast30Days.visibility = View.VISIBLE
+                binding.recGamesUpcoming.visibility = View.VISIBLE
+                binding.recGamesMobile.visibility = View.VISIBLE
                 binding.tvBestGames.visibility = View.VISIBLE
+                binding.tvLast30Days.visibility = View.VISIBLE
                 binding.tvUpcomingGames.visibility = View.VISIBLE
                 binding.tvMobileGames.visibility = View.VISIBLE
                 binding.customTitle.visibility = View.VISIBLE
@@ -266,14 +304,14 @@ class HomeFragment : Fragment() {
         }
 
 
-        val adapter4 = NewsAdapter(emptyList(), viewModel)
-        binding.viewPager.adapter = adapter4
+        val adapterViewPager = NewsAdapter(emptyList(), viewModel)
+        binding.viewPager.adapter = adapterViewPager
 
 
         viewModel.dataListLatestNews.observe(viewLifecycleOwner) {
 
-            adapter4.dataset = it
-            adapter4.notifyDataSetChanged()
+            adapterViewPager.dataset = it
+            adapterViewPager.notifyDataSetChanged()
 
 
             val viewPager = binding.viewPager

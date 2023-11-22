@@ -28,6 +28,7 @@ class MainViewModel: ViewModel() {
 
     private val repository = Repository(GamesApi)
     val dataList = repository.gameResult
+    val dataListLast30DaysGames = repository.last30DaysGameResult
     val dataListUpcomingGames = repository.upcomingGameResult
     val dataListMobileGames = repository.mobileGameResult
     val searchList = repository.searchResult
@@ -76,6 +77,23 @@ class MainViewModel: ViewModel() {
 
     fun updateVideoData(video: VideoDetail) {
         _currentVideo.value = video
+    }
+
+
+    fun loadVideos() {
+
+        viewModelScope.launch {
+
+            try {
+                _currentGame.value?.guid?.let { repository.getVideoDetails(it) }
+            } catch (e: Exception) {
+
+                Log.e(TAG, "ERROR LOADING VIDEOS FOR GAME")
+
+            }
+
+        }
+
     }
 
 
@@ -135,26 +153,14 @@ class MainViewModel: ViewModel() {
 
 
 
-    fun loadNewsImages() : List<News> {
-
-        return listOf(
-            News(R.drawable.cyberpunk_2077_phantom_liberty_placeholder),
-            News(R.drawable.atomic_heart_dlc_placeholder),
-            News(R.drawable.placeholder_starfield)
 
 
 
-        )
-
-
-    }
-
-
-    fun loadAllGames() {
+    fun loadBestGames() {
         viewModelScope.launch {
 
             try {
-                repository.getAllGames()
+                repository.getBestGames()
 
             } catch (e: Exception) {
                 Log.e(TAG, "Error loading all games data: $e")
@@ -163,20 +169,20 @@ class MainViewModel: ViewModel() {
     }
 
 
-    fun loadVideos() {
 
+
+
+    @RequiresApi(Build.VERSION_CODES.O)
+    fun loadLast30DaysGames() {
         viewModelScope.launch {
 
             try {
-                _currentGame.value?.guid?.let { repository.getVideoDetails(it) }
+                repository.getLast30DaysGames()
+
             } catch (e: Exception) {
-
-                Log.e(TAG, "ERROR LOADING VIDEOS FOR GAME")
-
+                Log.e(TAG, "Error loading upcoming games data: $e")
             }
-
         }
-
     }
 
 
@@ -279,7 +285,19 @@ class MainViewModel: ViewModel() {
 
 
 
+    fun loadNewsImages() : List<News> {
 
+        return listOf(
+            News(R.drawable.cyberpunk_2077_phantom_liberty_placeholder),
+            News(R.drawable.atomic_heart_dlc_placeholder),
+            News(R.drawable.placeholder_starfield)
+
+
+
+        )
+
+
+    }
 
 
 
